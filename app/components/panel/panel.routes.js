@@ -45,10 +45,10 @@ function panelRouting($urlRouterProvider, $stateProvider) {
 				]
 			}
 		})
-		.state("panel.dashboard", {
-			url: "/dashboard",
+		.state("panel.main", {
+			url: "/main",
 
-			controller: "panel.dashboardController",
+			controller: "panel.mainController",
 
 			controllerAs: "self",
 
@@ -57,7 +57,7 @@ function panelRouting($urlRouterProvider, $stateProvider) {
 				$q => {
 					return $q(resolve => {
 						require.ensure([], () => {
-							let template = require("./dashboard/views/index.html");
+							let template = require("./main/views/index.html");
 
 							resolve(template);
 						});
@@ -73,10 +73,10 @@ function panelRouting($urlRouterProvider, $stateProvider) {
 						let deferred = $q.defer();
 
 						require.ensure([], function () {
-							let module = require("./dashboard/dashboard.module");
+							let module = require("./main/main.module");
 
 							$ocLazyLoad.load({
-								name: "dashboardModule"
+								name: "mainModule"
 							});
 
 							deferred.resolve(module);

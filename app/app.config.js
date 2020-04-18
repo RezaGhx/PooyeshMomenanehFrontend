@@ -37,7 +37,7 @@ function AppConfig(
 
   // locationProvider.html5Mode(true);
 
-  urlRouterProvider.otherwise("/dashboard");
+  urlRouterProvider.otherwise("/main");
 
   authProvider.configure({
     withPermission: true,

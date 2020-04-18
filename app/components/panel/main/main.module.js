@@ -1,11 +1,11 @@
-const dashboardModule = angular.module("dashboardModule", []);
+const mainModule = angular.module("mainModule", []);
 
 // Controllers
 
 var controllers = require.context("./controllers", true, /.js$/);
 
 controllers.keys().map(function(value) {
-  require(`./controllers/${value.slice(2)}`)(dashboardModule);
+  require(`./controllers/${value.slice(2)}`)(mainModule);
 });
 
 // Factories
@@ -14,7 +14,7 @@ try {
 
   factories.keys().map(function(value) {
     try {
-      require(`./factories/${value.slice(2)}`)(dashboardModule);
+      require(`./factories/${value.slice(2)}`)(mainModule);
     } catch (error) {}
   });
 } catch (error) {}
@@ -25,7 +25,7 @@ try {
 
   filters.keys().map(function(value) {
     try {
-      require(`./filters/${value.slice(2)}`)(dashboardModule);
+      require(`./filters/${value.slice(2)}`)(mainModule);
     } catch (error) {}
   });
 } catch (error) {}
@@ -35,7 +35,7 @@ try {
 var services = require.context("./services", true, /.js$/);
 
 services.keys().map(function(value) {
-  require(`./services/${value.slice(2)}`)(dashboardModule);
+  require(`./services/${value.slice(2)}`)(mainModule);
 });
 
-export default dashboardModule;
+export default mainModule;

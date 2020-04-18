@@ -1,6 +1,6 @@
-dashboardServices.$inject = ["$resource"];
+mainServices.$inject = ["$resource"];
 
-function dashboardServices($resource) {
+function mainServices($resource) {
   return $resource(
     `${apiReportCenterRefactor}/:type/:id/:routeParams`,
     { id: "@id", type: "@type", routeParams: "@routeParams" },
@@ -19,5 +19,5 @@ function dashboardServices($resource) {
 }
 
 module.exports = ngModule => {
-  ngModule.factory("panel.dashboardServices", dashboardServices);
+  ngModule.factory("panel.mainServices", mainServices);
 };

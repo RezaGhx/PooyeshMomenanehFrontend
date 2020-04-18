@@ -2,7 +2,7 @@ IndexServices.$inject = ["$resource"];
 
 function IndexServices($resource) {
 
-    return $resource(`${apiGetWay}reportCenter/dashboard/:type/:id/:routePart`, { id: '@id', type: '@type', routePart: '@routePart' }, {
+    return $resource(`${apiGetWay}reportCenter/main/:type/:id/:routePart`, { id: '@id', type: '@type', routePart: '@routePart' }, {
 
         query: { ignoreLoadingBar: true, method: "GET", isArray: true },
 

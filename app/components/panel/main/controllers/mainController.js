@@ -1,6 +1,6 @@
-dashboardController.$inject = ["panel.dashboardServices", "$state"];
+mainController.$inject = ["panel.mainServices", "$state"];
 
-function dashboardController(dashboardServices, state) {
+function mainController(mainServices, state) {
   var self = this;
 
   const getRequestList = function() {
@@ -10,7 +10,7 @@ function dashboardController(dashboardServices, state) {
       routeParams: "customer-services-report"
       // routeParams: "inprogress-services"
     };
-    self.promiseLoading = dashboardServices.get(query).$promise.then(
+    self.promiseLoading = mainServices.get(query).$promise.then(
       response => {
         self.request = response.content;
       },
@@ -31,5 +31,5 @@ function dashboardController(dashboardServices, state) {
 }
 
 module.exports = ngModule => {
-  ngModule.controller("panel.dashboardController", dashboardController);
+  ngModule.controller("panel.mainController", mainController);
 };
