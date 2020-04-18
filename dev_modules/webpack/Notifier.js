@@ -10,7 +10,7 @@ class Notifier {
 
         const time = ((stats.endTime - stats.startTime) / 1000).toFixed(2)
         notifier.notify({
-            title : 'Souran FrontEnd Project!',
+            title : 'Pooyesh Momenaneh FrontEnd Modified!',
             //appID: 'Test',
             message: `Build Project Is Done!\n${stats.compilation.errors.length} Errors In ${time}s`,
             icon: path.join(__dirname, 'icon.png'),

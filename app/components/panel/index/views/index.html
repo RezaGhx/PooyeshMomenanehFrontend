@@ -1,5 +1,5 @@
 <section id="panel" class="d-flex">
-	<aside class="sidebar">
+	<!-- <aside class="sidebar">
 		<a class="logo" href="#">
 			<img src="../../images/logo.png" alt="صندوق توسعه فناوری های نوین">
 		</a>
@@ -25,11 +25,11 @@
 					<a ui-sref="panel.loan.gettingStart"
 						ng-class="{'active': self.state.includes('panel.loan.*') || self.state.includes('panel.loan.*.*')}"
 						class="link">درخواست تسهیلات / لیزینگ</a>
-					<!-- <a href="#menu1sub3" class="link">لیزینگ
-						محصولات</a> -->
-					<!-- <a ui-sref="panel.basicAssessment.request" ui-sref-active="active" class="link">ارزیابی
+					<a href="#menu1sub3" class="link">لیزینگ
+						محصولات</a>
+					<a ui-sref="panel.basicAssessment.request" ui-sref-active="active" class="link">ارزیابی
 						و
-						اعتبارسنجی</a> -->
+						اعتبارسنجی</a>
 				</div>
 			</li>
 			<li class="item">
@@ -39,30 +39,30 @@
 					پشتیبانی
 				</a>
 			</li>
-			<!-- <li class="item">
+			<li class="item">
 				<a class="link" data-toggle="collapse">
 					<i class="fas s-user-alt-1 ml-2"></i>
 					پروفایل من
 				</a>
-			</li> -->
-			<!-- <li class="item">
+			</li>
+			<li class="item">
 				<a class="link" data-toggle="collapse" ui-sref="panel.archive.list"
 					ng-class="{'active': self.state.includes('panel.archive.*')}">
 					<i class="far s-history ml-2"></i>
 					سوابق خدمت</a>
-			</li> -->
-			<!-- <li class="item">
+			</li>
+			<li class="item">
 				<a class="link" data-toggle="collapse">
 					<i class="fas s-coins ml-2"></i>
 					امور مالی و پرداخت</a>
-			</li> -->
+			</li>
 			<li class="item">
 				<a class="link" ui-sref="panel.profile.changePassword">
 					<i class="fas s-setting ml-2"></i>
 					تنظیمات</a>
 			</li>
 		</ul>
-	</aside>
+	</aside> -->
 	<div class="main-border-top">
 		<header class="container-fluid top-header">
 			<div class="company">
@@ -72,10 +72,10 @@
 				<span class="company-name" ng-bind="self.user.name"></span>
 			</div>
 			<div class="notifications">
-				<!-- <button class="box btn btn-l-purple">
+				<button class="box btn btn-l-purple">
 					<i class="fas s-bell text-white s-lg"></i>
 					<span class="badge">۲</span>
-				</button> -->
+				</button>
 				<button class="box btn btn-l-purple" ui-sref="general.completeInformation.logoUpload">
 					<i class="fas s-user text-white s-lg"></i>
 				</button>

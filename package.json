@@ -1,7 +1,7 @@
 {
-  "name": "souran_frontend",
+  "name": "sooran_frontend",
   "version": "1.0.0",
-  "description": "An Infrastructure for Developing Front Page in Souran",
+  "description": "An Infrastructure for Developing Front Page by Sooran",
   "main": "index.js",
   "dependencies": {
     "@uirouter/angularjs": "^1.0.20",
@@ -109,7 +109,7 @@
     "doc": "apidoc -i app/ -o apidoc/ "
   },
   "keywords": [
-    "Souran",
+    "Sooran",
     "Frontend"
   ],
   "author": "AmirHossein Abdollahzadeh",
