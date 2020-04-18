@@ -1,0 +1,310 @@
+@import "./variables";
+
+@mixin scrollbar-style() {
+  ::-webkit-scrollbar {
+    width: $scrollbar-width;
+
+    &-track {
+      background: $scrollbar-track-background-color;
+    }
+
+    &-thumb {
+      background: $scrollbar-thumb-background-color;
+
+      &:hover {
+        background: $scrollbar-thumb-hover-background-color;
+      }
+    }
+  }
+}
+
+@mixin selection-style() {
+  ::selection {
+    background-color: $scroll-selection-background-color;
+    color: $scroll-selection-color;
+  }
+}
+
+@mixin btn-style() {
+  .btn {
+    max-width: 100%;
+    height: $btn-height;
+    padding: $btn-padding;
+    border-width: $btn-border-width;
+    border-style: $btn-border-style;
+    margin: $btn-container-margin;
+    @include set-font-styles($config, button);
+    @include btn-size();
+  }
+}
+
+$btn-size: (
+  "xs": $btn-xs-size,
+  "sm": $btn-sm-size,
+  "md": $btn-md-size,
+  "lg": $btn-lg-size,
+  "xl": $btn-xl-size
+);
+
+//generate button display for different screen size
+@mixin btn-size() {
+  @each $size, $width in $btn-size {
+    &.so-btn-#{$size} {
+      width: $width;
+    }
+  }
+}
+
+@mixin input-control() {
+  sd-input-container {
+    margin: $input-container-margin;
+    max-width: 100%;
+    display: block;
+    position: relative;
+    color: get-color("silver");
+
+    &.material {
+      label:not(.sd-container-ignore) {
+        position: absolute;
+        bottom: 100%;
+        right: 0;
+        left: auto;
+      }
+
+      &.sd-input-has-value label {
+        -webkit-transition: none;
+        transition: none;
+      }
+
+      &.sd-icon-float > label {
+        pointer-events: none;
+        position: absolute;
+      }
+
+      &.sd-icon-left > label {
+        left: 25px;
+        right: auto;
+      }
+
+      &.sd-icon-right > label {
+        right: 25px;
+        left: auto;
+      }
+      .sd-placeholder,
+      label:not(.sd-no-float):not(.sd-container-ignore) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 100%;
+        -webkit-box-ordinal-group: 2;
+        -webkit-order: 1;
+        order: 1;
+        pointer-events: none;
+        -webkit-font-smoothing: antialiased;
+        padding: 0 0.8125rem;
+        z-index: 1;
+        transform: translate3d(0, 37px, 0) scale(1);
+        transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        max-width: 100%;
+        transform-origin: right top;
+      }
+
+      &.sd-rtl.sd-placeholder,
+      label:not(.sd-no-float):not(.sd-container-ignore) {
+        transform-origin: right top;
+      }
+
+      &.sd-ltr.sd-placeholder,
+      label:not(.sd-no-float):not(.sd-container-ignore) {
+        transform-origin: right top;
+      }
+
+      &.sd-input-focused label:not(.sd-no-float),
+      &.sd-input-has-placeholder label:not(.sd-no-float),
+      &.sd-input-has-value label:not(.sd-no-float) {
+        transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+          width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        background: get-color("white");
+        margin-bottom: 0;
+      }
+
+      &.sd-icon-right.sd-input-focused label:not(.sd-no-float),
+      &.sd-icon-right.sd-input-has-placeholder label:not(.sd-no-float),
+      &.sd-icon-right.sd-input-has-value label:not(.sd-no-float) {
+        transform: translate3d(13px, 14px, 0) scale(0.75);
+      }
+
+      &.sd-rtl.sd-input-focused label:not(.sd-no-float),
+      &.sd-rtl.sd-input-has-placeholder label:not(.sd-no-float),
+      &.sd-rtl.sd-input-has-value label:not(.sd-no-float) {
+        transform: translate3d(-5px, 14px, 0) scale(0.75);
+      }
+
+      &.sd-icon-left.sd-input-focused label:not(.sd-no-float),
+      &.sd-icon-left.sd-input-has-placeholder label:not(.sd-no-float),
+      &.sd-icon-left.sd-input-has-value label:not(.sd-no-float) {
+        transform: translate3d(-33px, 14px, 0) scale(0.75);
+      }
+
+      &.sd-ltr.sd-input-focused label:not(.sd-no-float),
+      &.sd-ltr.sd-input-has-placeholder label:not(.sd-no-float),
+      &.sd-ltr.sd-input-has-value label:not(.sd-no-float) {
+        transform: translate3d(-15px, 14px, 0) scale(0.75);
+      }
+
+      &.sd-icon-left > label .sd-placeholder,
+      &.sd-icon-left > label:not(.sd-no-float):not(.sd-container-ignore),
+      &.sd-icon-right > label .sd-placeholder,
+      &.sd-icon-right > label:not(.sd-no-float):not(.sd-container-ignore) {
+        // width: calc(100% - 36px - 18px);
+        width: auto;
+      }
+
+      label {
+        color: inherit;
+        width: auto;
+      }
+    }
+
+    &.inline {
+      display: flex;
+    }
+
+    .input-group {
+      flex-direction: column;
+      // if remove bootstrap 4 un commented
+      // position: relative;
+      // width: 100%;
+    }
+
+    &.sd-input-valid {
+      color: get-color($input-valid-border-color);
+    }
+
+    &.sd-input-invalid {
+      color: get-color($input-invalid-border-color);
+      .custom-control-label {
+        &::before {
+          border-color: get-color("red");
+        }
+      }
+    }
+
+    &.sd-input-focused {
+      color: get-color($input-focus-border-color);
+    }
+
+    sd-icon {
+      position: absolute;
+      top: $input-icon-top;
+    }
+    &.sd-icon-left {
+      .sd-input {
+        padding-left: $input-padding-right-icon;
+      }
+      sd-icon {
+        left: $input-icon-right;
+      }
+    }
+    &.sd-icon-right {
+      .sd-input {
+        padding-right: $input-padding-right-icon;
+      }
+      sd-icon {
+        right: $input-icon-right;
+      }
+    }
+    .sd-input {
+      padding: $input-padding;
+      height: $input-height;
+      border-width: $input-border-width;
+      border-style: $input-border-style;
+      border-color: inherit;
+      @include set-font-styles($config, input);
+      color: inherit;
+
+      &::placeholder {
+        color: get-color($input-placeholder-color);
+      }
+    }
+
+    label {
+      margin: 0;
+      color: get-color("black");
+      @include set-font-styles($config, body-2);
+
+      // @extend .#{$input-container-label-font};
+
+      &:not(.sd-container-ignore).sd-required:after {
+        content: " *";
+        font-size: 13px;
+        vertical-align: top;
+        color: get-color("red");
+      }
+    }
+
+    @include input-size();
+
+    .sd-input-messages-animation {
+      position: relative;
+      order: 4;
+      overflow: hidden;
+      color: get-color("red");
+      @extend .#{$font-ng-messages};
+
+      .sd-input-message-animation {
+        overflow: hidden;
+        transition: $transition-ng-messages;
+
+        // Default state for messages is to be visible
+        opacity: 1;
+        margin-top: 0;
+
+        // Enter animation
+        // Pre-animation state is transparent and off target
+        &.ng-enter-prepare {
+          opacity: 0;
+          margin-top: -100px;
+        }
+
+        // First keyframe of entry animation
+        &.ng-enter:not(.ng-enter-active) {
+          opacity: 0;
+          margin-top: -100px;
+        }
+      }
+    }
+
+    &:not(.sd-input-invalid) {
+      .sd-auto-hide {
+        .sd-input-message-animation {
+          opacity: 0;
+          margin-top: -100px;
+        }
+      }
+    }
+  }
+}
+
+$input-size: (
+  "xs": $input-xs-size,
+  "sm": $input-sm-size,
+  "md": $input-md-size,
+  "lg": $input-lg-size,
+  "xl": $input-xl-size
+);
+
+//generate button display for different screen size
+@mixin input-size() {
+  @each $size, $width in $input-size {
+    .so-input-#{$size} {
+      width: $width;
+      max-width: 100%;
+    }
+
+    &.so-input-#{$size} {
+      width: $width;
+      max-width: 100%;
+    }
+  }
+}

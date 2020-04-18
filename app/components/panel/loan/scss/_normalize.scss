@@ -1,0 +1,8 @@
+@media #{$bp-mobile}{
+    .overflow-scroll {
+        overflow: scroll;
+      }
+      .upload-document-loan {
+        flex: 0 0 calc(100% / 1 - 15px);
+      }
+}

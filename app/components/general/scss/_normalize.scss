@@ -1,0 +1,10 @@
+@media #{$bp-mobile}{
+    .header {
+        flex-direction: column;
+    align-items: center;
+
+    .image {
+        height: 50px;
+      }
+    }
+}

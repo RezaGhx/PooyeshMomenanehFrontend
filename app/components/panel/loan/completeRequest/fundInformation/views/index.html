@@ -1,0 +1,76 @@
+<section class="warranty-type">
+    <form cg-busy="self.promiseLoading" name="companyForm" autocomplete="off" novalidate
+        ng-submit="self.submit(self.company,companyForm)" promise-btn>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row" cg-busy="self.promiseLoading">
+                    <div class="col-lg-12">
+                        <div class="so-title">اطلاعات مالی شرکت ( مانده تسهیلات و ضمانت نامه ها)</div>
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <div>
+                                    <sd-input-container class="material text-right">
+                                        <label for="">کل بدهی سر رسید شده از تسهیلات جاری</label>
+                                        <div class="input-group">
+                                            <sd-icon>
+                                                <i class="fas s-calendar"></i>
+                                            </sd-icon>
+                                            <input currency-input class="so-input-xl w-100" ng-model="self.company.totalDebtsFromCurrentLoans"
+                                                name="totalDebtsFromCurrentLoans" required />
+                                            <div ng-messages="companyForm.totalDebtsFromCurrentLoans.$error">
+                                                <div ng-message="required">
+                                                    پر کردن فیلد الزامی می‌باشد
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </sd-input-container>
+                                    <div>
+                                        <sd-input-container class="material text-right">
+                                            <label for="">کل مبلغ ضمانت نامه های جاری</label>
+                                            <div class="input-group">
+                                                <sd-icon>
+                                                    <i class="fas s-calendar"></i>
+                                                </sd-icon>
+                                                <input currency-input class="so-input-xl w-100"  ng-model="self.company.totalWarrantiesAmount"
+                                                    name="totalWarrantiesAmount" required />
+                                                <div ng-messages="companyForm.totalWarrantiesAmount.$error">
+                                                    <div ng-message="required">
+                                                        پر کردن فیلد الزامی می‌باشد
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </sd-input-container>
+                                    </div>
+                                    <div>
+                                        <sd-input-container class="material text-right">
+                                            <label for="">مجموع تسهیلات دریافتی جهت موضوع طرح</label>
+                                            <div class="input-group">
+                                                <sd-icon>
+                                                    <i class="fas s-calendar"></i>
+                                                </sd-icon>
+                                                <input currency-input class="so-input-xl w-100" ng-model="self.company.totalLoansAmount"
+                                                    name="totalLoansAmount" required />
+                                                <div ng-messages="companyForm.totalLoansAmount.$error">
+                                                    <div ng-message="required">
+                                                        پر کردن فیلد الزامی می‌باشد
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </sd-input-container>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-lg-12">
+                        <button class="btn so-btn-md btn-n-green" type="submit">ثبت</button>
+                        <button class="btn so-btn-md btn-orange text-white"
+                            ui-sref="panel.loan.completeRequest.licenseInformation">بازگشت</button>
+                    </div>
+                </div>
+            </div>
+    </form>
+    </div>
+</section>

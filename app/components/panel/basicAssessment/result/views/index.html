@@ -1,0 +1,39 @@
+<section class="mt-4 container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="so-title">
+                تکمیل اطلاعات جهت ارزیابی
+            </h1>
+            <form name="completeAssessmentForm" novalidate>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div
+                            class="bg-l-stone box-border mb-5 d-flex flex-column align-content-center flex-wrap py-4 px-5">
+                            <div class="so-body-1 text-justify">
+                                نتیجه ارزیابی سریع شرکت شما به شرح زیر می باشد.
+                                حد اعتباری زیر با در نظر گرفتن اطلاعات اعلامی از سوی کاربر می باشد و
+                                صرفا جهت اطلاع از وضعیت اعتباری و به شکل تخمینی در اختیار شما قرار گرفته است.
+                                اختصاص اعتبار واقعی منوط به طی ارزیابی های رسمی از شرکت می باشد.
+                            </div>
+                            <div class="d-flex justify-content-center mt-5 mb-4">
+                                <div class="col-lg-1">رتبه</div>
+                                <div class="result-box btn btn so-btn-xl" ng-bind="self.basicAssessmentResult.point">
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center mb-5">
+                                <div class="col-lg-1">حد اعتباری</div>
+                                <div class="result-box btn so-btn-xl">
+                                    {{self.basicAssessmentResult.creditLimit | number}} ریال</div>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <!-- <button class="btn so-btn-md btn-n-green ml-3">چاپ و ذخیره</button> -->
+                                <button class="btn so-btn-md btn-orange text-white"
+                                    ui-sref="panel.basicAssessment.request">بازگشت</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

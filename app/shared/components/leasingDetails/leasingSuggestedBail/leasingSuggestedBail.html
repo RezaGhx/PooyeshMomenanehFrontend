@@ -1,0 +1,90 @@
+<div class="container-fluid mb-5 leasing-suggested-bail">
+    <div>
+        {{self.currentStatus}}
+        <form name="selectedBail" promise-btn novalidate autocomplete="off" ng-submit="self.selectBail(selectedBail)">
+            <div class="so-title mb-1">
+                تضامین پیشنهادی و شرایط
+            </div>
+            <div class="so-body-1 mb-5">
+                شما میتوانید یکی از گزینه‌های زیر را انتخاب کنید تا متناسب با آن وثیقه و تضامینهای خود را ارسال
+                کنید. دقت داشته باشید که هر گزینه شامل مدارکیست که میبایست آن ها را بارگذاری کنید
+            </div>
+            <div class="collateral-type pb-3" ng-repeat="bail in self.bail.bails">
+                <div class="custom-control custom-radio custom-control-orange">
+                    <input type="radio" class="custom-control-input" value="{{bail}}" ng-model="self.selectedBail"
+                        id="firstOption{{bail.id}}" required name="option" ng-disabled="self.selectedBail">
+                    <label class="custom-control-label so-title mb-2" for="firstOption{{bail.id}}">
+                        لیزینگ به مبلغ :
+                        <span class="text-green" ng-bind="(bail.approvedAmount| number) + ' ريال'"></span>
+                        <span>|</span>
+                        <span ng-repeat="item in bail.bails track by $index">
+                            <span ng-bind="item | bailTypeFilter"></span>
+                            <span ng-if="!$last"> + </span>
+                        </span>
+                    </label>
+                </div>
+                <div class="col-lg-9">
+                    <div class="bg-l-silver p-2 mr-2 mb-3">
+                        <div class="so-subheading-2 mb-2">توضیحات</div>
+                        <div class="so-body-1 font-weight-bold">
+                            <span ng-repeat="item in bail.items">
+                                <span ng-bind="item.percent + ' درصد'"></span>
+                                <span ng-bind="item.type | bailTypeFilter"></span>
+                                <span ng-if="!$last"> , </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn so-btn-md btn-green" type="submit">ثبت</button>
+            <button class="btn so-btn-md btn-blue text-white" data-toggle="modal" data-target="#protest"
+                type="button">اعتراض به نتیجه کمیته</button>
+        </form>
+    </div>
+</div>
+
+<!--مودال اطمینان جهت اعتراض-->
+<form name="modalForm" novalidate>
+    <div id="protest" class="modal">
+        <section class="modal-dialog h-50">
+            <section class="modal-content">
+                <section class="modal-header">
+                    <h4 class="so-title">اعتراض به شرایط مصوبه کمیته</h4>
+                </section>
+                <section class="modal-body">
+                    <h4 class="so-subheading-2">آیا نسبت به ثبت اعنراض برای مصوبه کمیته ثبت شده اطمینان دارید؟</h4>
+                    <div>
+                        <h1 class="so-body-1 mt-2">درصورت داشتن اعتراض نسبت به مصوبه کمیته ثبت شده لطفا با ذکر توضیحات
+                            نسبت به
+                            اعتراض خود اقدامی انجام دهید
+                        </h1>
+                        <sd-input-container class="material text-right mt-2 ">
+                            <textarea class="textarea-custom h-100 pt-2 w-100" ng-model="self.initialReview.description"
+                                placeholder="توضیحات" ng-minlength="2" ng-maxlength="500" name="description" cols="130"
+                                rows="5"></textarea>
+                            <!--<div ng-messages="reviewRequestForm.description.$error">
+                                            <div ng-message="minlength">
+                                                توضیحات نمیتواند کمتر از دو
+                                                کاراکتر باشد
+                                            </div>
+                                            <div ng-message="maxlength">
+                                                توضیحات نمیتواند بیشتر از پانصد
+                                                کاراکتر باشد
+                                            </div>
+                                        </div>-->
+                        </sd-input-container>
+                    </div>
+                </section>
+                <section class="modal-footer d-flex justify-content-start">
+                    <button type="button" class="btn so-btn-md btn-green" ng-click="self.protestLeasing()">
+                        بله
+                    </button>
+                    <button type="button" class="btn so-btn-md btn-red" data-dismiss="modal">
+                        خیر
+                    </button>
+                </section>
+            </section>
+        </section>
+    </div>
+</form>
+<!--مودال اطمینان جهت اعتراض-->

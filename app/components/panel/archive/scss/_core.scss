@@ -1,0 +1,267 @@
+.archive {
+  .archive-table {
+    border-collapse: separate;
+    border-spacing: 0 20px;
+
+    &.table td,
+    .table th {
+      border-top: none;
+    }
+
+    th {
+      border-bottom: 1px solid get-color('l-purple');
+      border-top: none;
+    }
+
+    th,
+    td {
+      text-align: center;
+      vertical-align: inherit;
+    }
+
+    thead {
+      background-color: get-color("white");
+      color: get-color("blue");
+      @include set-font-styles($config, body-1);
+      cursor: default;
+    }
+
+    tbody {
+      // &:before {
+      //   content: "-";
+      //   display: block;
+      //   line-height: 20px;
+      //   color: transparent;
+      // }
+
+      tr {
+        background-color: #E7EEF2;
+        @include set-font-styles($config, body-1);
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        // &:first-child {
+        //   border-bottom: none;
+        // }
+
+        &:hover {
+          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+          transition: 0.5s ease;
+        }
+      }
+    }
+  }
+
+  .status-fail {
+    border-right: 20px solid get-color('red');
+  }
+
+  .status-success {
+    border-right: 20px solid get-color('green');
+  }
+}
+
+ol.collection {
+  margin: 0px;
+  padding: 0px;
+  @extend .so-body-1;
+}
+
+li {
+  list-style: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.item-container-body {
+  margin-top: 1rem;
+  // color: get-color("red");
+  background-color: get-color("sky");
+  cursor: pointer;
+
+  .status {
+    position: relative;
+    // background:get-color("green");
+    .circle {
+      position: relative;
+      display: flex;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      &:after {
+        content: "";
+        width: 28px;
+        height: 28px;
+        background-color: get-color("white");
+        position: absolute;
+        right: -15px;
+        border-radius: 50%;
+      }
+    }
+  }
+.bg-gray-style {
+  background-color: get-color('gray');
+}
+  &.open {
+    background: #E7EEF2;
+  }
+
+  &.closed {
+    background: get-color("l-stone");
+  }
+
+  .attribute {
+    padding: 15px 0;
+  }
+
+  .priority-badge {
+    @extend .so-h6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 25px
+  }
+}
+
+.item-container-header {
+  .ticketing-pagination {
+    .ticketing-pagination-icon {
+      // background: get-color("silver");
+      // color: get-color('blue');
+      width: 25px;
+      height: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      &:hover {
+        background: darken($color: get-color("silver"), $amount: 1);
+      }
+    }
+  }
+}
+/* 2 Column Card Layout */
+@media screen and (max-width: 736px) {
+  .collection-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+  }
+
+  .item {
+    border: 1px solid gray;
+    border-radius: 2px;
+    padding: 10px;
+  }
+
+  /* Don't display the first item, since it is used to display the header for tabular layouts*/
+  .collection-container > li:first-child {
+    display: none;
+  }
+
+  .attribute::before {
+    content: attr(data-name);
+  }
+
+  /* Attribute name for first column, and attribute value for second column. */
+  .attribute {
+    display: grid;
+    grid-template-columns: minmax(9em, 30%) 1fr;
+  }
+}
+
+/* 1 Column Card Layout */
+@media screen and (max-width: 580px) {
+  .collection-container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tabular Layout */
+@media screen and (min-width: 737px) {
+  /* The maximum column width, that can wrap */
+  .item-container {
+    display: grid;
+    grid-template-columns: 20px 13rem 11rem 6fr 11rem;
+  }
+
+  .attribute-container {
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(var(--column-width-min), 1fr)
+    );
+  }
+
+  /* Definition of wrapping column width for attribute groups. */
+  .part-information {
+    --column-width-min: 10em;
+  }
+
+  .part-id {
+    --column-width-min: 10em;
+  }
+
+  .vendor-information {
+    --column-width-min: 8em;
+  }
+
+  .quantity {
+    --column-width-min: 5em;
+  }
+
+  .cost {
+    --column-width-min: 5em;
+  }
+
+  .duty {
+    --column-width-min: 5em;
+  }
+
+  .freight {
+    --column-width-min: 5em;
+  }
+
+  // .collection {
+  //   border-top: 1px solid gray;
+  // }
+
+  /* In order to maximize row lines, only display one line for a cell */
+  .attribute {
+    // border-right: 1px solid gray;
+    // border-bottom: 1px solid gray;
+    padding: 2px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  // .collection-container > .item-container:first-child {
+  //   background-color: blanchedalmond;
+  // }
+
+  .item-container-body:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+    transition: 0.5s ease;
+  }
+
+  /* Center header labels */
+  .collection-container > .item-container:first-child .attribute {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-overflow: initial;
+    overflow: auto;
+    white-space: normal;
+  }
+}

@@ -1,0 +1,327 @@
+<section class="warranty-type">
+    <div class="row">
+        <div class="col-lg-12">
+            <form name="companyForm" autocomplete="off" novalidate ng-submit="self.submit(self.warrantyInformation,companyForm)"
+            promise-btn>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="so-title font-weight-bold">تایید اطلاعات درخواست</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="bg-l-silver px-5 py-4 mb-4">
+                            <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="so-title">اطلاعات ضمانت نامه درخواستی</div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="row">
+                                            <div class="col-lg-2 mb-3">
+                                                <span class="so-body-1 font-weight-bold">نوع ضمانت نامه:</span>
+                                            </div>
+                                            <div class="col-lg-10">
+                                                <span class="so-body-1 text-silver" ng-bind="self.warrantyInformation.warrantyType | warrantyTypeFilter"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="row">
+                                            <div class="col-lg-2 mb-3">
+                                                <span class="so-body-1 font-weight-bold">مبلغ ضمانت نامه:</span>
+                                            </div>
+                                            <div class="col-lg-10">
+                                                <span class="so-body-1 text-silver" ng-bind="self.warrantyInformation.requestAmount | number"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="row">
+                                            <div class="col-lg-2 mb-3">
+                                                <span class="so-body-1 font-weight-bold">کارفرما:</span>
+                                            </div>
+                                            <div class="col-lg-10">
+                                                <span class="so-body-1 text-silver" ng-bind="self.warrantyInformation.employerName"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="row">
+                                            <div class="col-lg-2 mb-3">
+                                                <span class="so-body-1 font-weight-bold">شماره تلفن:</span>
+                                            </div>
+                                            <div class="col-lg-10">
+                                                <span class="so-body-1 text-silver" ng-bind="self.warrantyInformation.employerPhone"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="row">
+                                            <div class="col-lg-2 mb-3">
+                                                <span class="so-body-1 font-weight-bold">آدرس:</span>
+                                            </div>
+                                            <div class="col-lg-10">
+                                                <span class="so-body-1 text-silver" ng-bind="self.warrantyInformation.employerAddress"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+                    <div class="bg-l-silver px-5 py-4">
+
+                        <!---->
+                        <div class="row mb-4">
+                            <div class="col-lg-12">
+                                <div class="so-title">اطلاعات شرکت</div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-4 mb-3">
+                                        <span class="so-body-1 font-weight-bold">کد اقتصادی:</span>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <span class="so-body-1 text-silver" ng-bind="self.company.info.economicCode"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-4 mb-3">
+                                        <span class="so-body-1 font-weight-bold">شماره ثبت:</span>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <span class="so-body-1 text-silver" ng-bind="self.company.registry.registerNumber"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-4 mb-3">
+                                        <span class="so-body-1 font-weight-bold">نوع شرکت</span>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <span class="so-body-1 text-silver" ng-bind="self.company.info.companyRegistrationType | companyTypeFilter"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-4 mb-3">
+                                        <span class="so-body-1 font-weight-bold">سرمایه ثبتی:</span>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <span class="so-body-1 text-silver" ng-bind="self.company.registry.fund | number"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-4 mb-3">
+                                        <span class="so-body-1 font-weight-bold">نوع فعالیت:</span>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <span class="so-body-1 text-silver" ng-bind="self.company.info.activityType | activityTypeFilter"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-4 mb-3">
+                                        <span class="so-body-1 font-weight-bold">تاریخ ثبت:</span>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <span class="so-body-1 text-silver" ng-bind="self.company.registry.registerDate | jalaliDateFilter : 'jYYYY/jM/jD'"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-4 mb-3">
+                                        <span class="so-body-1 font-weight-bold">شماره ثابت:</span>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <span class="so-body-1 text-silver" ng-bind="self.company.info.contactInfo.phoneNumber"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-4 mb-3">
+                                        <span class="so-body-1 font-weight-bold">شماره فکس</span>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <span class="so-body-1 text-silver" ng-bind="self.company.info.contactInfo.fax"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-4 mb-3">
+                                        <span class="so-body-1 font-weight-bold">استان:</span>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <span class="so-body-1 text-silver" ng-bind="self.company.info.contactInfo.province"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-4 mb-3">
+                                        <span class="so-body-1 font-weight-bold">شهر:</span>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <span class="so-body-1 text-silver" ng-bind="self.company.info.contactInfo.city"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-4 mb-3">
+                                        <span class="so-body-1 font-weight-bold">کد پستی:</span>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <span class="so-body-1 text-silver" ng-bind="self.company.info.contactInfo.postalCode"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <div class="col-lg-2 mb-3">
+                                        <span class="so-body-1 font-weight-bold">ایمیل</span>
+                                    </div>
+                                    <div class="col-lg-10">
+                                        <span class="so-body-1 text-silver" ng-bind="self.company.info.contactInfo.email|limitTo:50" 
+                                        title="{{self.company.info.contactInfo.email}}"></span>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <div class="col-lg-2 mb-3">
+                                        <span class="so-body-1 font-weight-bold">آدرس:</span>
+                                    </div>
+                                    <div class="col-lg-10">
+                                        <span class="so-body-1 text-silver" ng-bind="self.company.info.contactInfo.address"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!---->
+                        <div class="row mb-4"   cg-busy="self.promiseLoading">
+                            <div class="col-lg-12">
+                                <div class="so-title">اعضای هیئت مدیره</div>
+                            </div>
+                            <div class="col-lg-12" ng-show="self.tableParams.data.length !=0">
+                                <table ng-table="self.tableParams" class="table spacing-table csm-table"
+                                    show-filter="false">
+                                    <tr ng-repeat="row in $data" class="bg-matte-gray">
+                                            <td data-title="'نام'" filter="false">
+                                                <span>{{row.firstName}}</span>
+                                            </td>
+                                            <td data-title="'نام خانوادگی'" filter="false">
+                                                {{row.lastName}}
+                                            </td>
+                                            <td data-title="'نام پدر'" filter="false">
+                                                {{row.fatherName}}
+                                            </td>
+                                            <td data-title="'کد ملی'" filter="false">
+                                                {{row.nationalCode}}
+                                            </td>
+                                            <td data-title="'صادره از'" filter="false">
+                                                {{row.issued}}
+                                            </td>
+                                            <td data-title="'سمت'" filter="false">
+                                                {{row.position}}
+                                            </td>
+                                            <td data-title="'دارای حق امضا'" filter="false">
+                                                <div class="position" ng-if="row.hasSignRight">
+                                                    <i class="fas s-check-circle s-2x text-green-jade"></i>
+                                                </div>
+                                                <div class="position" ng-if="!row.hasSignRight">
+                                                    <i class="fas s-times-circle s-2x text-green-jade"></i>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!---->
+                        <div class="row mb-4">
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="so-title">اطلاعات دانش بنیان</div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="row">
+                                            <div class="col-lg-4 mb-3">
+                                                <span class="so-body-1 font-weight-bold">دانش بنیانی:</span>
+                                            </div>
+                                            <div class="col-lg-8">
+                                                <span ng-if="self.company.knowledge.isKnowledgeBase" class="so-body-1 text-green">دارد</span>
+                                                <span ng-if="!self.company.knowledge.isKnowledgeBase" class="so-body-1 text-red">ندارد</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="row">
+                                            <div class="col-lg-4 mb-3">
+                                                <span class="so-body-1 font-weight-bold">وضعیت شرکت:</span>
+                                            </div>
+                                            <div class="col-lg-8">
+                                                <span class="so-body-1 text-silver" ng-bind="self.company.knowledge.knowledgeBaseInfo.companyStatus | isStartupTypeFilter"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="row">
+                                            <div class="col-lg-4 mb-3">
+                                                <span class="so-body-1 font-weight-bold">حوزه کاری:</span>
+                                            </div>
+                                            <div class="col-lg-8">
+                                                <span class="so-body-1 text-silver" ng-bind="self.company.knowledge.knowledgeBaseInfo.knowledgeBaseType | knowledgeBaseTypeFilter"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                    <div class="row">
+                                            <div class="col-lg-12">
+                                                    <div class="so-title">استقرار در پارک</div>
+                                                </div>
+                                            <div class="col-lg-12">
+                                                <div class="row">
+                                                    <div class="col-lg-4 mb-3">
+                                                        <span class="so-body-1 font-weight-bold">مستقر در پارک:</span>
+                                                    </div>
+                                                    <div class="col-lg-8">
+                                                        <span ng-if="!self.company.knowledge.isInPark" class="so-body-1 text-red">خیر</span>
+                                                        <span ng-if="self.company.knowledge.isInPark" class="so-body-1 text-green">بله</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-lg-12">
+                    <button class="btn btn-green so-btn-md ml-3" type="submit">
+                        ارسال درخواست
+                    </button>
+                    <button class="btn btn-orange so-btn-md text-white" type="button" ui-sref="panel.warranty.request.warrantyInformation">
+                        بازگشت
+                    </button>
+                </div>
+            </div>
+        </form>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,71 @@
+<section class="change-pass p-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-12 so-title">
+                    تغییر گذرواژه
+                </div>
+                <div class="col-lg-4">
+                    <form name="changePasswordForm" autocomplete="off" class="change-password" novalidate
+                        ng-submit="self.submit(self.changePassword,changePasswordForm)">
+                        <sd-input-container class="material text-right">
+                            <label for="">گذرواژه فعلی</label>
+                            <div class="input-group">
+                                <sd-icon>
+                                    <i class="fas s-lock"></i>
+                                </sd-icon>
+                                <input class="so-input-xl w-100" type="password" ng-minlength="6" ng-maxlength="40"
+                                    required ng-model="self.changePassword.currentPassword" name="CurrentPassword" />
+                                <div ng-messages="changePasswordForm.CurrentPassword.$error">
+                                    <div ng-message="required">
+                                        پر کردن فیلد الزامی می‌باشد
+                                    </div>
+                                    <div ng-message="minlength">گذرواژه نباید کمتر از شش کاراکتر باشد</div>
+                                    <div ng-message="maxlength">گذرواژه نباید بیشتر از چهل کاراکتر باشد</div>
+                                </div>
+                            </div>
+                        </sd-input-container>
+                        <sd-input-container class="material text-right">
+                            <label for="">گذرواژه جدید</label>
+                            <div class="input-group">
+                                <sd-icon>
+                                    <i class="fas s-lock"></i>
+                                </sd-icon>
+                                <input class="so-input-xl w-100" type="password" ng-minlength="6" ng-maxlength="40"
+                                    required ng-model="self.changePassword.newPassword" name="NewPassword" />
+                                <div ng-messages="changePasswordForm.NewPassword.$error">
+                                    <div ng-message="required">
+                                        پر کردن فیلد الزامی می‌باشد
+                                    </div>
+                                    <div ng-message="minlength">گذرواژه نباید کمتر از شش کاراکتر باشد</div>
+                                    <div ng-message="maxlength">گذرواژه نباید بیشتر از چهل کاراکتر باشد</div>
+                                </div>
+                            </div>
+                        </sd-input-container>
+                        <sd-input-container class="material text-right">
+                            <label for="">تکرار گذرواژه جدید</label>
+                            <div class="input-group">
+                                <sd-icon>
+                                    <i class="fas s-lock"></i>
+                                </sd-icon>
+                                <input class="so-input-xl w-100" type="password" ng-minlength="6" ng-maxlength="40"
+                                    required compare-to="self.changePassword.newPassword"
+                                    ng-model="self.changePassword.confirmPassword" name="ConfirmPassword" />
+                                <div ng-messages="changePasswordForm.ConfirmPassword.$error">
+                                    <div ng-message="required">
+                                        پر کردن فیلد الزامی می‌باشد
+                                    </div>
+                                    <div ng-message="minlength">گذرواژه نباید کمتر از شش کاراکتر باشد</div>
+                                    <div ng-message="maxlength">گذرواژه نباید بیشتر از چهل کاراکتر باشد</div>
+                                    <div ng-message="compareTo">تکرار رمز عبور با خود رمز برابر نمیباشد</div>
+                                </div>
+                            </div>
+
+                        </sd-input-container>
+                        <button class="btn so-btn-xl btn-orange text-white w-100">تایید</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

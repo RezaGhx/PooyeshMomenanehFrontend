@@ -1,0 +1,92 @@
+<section id="panel" class="d-flex">
+	<aside class="sidebar">
+		<a class="logo" href="#">
+			<img src="../../images/logo.png" alt="صندوق توسعه فناوری های نوین">
+		</a>
+		<ul class="menu">
+			<li class="item">
+				<a ui-sref="panel.dashboard" ui-sref-opts="{ reload: true }" ui-sref-active="active" class="link"
+					href="#menu1" data-toggle="collapse">
+					<i class="fas s-home ml-2"></i>
+					داشبورد
+				</a>
+			</li>
+			<li class="item sub-menu">
+				<div class="title">
+					خذمات
+				</div>
+				<div class="collapse show">
+					<a ui-sref="panel.warranty.gettingStart"
+						ng-class="{'active': self.state.includes('panel.warranty.*') || self.state.includes('panel.warranty.*.*')}"
+						class="link">
+						درخواست
+						ضمانت
+						نامه</a>
+					<a ui-sref="panel.loan.gettingStart"
+						ng-class="{'active': self.state.includes('panel.loan.*') || self.state.includes('panel.loan.*.*')}"
+						class="link">درخواست تسهیلات / لیزینگ</a>
+					<!-- <a href="#menu1sub3" class="link">لیزینگ
+						محصولات</a> -->
+					<!-- <a ui-sref="panel.basicAssessment.request" ui-sref-active="active" class="link">ارزیابی
+						و
+						اعتبارسنجی</a> -->
+				</div>
+			</li>
+			<li class="item">
+				<a class="link" ui-sref="panel.ticketing.list"
+					ng-class="{'active': self.state.includes('panel.ticketing.*')}">
+					<i class="fas s-headphone ml-2"></i>
+					پشتیبانی
+				</a>
+			</li>
+			<!-- <li class="item">
+				<a class="link" data-toggle="collapse">
+					<i class="fas s-user-alt-1 ml-2"></i>
+					پروفایل من
+				</a>
+			</li> -->
+			<!-- <li class="item">
+				<a class="link" data-toggle="collapse" ui-sref="panel.archive.list"
+					ng-class="{'active': self.state.includes('panel.archive.*')}">
+					<i class="far s-history ml-2"></i>
+					سوابق خدمت</a>
+			</li> -->
+			<!-- <li class="item">
+				<a class="link" data-toggle="collapse">
+					<i class="fas s-coins ml-2"></i>
+					امور مالی و پرداخت</a>
+			</li> -->
+			<li class="item">
+				<a class="link" ui-sref="panel.profile.changePassword">
+					<i class="fas s-setting ml-2"></i>
+					تنظیمات</a>
+			</li>
+		</ul>
+	</aside>
+	<div class="main-border-top">
+		<header class="container-fluid top-header">
+			<div class="company">
+				<img class="company-logo" ng-if="self.user.logo" ng-src="{{$root.download +self.user.logo}}"
+					alt="{{self.user.name}}">
+				</span>
+				<span class="company-name" ng-bind="self.user.name"></span>
+			</div>
+			<div class="notifications">
+				<!-- <button class="box btn btn-l-purple">
+					<i class="fas s-bell text-white s-lg"></i>
+					<span class="badge">۲</span>
+				</button> -->
+				<button class="box btn btn-l-purple" ui-sref="general.completeInformation.logoUpload">
+					<i class="fas s-user text-white s-lg"></i>
+				</button>
+				<button class="box btn btn-l-purple" ng-click="self.logout()">
+					<i class="fas s-exit text-white s-lg s-rotate-180"></i>
+				</button>
+
+			</div>
+		</header>
+		<ui-view class="flex-grow-1"></ui-view>
+	</div>
+</section>
+<footer-Component>
+</footer-Component>

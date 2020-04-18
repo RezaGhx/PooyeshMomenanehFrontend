@@ -1,0 +1,706 @@
+<section class="mt-4 container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <form action="" novalidate>
+                <ng-form name="completeAssessmentForm" novalidate>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="bg-l-stone box-border mb-5 d-flex flex-wrap py-4 px-3"
+                                ng-class="{'box-border-success': completeAssessmentForm.$valid}">
+                                <sd-input-container class="material ml-4 text-right">
+                                    <sd-icon>
+                                        <i class="fas s-card-star"></i>
+                                    </sd-icon>
+                                    <label for="">مدت زمان فعالیت</label>
+                                    <select class="custom-select so-input-md" required
+                                        ng-model="self.information.durationOfActivity" name="durationOfActivity">
+                                        <option ng-value="0" selected>کمتر از یک سال</option>
+                                        <option ng-value="1" selected>بین یک تا 3 سال</option>
+                                        <option ng-value="2" selected>بین 3 تا 5 سال</option>
+                                        <option ng-value="3" selected>بیش از 5 سال</option>
+                                    </select>
+                                    <div ng-messages="completeAssessmentForm.durationOfActivity.$error">
+                                        <div ng-message="required">
+                                            پر کردن فیلد الزامی می‌باشد
+                                        </div>
+                                    </div>
+                                </sd-input-container>
+                                <sd-input-container class="material  ml-4 text-right">
+                                    <sd-icon>
+                                        <i class="fas s-card-star"></i>
+                                    </sd-icon>
+                                    <label for="">نوع شرکت</label>
+                                    <select class="custom-select so-input-md" required
+                                        ng-model="self.information.companyType" name="CompanyType">
+                                        <option ng-value="1" selected>سهامی خاص</option>
+                                        <option ng-value="2" selected>مسئولیت محدود</option>
+                                        <option ng-value="3" selected>سهامی عام</option>
+                                        <option ng-value="4" selected>تعاونی</option>
+                                        <option ng-value="5" selected>تضامینی</option>
+                                        <option ng-value="6" selected>موسسه غیر تجاری</option>
+                                    </select>
+                                    <div ng-messages="completeAssessmentForm.CompanyType.$error">
+                                        <div ng-message="required">
+                                            پر کردن فیلد الزامی می‌باشد
+                                        </div>
+                                    </div>
+                                </sd-input-container>
+                                <sd-input-container class="material text-right">
+                                    <sd-icon>
+                                        <i class="fas s-card-star"></i>
+                                    </sd-icon>
+                                    <label for="">سرمایه ثبتی</label>
+                                    <div class="input-group">
+                                        <sd-icon>
+                                            <i class="fas s-bitcoin"></i>
+                                        </sd-icon>
+                                        <select class="custom-select so-input-md" required
+                                            ng-model="self.information.Fund" name="Fund">
+                                            <option ng-value="1" selected>کمتر از 250 میلیون</option>
+                                            <option ng-value="2" selected>بین 250 الی 1,000 میلیون ریال</option>
+                                            <option ng-value="4" selected>بین 1,000 تا 5,000 میلیون ریال</option>
+                                            <option ng-value="5" selected>بیش از 5,000 میلیون ریال</option>
+                                        </select>
+                                        <div ng-messages="completeAssessmentForm.Fund.$error">
+                                            <div ng-message="required">
+                                                پر کردن فیلد الزامی می‌باشد
+                                            </div>
+                                        </div>
+                                    </div>
+                                </sd-input-container>
+                                <sd-input-container class="material  ml-4 text-right">
+                                    <sd-icon>
+                                        <i class="fas s-card-star"></i>
+                                    </sd-icon>
+                                    <label for="">پرسنل بیمه شده</label>
+                                    <div class="input-group">
+                                        <sd-icon>
+                                            <i class="fas s-bitcoin"></i>
+                                        </sd-icon>
+                                        <select class="custom-select so-input-md" required
+                                            ng-model="self.information.insuredPersonnel" name="insuredPersonnel">
+                                            <option ng-value="0" selected>کمتر از 5 نفر</option>
+                                            <option ng-value="2" selected>بین 5 الی 10 نفر</option>
+                                            <option ng-value="3" selected>بین 10 الی 20 نفر</option>
+                                            <option ng-value="4" selected>بالای 20 نفر</option>
+                                        </select>
+                                        <div ng-messages="completeAssessmentForm.insuredPersonnel.$error">
+                                            <div ng-message="required">
+                                                پر کردن فیلد الزامی می‌باشد
+                                            </div>
+                                            <div ng-message="minlength">سرمایه ثبتی نباید کمتر از یک رقم باشد</div>
+                                            <div ng-message="maxlength">سرمایه ثبتی نباید بیش از پنج رقم باشد</div>
+                                        </div>
+                                    </div>
+                                </sd-input-container>
+                                <sd-input-container class="material  ml-4 text-right">
+                                    <sd-icon>
+                                        <i class="fas s-card-star"></i>
+                                    </sd-icon>
+                                    <label for="">مجوزات و گواهینامه ها و تاییدیه ها</label>
+                                    <select class="custom-select so-input-md" ng-model="self.information.permissions"
+                                        name="permissions" required>
+                                        <option ng-value="2" selected>وجود تائیدیه عملکرد از کارفرما ها در یکسال گذشته
+                                        </option>
+                                        <option ng-value="1" selected>دارای گواهینامه های سیستم مدیریک کیفیت معتبر
+                                        </option>
+                                    </select>
+                                    <div ng-messages="completeAssessmentForm.permissions.$error">
+                                        <div ng-message="required">
+                                            پر کردن فیلد الزامی می‌باشد
+                                        </div>
+                                    </div>
+                                </sd-input-container>
+                                <sd-input-container class="material text-right">
+                                    <sd-icon>
+                                        <i class="fas s-card-star"></i>
+                                    </sd-icon>
+                                    <label for="">نوع صورت های مالی</label>
+                                    <select class="custom-select so-input-md"
+                                        ng-model="self.information.typeOfFinancialStatements"
+                                        name="typeOfFinancialStatements" required>
+                                        <option ng-value="0" selected>فاقد اظهارات مالیاتی طی دوسال گذشته</option>
+                                        <option ng-value="1" selected>دارای اظهارنامه مالیاتی در سال گذشته</option>
+                                        <option ng-value="5" selected>دارای اظهارنامه مالیاتی در دوسال گذشته</option>
+                                        <option ng-value="10" selected>دارای صورت های مالی حسابرسی شده</option>
+                                    </select>
+                                    <div ng-messages="completeAssessmentForm.typeOfFinancialStatements.$error">
+                                        <div ng-message="required">
+                                            پر کردن فیلد الزامی می‌باشد
+                                        </div>
+                                    </div>
+                                </sd-input-container>
+                                <sd-input-container class="material  ml-4 text-right">
+                                    <sd-icon>
+                                        <i class="fas s-card-star"></i>
+                                    </sd-icon>
+                                    <label for="">مانده بدهی تسهیلات شرکت</label>
+                                    <select class="custom-select so-input-md"
+                                        ng-model="self.information.debtFacilityBalance" name="debtFacilityBalance"
+                                        required>
+                                        <option ng-value="10" selected>بدون بدهی به نهادهای مالی</option>
+                                        <option ng-value="5" selected>کمتر با برابر سه میلیارد ریال</option>
+                                        <option ng-value="3" selected>بین سه الی پنج میلیارد ریال</option>
+                                        <option ng-value="1" selected>بین پنج الی ده میلیارد ریال</option>
+                                        <option ng-value="0" selected>بیش از ده میلیارد ریال</option>
+                                    </select>
+                                    <div ng-messages="completeAssessmentForm.debtFacilityBalance.$error">
+                                        <div ng-message="required">
+                                            پر کردن فیلد الزامی می‌باشد
+                                        </div>
+                                    </div>
+                                </sd-input-container>
+                                <sd-input-container class="material  ml-4 text-right">
+                                    <sd-icon>
+                                        <i class="fas s-card-star"></i>
+                                    </sd-icon>
+                                    <label for="">امتیاز اعتباری شرکت</label>
+                                    <div class="input-group">
+                                        <sd-icon>
+                                            <i class="fas s-calendar"></i>
+                                        </sd-icon>
+                                        <input class="so-input-md" type="text" ng-minlength="1" ng-maxlength="2"
+                                            ng-input-filter-number="uint"
+                                            ng-model="self.information.creditRatingOfTheCompany"
+                                            name="creditRatingOfTheCompany" required />
+                                        <div ng-messages="completeAssessmentForm.creditRatingOfTheCompany.$error">
+                                            <div ng-message="required">
+                                                پر کردن فیلد الزامی می‌باشد
+                                            </div>
+                                            <div ng-message="minlength">امتیاز نباید کمتر از یک باشد
+                                            </div>
+                                            <div ng-message="maxlength">امتیاز باید کمتر از صد
+                                                باشد
+                                            </div>
+                                        </div>
+                                    </div>
+                                </sd-input-container>
+                                <sd-input-container class="material text-right">
+                                    <sd-icon>
+                                        <i class="fas s-card-star"></i>
+                                    </sd-icon>
+                                    <label for="">میانگین امتیاز اعتباری اعضای هیت مدیره</label>
+                                    <div class="input-group">
+                                        <sd-icon>
+                                            <i class="fas s-calendar"></i>
+                                        </sd-icon>
+                                        <input class="so-input-md" type="text" ng-minlength="1" ng-maxlength="2"
+                                            ng-input-filter-number="uint" ng-model="self.information.average"
+                                            name="average" required />
+                                        <div ng-messages="completeAssessmentForm.average.$error">
+                                            <div ng-message="required">
+                                                پر کردن فیلد الزامی می‌باشد
+                                            </div>
+                                            <div ng-message="minlength">امتیاز نباید کمتر از یک باشد
+                                            </div>
+                                            <div ng-message="maxlength">امتیاز باید کمتر از صد
+                                                باشد
+                                            </div>
+                                        </div>
+                                    </div>
+                                </sd-input-container>
+                                <sd-input-container class="material  ml-4 text-right">
+                                    <sd-icon>
+                                        <i class="fas s-card-star"></i>
+                                    </sd-icon>
+                                    <label for="">میزان قرارداد های جاری شرکت</label>
+                                    <div class="input-group">
+                                        <sd-icon>
+                                            <i class="fas s-calendar"></i>
+                                        </sd-icon>
+                                        <input class="so-input-md" type="number"
+                                            ng-model="self.information.contractAmount" name="contractAmount" required />
+                                        <div ng-messages="completeAssessmentForm.contractAmount.$error">
+                                            <div ng-message="required">
+                                                پر کردن فیلد الزامی می‌باشد
+                                            </div>
+                                        </div>
+                                    </div>
+                                </sd-input-container>
+                                <sd-input-container class="material  ml-4 text-right">
+                                    <sd-icon>
+                                        <i class="fas s-card-star"></i>
+                                    </sd-icon>
+                                    <label for="">میزان دارایی ثابت شرکت</label>
+                                    <div class="input-group">
+                                        <sd-icon>
+                                            <i class="fas s-calendar"></i>
+                                        </sd-icon>
+                                        <input class="so-input-md" type="number"
+                                            ng-model="self.information.amountOfAssets" name="amountOfAssets" required />
+                                        <div ng-messages="completeAssessmentForm.amountOfAssets.$error">
+                                            <div ng-message="required">
+                                                پر کردن فیلد الزامی می‌باشد
+                                            </div>
+                                        </div>
+                                    </div>
+                                </sd-input-container>
+                                <div class="row text-right align-content-center">
+                                    <div class="col-lg-5">
+                                        <label>
+                                            نقش در سامانه:
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-7 d-flex flex-wrap">
+                                        <div
+                                            class="input-container ml-4 custom-control custom-control-olive-d custom-checkbox ">
+                                            <input type="checkbox" ng-model="self.assessmentExpert"
+                                                class="custom-control-input" name="AssessmentExpert"
+                                                id="AssessmentExpert" />
+                                            <label class="custom-control-label" for="AssessmentExpert">کارشناس</label>
+                                        </div>
+                                        <div
+                                            class="input-container custom-control custom-control-olive-d custom-checkbox ">
+                                            <input type="checkbox" ng-model="self.indoorAssessor"
+                                                class="custom-control-input" name="IndoorAssessor"
+                                                id="IndoorAssessor" />
+                                            <label class="custom-control-label" for="IndoorAssessor">ارزیاب</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-form>
+                <div class="row mr-5">
+                    <div class="col-lg-12 mb-3">
+                        <h2 class="circle-success text-n-green">نسبت های مالی یک سال قبل</h2>
+                    </div>
+                    <div class="col-lg-12" ng-if="self.information.durationOfActivity == 0">
+                        <ng-form name="FinancialAYearAgo" novalidate>
+                            <div class="row">
+                                <div class="col-lg-10">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered assessment-rating-table">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="bg-l-stone" colspan="2">
+                                                        <div class="d-flex px-2  align-items-center">
+
+                                                            <div class="flex-grow-1">نسبت جاری</div>
+                                                            <div class="answer-box"
+                                                                ng-bind="self.information.f / self.information.t"></div>
+                                                        </div>
+
+                                                    </td>
+                                                    <td colspan="2"
+                                                        class="d-flex flex-wrap align-items-baseline justify-content-evenly px-3 py-4">
+                                                        <div><i class="fas s-equals text-silver"></i></div>
+                                                        <sd-input-container class="material text-right mx-2 mb-0">
+                                                            <label for="">بدهی جاری</label>
+                                                            <div class="input-group">
+                                                                <input class="so-input-xs" type="number"
+                                                                    ng-model="self.information.t" name="amountOfAssets"
+                                                                    required />
+                                                            </div>
+                                                        </sd-input-container>
+                                                        <div><i class="fas s-divide text-silver"></i></div>
+                                                        <sd-input-container class="material text-right mr-2 mb-0">
+                                                            <label for="">دارایی جاری</label>
+                                                            <div class="input-group">
+                                                                <input class="so-input-xs" type="number"
+                                                                    ng-model="self.information.f" name="amountOfAssets"
+                                                                    required />
+                                                            </div>
+                                                        </sd-input-container>
+
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="bg-l-stone" colspan="2">
+                                                        <div class="d-flex px-2  align-items-center">
+
+                                                            <div class="flex-grow-1">دوره وصول مطالبات</div>
+                                                            <div class="answer-box">dasd</div>
+                                                        </div>
+
+                                                    </td>
+                                                    <td colspan="2"
+                                                        class="d-flex flex-wrap align-items-baseline justify-content-evenly px-3 py-4">
+                                                        <div><i class="fas s-equals text-silver"></i></div>
+                                                        <sd-input-container class="material text-right mx-2 mb-0">
+                                                            <label for="">درآمد عملیاتی</label>
+                                                            <div class="input-group">
+                                                                <input class="so-input-xs" type="number"
+                                                                    ng-model="self.information.amountOfAssets"
+                                                                    name="amountOfAssets" required />
+                                                            </div>
+                                                        </sd-input-container>
+                                                        <div><i class="fas s-divide text-silver"></i></div>
+                                                        <sd-input-container class="material text-right mr-2 mb-0">
+                                                            <label for="">حساب ها و اسناد دریافتنی </label>
+                                                            <div class="input-group">
+                                                                <input class="so-input-xs" type="number"
+                                                                    ng-model="self.information.amountOfAssets"
+                                                                    name="amountOfAssets" required />
+                                                            </div>
+                                                        </sd-input-container>
+
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="bg-l-stone" colspan="2">
+                                                        <div class="d-flex px-2  align-items-center">
+
+                                                            <div class="flex-grow-1">نسب بدهی ها به دارایی ها</div>
+                                                            <div class="answer-box">dasd</div>
+                                                        </div>
+
+                                                    </td>
+                                                    <td colspan="2"
+                                                        class="d-flex flex-wrap align-items-baseline justify-content-evenly px-3 py-4">
+                                                        <div><i class="fas s-equals text-silver"></i></div>
+                                                        <sd-input-container class="material text-right mx-2 mb-0">
+                                                            <label for="">جمع دارایی ها</label>
+                                                            <div class="input-group">
+                                                                <input class="so-input-xs" type="number"
+                                                                    ng-model="self.information.amountOfAssets"
+                                                                    name="amountOfAssets" required />
+                                                            </div>
+                                                        </sd-input-container>
+                                                        <div><i class="fas s-divide text-silver"></i></div>
+                                                        <sd-input-container class="material text-right mr-2 mb-0">
+                                                            <label for="">جمع بدهی ها</label>
+                                                            <div class="input-group">
+                                                                <input class="so-input-xs" type="number"
+                                                                    ng-model="self.information.amountOfAssets"
+                                                                    name="amountOfAssets" required />
+                                                            </div>
+                                                        </sd-input-container>
+
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="bg-l-stone" colspan="2">
+                                                        <div class="d-flex px-2  align-items-center">
+
+                                                            <div class="flex-grow-1">نسبت بازده فروش</div>
+                                                            <div class="answer-box">dasd</div>
+                                                        </div>
+
+                                                    </td>
+                                                    <td colspan="2"
+                                                        class="d-flex flex-wrap align-items-baseline justify-content-evenly px-3 py-4">
+                                                        <div><i class="fas s-equals text-silver"></i></div>
+                                                        <sd-input-container class="material text-right mx-2 mb-0">
+                                                            <label for="">درآمد عملیاتی</label>
+                                                            <div class="input-group">
+                                                                <input class="so-input-xs" type="number"
+                                                                    ng-model="self.information.amountOfAssets"
+                                                                    name="amountOfAssets" required />
+                                                            </div>
+                                                        </sd-input-container>
+                                                        <div><i class="fas s-divide text-silver"></i></div>
+                                                        <sd-input-container class="material text-right mr-2 mb-0">
+                                                            <label for="">سود خالص</label>
+                                                            <div class="input-group">
+                                                                <input class="so-input-xs" type="number"
+                                                                    ng-model="self.information.amountOfAssets"
+                                                                    name="amountOfAssets" required />
+                                                            </div>
+                                                        </sd-input-container>
+
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-form>
+                    </div>
+                    <div class="col-lg-12 mb-3">
+                        <h2 class="circle-todo text-silver">نسبت های مالی دوسال قبل</h2>
+                    </div>
+                    <div class="col-lg-12" ng-if="FinancialAYearAgo.$valid">
+                        <ng-form name="FinancialTwoYearsAgo" novalidate>
+                            <div class="row">
+                                <div class="col-lg-10">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered assessment-rating-table">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="bg-l-stone" colspan="2">
+                                                        <div class="d-flex px-2  align-items-center">
+                                                            <div class="flex-grow-1">نسبت جاری</div>
+                                                            <div class="answer-box">dasd</div>
+                                                        </div>
+                                                    </td>
+                                                    <td colspan="2"
+                                                        class="d-flex flex-wrap align-items-baseline justify-content-evenly px-3 py-4">
+                                                        <div><i class="fas s-equals text-silver"></i></div>
+                                                        <sd-input-container class="material text-right mx-2 mb-0">
+                                                            <label for="">بدهی جاری</label>
+                                                            <div class="input-group">
+                                                                <input class="so-input-xs" type="number"
+                                                                    ng-model="self.information.amountOfAssets"
+                                                                    name="amountOfAssets" required />
+                                                            </div>
+                                                        </sd-input-container>
+                                                        <div><i class="fas s-divide text-silver"></i></div>
+                                                        <sd-input-container class="material text-right mr-2 mb-0">
+                                                            <label for="">دارایی جاری</label>
+                                                            <div class="input-group">
+                                                                <input class="so-input-xs" type="number"
+                                                                    ng-model="self.information.amountOfAssets"
+                                                                    name="amountOfAssets" required />
+                                                            </div>
+                                                        </sd-input-container>
+
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="bg-l-stone" colspan="2">
+                                                        <div class="d-flex px-2  align-items-center">
+
+                                                            <div class="flex-grow-1">دوره وصول مطالبات</div>
+                                                            <div class="answer-box">dasd</div>
+                                                        </div>
+
+                                                    </td>
+                                                    <td colspan="2"
+                                                        class="d-flex flex-wrap align-items-baseline justify-content-evenly px-3 py-4">
+                                                        <div><i class="fas s-equals text-silver"></i></div>
+                                                        <sd-input-container class="material text-right mx-2 mb-0">
+                                                            <label for="">درآمد عملیاتی</label>
+                                                            <div class="input-group">
+                                                                <input class="so-input-xs" type="number"
+                                                                    ng-model="self.information.amountOfAssets"
+                                                                    name="amountOfAssets" required />
+                                                            </div>
+                                                        </sd-input-container>
+                                                        <div><i class="fas s-divide text-silver"></i></div>
+                                                        <sd-input-container class="material text-right mr-2 mb-0">
+                                                            <label for="">حساب ها و اسناد دریافتنی </label>
+                                                            <div class="input-group">
+                                                                <input class="so-input-xs" type="number"
+                                                                    ng-model="self.information.amountOfAssets"
+                                                                    name="amountOfAssets" required />
+                                                            </div>
+                                                        </sd-input-container>
+
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="bg-l-stone" colspan="2">
+                                                        <div class="d-flex px-2  align-items-center">
+
+                                                            <div class="flex-grow-1">نسب بدهی ها به دارایی ها</div>
+                                                            <div class="answer-box">dasd</div>
+                                                        </div>
+
+                                                    </td>
+                                                    <td colspan="2"
+                                                        class="d-flex flex-wrap align-items-baseline justify-content-evenly px-3 py-4">
+                                                        <div><i class="fas s-equals text-silver"></i></div>
+                                                        <sd-input-container class="material text-right mx-2 mb-0">
+                                                            <label for="">جمع دارایی ها</label>
+                                                            <div class="input-group">
+                                                                <input class="so-input-xs" type="number"
+                                                                    ng-model="self.information.amountOfAssets"
+                                                                    name="amountOfAssets" required />
+                                                            </div>
+                                                        </sd-input-container>
+                                                        <div><i class="fas s-divide text-silver"></i></div>
+                                                        <sd-input-container class="material text-right mr-2 mb-0">
+                                                            <label for="">جمع بدهی ها</label>
+                                                            <div class="input-group">
+                                                                <input class="so-input-xs" type="number"
+                                                                    ng-model="self.information.amountOfAssets"
+                                                                    name="amountOfAssets" required />
+                                                            </div>
+                                                        </sd-input-container>
+
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="bg-l-stone" colspan="2">
+                                                        <div class="d-flex px-2  align-items-center">
+
+                                                            <div class="flex-grow-1">نسبت بازده فروش</div>
+                                                            <div class="answer-box">dasd</div>
+                                                        </div>
+
+                                                    </td>
+                                                    <td colspan="2"
+                                                        class="d-flex flex-wrap align-items-baseline justify-content-evenly px-3 py-4">
+                                                        <div><i class="fas s-equals text-silver"></i></div>
+                                                        <sd-input-container class="material text-right mx-2 mb-0">
+                                                            <label for="">درآمد عملیاتی</label>
+                                                            <div class="input-group">
+                                                                <input class="so-input-xs" type="number"
+                                                                    ng-model="self.information.amountOfAssets"
+                                                                    name="amountOfAssets" required />
+                                                            </div>
+                                                        </sd-input-container>
+                                                        <div><i class="fas s-divide text-silver"></i></div>
+                                                        <sd-input-container class="material text-right mr-2 mb-0">
+                                                            <label for="">سود خالص</label>
+                                                            <div class="input-group">
+                                                                <input class="so-input-xs" type="number"
+                                                                    ng-model="self.information.amountOfAssets"
+                                                                    name="amountOfAssets" required />
+                                                            </div>
+                                                        </sd-input-container>
+
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-form>
+                    </div>
+                    <div class="col-lg-12 mb-3">
+                        <h2 class="circle-todo text-silver">نسبت های مالی سه سال قبل</h2>
+                    </div>
+                    <div class="col-lg-12" ng-if="FinancialTwoYearsAgo.$valid">
+                        <ng-form name="FinancialThreeYearsAgo" novalidate>
+                            <div class="row">
+                                <div class="col-lg-10">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered assessment-rating-table">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="bg-l-stone" colspan="2">
+                                                        <div class="d-flex px-2  align-items-center">
+                                                            <div class="flex-grow-1">نسبت جاری</div>
+                                                            <div class="answer-box">dasd</div>
+                                                        </div>
+                                                    </td>
+                                                    <td colspan="2"
+                                                        class="d-flex flex-wrap align-items-baseline justify-content-evenly px-3 py-4">
+                                                        <div><i class="fas s-equals text-silver"></i></div>
+                                                        <sd-input-container class="material text-right mx-2 mb-0">
+                                                            <label for="">بدهی جاری</label>
+                                                            <div class="input-group">
+                                                                <input class="so-input-xs" type="number"
+                                                                    ng-model="self.information.amountOfAssets"
+                                                                    name="amountOfAssets" required />
+                                                            </div>
+                                                        </sd-input-container>
+                                                        <div><i class="fas s-divide text-silver"></i></div>
+                                                        <sd-input-container class="material text-right mr-2 mb-0">
+                                                            <label for="">دارایی جاری</label>
+                                                            <div class="input-group">
+                                                                <input class="so-input-xs" type="number"
+                                                                    ng-model="self.information.amountOfAssets"
+                                                                    name="amountOfAssets" required />
+                                                            </div>
+                                                        </sd-input-container>
+
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="bg-l-stone" colspan="2">
+                                                        <div class="d-flex px-2  align-items-center">
+
+                                                            <div class="flex-grow-1">دوره وصول مطالبات</div>
+                                                            <div class="answer-box">dasd</div>
+                                                        </div>
+
+                                                    </td>
+                                                    <td colspan="2"
+                                                        class="d-flex flex-wrap align-items-baseline justify-content-evenly px-3 py-4">
+                                                        <div><i class="fas s-equals text-silver"></i></div>
+                                                        <sd-input-container class="material text-right mx-2 mb-0">
+                                                            <label for="">درآمد عملیاتی</label>
+                                                            <div class="input-group">
+                                                                <input class="so-input-xs" type="number"
+                                                                    ng-model="self.information.amountOfAssets"
+                                                                    name="amountOfAssets" required />
+                                                            </div>
+                                                        </sd-input-container>
+                                                        <div><i class="fas s-divide text-silver"></i></div>
+                                                        <sd-input-container class="material text-right mr-2 mb-0">
+                                                            <label for="">حساب ها و اسناد دریافتنی </label>
+                                                            <div class="input-group">
+                                                                <input class="so-input-xs" type="number"
+                                                                    ng-model="self.information.amountOfAssets"
+                                                                    name="amountOfAssets" required />
+                                                            </div>
+                                                        </sd-input-container>
+
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="bg-l-stone" colspan="2">
+                                                        <div class="d-flex px-2  align-items-center">
+
+                                                            <div class="flex-grow-1">نسب بدهی ها به دارایی ها</div>
+                                                            <div class="answer-box">dasd</div>
+                                                        </div>
+
+                                                    </td>
+                                                    <td colspan="2"
+                                                        class="d-flex flex-wrap align-items-baseline justify-content-evenly px-3 py-4">
+                                                        <div><i class="fas s-equals text-silver"></i></div>
+                                                        <sd-input-container class="material text-right mx-2 mb-0">
+                                                            <label for="">جمع دارایی ها</label>
+                                                            <div class="input-group">
+                                                                <input class="so-input-xs" type="number"
+                                                                    ng-model="self.information.amountOfAssets"
+                                                                    name="amountOfAssets" required />
+                                                            </div>
+                                                        </sd-input-container>
+                                                        <div><i class="fas s-divide text-silver"></i></div>
+                                                        <sd-input-container class="material text-right mr-2 mb-0">
+                                                            <label for="">جمع بدهی ها</label>
+                                                            <div class="input-group">
+                                                                <input class="so-input-xs" type="number"
+                                                                    ng-model="self.information.amountOfAssets"
+                                                                    name="amountOfAssets" required />
+                                                            </div>
+                                                        </sd-input-container>
+
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="bg-l-stone" colspan="2">
+                                                        <div class="d-flex px-2  align-items-center">
+
+                                                            <div class="flex-grow-1">نسبت بازده فروش</div>
+                                                            <div class="answer-box">dasd</div>
+                                                        </div>
+
+                                                    </td>
+                                                    <td colspan="2"
+                                                        class="d-flex flex-wrap align-items-baseline justify-content-evenly px-3 py-4">
+                                                        <div><i class="fas s-equals text-silver"></i></div>
+                                                        <sd-input-container class="material text-right mx-2 mb-0">
+                                                            <label for="">درآمد عملیاتی</label>
+                                                            <div class="input-group">
+                                                                <input class="so-input-xs" type="number"
+                                                                    ng-model="self.information.amountOfAssets"
+                                                                    name="amountOfAssets" required />
+                                                            </div>
+                                                        </sd-input-container>
+                                                        <div><i class="fas s-divide text-silver"></i></div>
+                                                        <sd-input-container class="material text-right mr-2 mb-0">
+                                                            <label for="">سود خالص</label>
+                                                            <div class="input-group">
+                                                                <input class="so-input-xs" type="number"
+                                                                    ng-model="self.information.amountOfAssets"
+                                                                    name="amountOfAssets" required />
+                                                            </div>
+                                                        </sd-input-container>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-form>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 d-flex justify-content-center">
+                        <button class="btn btn-n-green so-btn-lg">استعلام</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

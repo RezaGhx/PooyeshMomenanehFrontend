@@ -1,0 +1,496 @@
+<main class="warranty-type">
+    <div class="row">
+        <div class="col-lg-12">
+            <form cg-busy="self.promiseLoading" name="vendorForm" autocomplete="off"
+                ng-submit="self.submit(self.vendor,vendorForm)" novalidate promise-btn>
+                <ng-form name="vendorFormProduct">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="so-title">
+                                اطلاعات خریدار
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <sd-input-container class="material text-right">
+                                <label for="">نام محصول</label>
+                                <div class="input-group">
+                                    <sd-icon>
+                                        <i class="fas s-shopping-basket"></i>
+                                    </sd-icon>
+                                    <input class="so-input-xl w-100" type="text" ng-minlength="1" ng-maxlength="256"
+                                        ng-model="self.vendor.productName" name="productName" required />
+                                    <div ng-messages="vendorFormProduct.productName.$error">
+                                        <div ng-message="required">
+                                            وارد کردن نام محصول الزامی میباشد
+                                        </div>
+                                        <div ng-message="minlength">نام محصول نباید کمتر از یک کاراکتر باشد</div>
+                                        <div ng-message="maxlength">نام محصول نباید بیش از دویست و پنجاه و شش کاراکتر
+                                            باشد
+                                        </div>
+                                        <div ng-message="inputFilterAlphabet">
+                                            نام باید فارسی باشد
+                                        </div>
+                                    </div>
+                                </div>
+                            </sd-input-container>
+                        </div>
+                    </div>
+                </ng-form>
+                <div class="row">
+                    <div class="col-lg-6 d-flex justify-content-between">
+                        <div class="so-subheading-2">
+                            نوع خریدار:
+                        </div>
+                        <div class="input-container custom-control custom-control-orange custom-radio ">
+                            <input type="radio" ng-model="self.vendor.buyerType" class="custom-control-input"
+                                value="individual" id="realPerson" name="Buyer" required />
+                            <label class="custom-control-label so-subheading-1" for="realPerson">حقیقی</label>
+                        </div>
+                        <div class="input-container custom-control custom-control-orange custom-radio ">
+                            <input type="radio" ng-model="self.vendor.buyerType" class="custom-control-input"
+                                value="legal" id="legalPerson" />
+                            <label class="custom-control-label so-subheading-1" for="legalPerson">حقوقی</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <ng-form name="vendorFormIndividual">
+                            <div cg-busy="self.promiseLoading" class="row animate-show-hide" class="realPersonForm"
+                                ng-if="self.vendor.buyerType=='individual'">
+                                <div class="col-lg-6 d-flex flex-column">
+                                    <sd-input-container class="material text-right">
+                                        <label for="">نام</label>
+                                        <div class="input-group">
+                                            <sd-icon>
+                                                <i class="fas s-user"></i>
+                                            </sd-icon>
+                                            <input class="so-input-xl w-100" type="text"
+                                                ng-model="self.vendor.firstName" name="firstName"
+                                                ng-disabled="legalPersonForm" required />
+                                            <div ng-messages="vendorFormIndividual.firstName.$error">
+                                                <div ng-message="required">
+                                                    نام خریدار الزامی میباشد
+                                                </div>
+                                                <div ng-message="inputFilterAlphabet">
+                                                    نام باید فارسی باشد
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </sd-input-container>
+                                    <sd-input-container class="material text-right">
+                                        <label for="">نام خانوادگی</label>
+                                        <div class="input-group">
+                                            <sd-icon>
+                                                <i class="fas s-user"></i>
+                                            </sd-icon>
+                                            <input class="so-input-xl w-100" type="text" ng-model="self.vendor.lastName"
+                                                name="lastName" ng-disabled="legalPersonForm" required />
+                                            <div ng-messages="vendorFormIndividual.lastName.$error">
+                                                <div ng-message="required">
+                                                    نام خانوادگی خریدار الزامی میباشد
+                                                </div>
+                                                <div ng-message="inputFilterAlphabet">
+                                                    نام خانوادگی باید فارسی باشد
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </sd-input-container>
+                                    <sd-input-container class="material text-right">
+                                        <label for="">کد ملی</label>
+                                        <div class="input-group">
+                                            <sd-icon>
+                                                <i class="fas s-apartment"></i>
+                                            </sd-icon>
+                                            <input class="so-input-xl w-100" type="text" ng-minlength="10"
+                                                ng-maxlength="10" ng-input-filter-number="uint"
+                                                ng-model="self.vendor.nationalCode" ng-disabled="legalPersonForm"
+                                                name="nationalCode" required />
+                                            <div ng-messages="vendorFormIndividual.nationalCode.$error">
+                                                <div ng-message="required">
+                                                    وارد کردن کد ملی خریدار الزامی میباشد
+                                                </div>
+                                                <div ng-message="minlength">کد ملی نباید کمتر از ده کاراکتر باشد
+                                                </div>
+                                                <div ng-message="maxlength">کد ملی نباید بیش از ده کاراکتر باشد
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </sd-input-container>
+                                </div>
+                            </div>
+                        </ng-form>
+                        <ng-form name="vendorFormLegal">
+                            <div cg-busy="self.promiseLoading" class="row animate-show-hide" class="legalPersonForm"
+                                ng-if="self.vendor.buyerType=='legal'">
+                                <div class="col-lg-6 d-flex flex-column">
+                                    <sd-input-container class="material text-right">
+                                        <label for="">نام شرکت</label>
+                                        <div class="input-group">
+                                            <sd-icon>
+                                                <i class="fas s-user"></i>
+                                            </sd-icon>
+                                            <input class="so-input-xl w-100" type="text"
+                                                ng-model="self.vendor.companyName" ng-disabled="realPersonForm"
+                                                name="companyName" required />
+                                            <div ng-messages="vendorFormLegal.companyName.$error">
+                                                <div ng-message="required">
+                                                    نام شرکت خریدار الزامی میباشد
+                                                </div>
+                                                <div ng-message="inputFilterAlphabet">
+                                                    نام باید فارسی باشد
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </sd-input-container>
+                                    <sd-input-container class="material text-right">
+                                        <label for="">شناسه ملی</label>
+                                        <div class="input-group">
+                                            <sd-icon>
+                                                <i class="fas s-apartment"></i>
+                                            </sd-icon>
+                                            <input class="so-input-xl w-100" type="text" ng-minlength="11"
+                                                ng-maxlength="11" ng-input-filter-number="uint"
+                                                ng-model="self.vendor.nationalId" name="nationalId"
+                                                ng-disabled="realPersonForm" required />
+                                            <div ng-messages="vendorFormLegal.nationalId.$error">
+                                                <div ng-message="required">
+                                                    شناسه ملی شرکت خریدار الزامی میباشد
+                                                </div>
+                                                <div ng-message="minlength">شناسه ملی شرکت نباید کمتر از یازده کاراکتر
+                                                    باشد
+                                                </div>
+                                                <div ng-message="maxlength">شناسه ملی شرکت نباید بیش از یازده کاراکتر
+                                                    باشد
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </sd-input-container>
+                                </div>
+                            </div>
+                        </ng-form>
+                    </div>
+                </div>
+                <ng-form name="vendorFormLast">
+                    <div class="row mt-4">
+                        <div class="col-lg-6 d-flex flex-column">
+                            <sd-input-container class="material text-right">
+                                <label for="">مبلغ کل پیش فاکتور / قرارداد</label>
+                                <div class="input-group">
+                                    <sd-icon>
+                                        <i class="fas s-bitcoin"></i>
+                                    </sd-icon>
+                                    <input currency-input class="so-input-xl w-100" ng-minlength="3" ng-maxlength="16"
+                                        ng-model="self.vendor.contractAmount" name="contractAmount" required />
+                                    <div ng-messages="vendorFormLast.contractAmount.$error">
+                                        <div ng-message="required">
+                                            مبلغ کل پیش فاکتور / قرارداد الزامی میباشد
+                                        </div>
+                                        <div ng-message="minlength">مبلغ کل پیش فاکتور / قرارداد نباید کمتر از سه رقم
+                                            باشد
+                                        </div>
+                                        <div ng-message="maxlength">مبلغ کل پیش فاکتور / قرارداد نباید بیشتر از شانزده
+                                            رقم باشد
+                                        </div>
+                                    </div>
+                                </div>
+                            </sd-input-container>
+                            <sd-input-container class="material text-right">
+                                <label for="">تاریخ صدور پیش فاکتور/ قرارداد</label>
+                                <adm-dtp class="w-100" ng-model="self.vendor.contractDate"
+                                    maxdate="'{{self.dateLimit}}'">
+                                    <sd-icon>
+                                        <i class="fas s-calendar"></i>
+                                    </sd-icon>
+                                    <input class="so-input-xl w-100" type='text' name="contractDate"
+                                        ng-model="self.vendor.contractDate" dtp-input required />
+                                    <span dtp-destroy>
+                                        <svg class="removeIcon" viewBox="0 0 24 24" dtp-destroy
+                                            ng-if="self.vendor.contractDate">
+                                            <use xlink:href="#dtp-i-close"></use>
+                                        </svg>
+                                    </span>
+                                    <div ng-messages="vendorFormLast.contractDate.$error" class="animate-show-hide"
+                                        ng-show="vendorFormLast.contractDate.$touched">
+                                        <div ng-message="required">
+                                            ورود تاریخ صدور پیش فاکتور/ قرارداد الزامی میباشد
+                                        </div>
+                                    </div>
+                                </adm-dtp>
+                            </sd-input-container>
+
+                            <sd-input-container class="material text-right">
+                                <label for="">شماره قرارداد</label>
+                                <div class="input-group">
+                                    <sd-icon>
+                                        <i class="fas s-clipboard-list"></i>
+                                    </sd-icon>
+                                    <input class="so-input-xl w-100" type="text" ng-minlength="2" ng-maxlength="70"
+                                        ng-model="self.vendor.contractNumber" name="contractNumber" required />
+                                    <div ng-messages="vendorFormLast.contractNumber.$error">
+                                        <div ng-message="required">
+                                            ورود شماره قرارداد الزامی میباشد
+                                        </div>
+                                        <div ng-message="minlength">شماره قرارداد نباید کمتر از دو کاراکتر
+                                            باشد
+                                        </div>
+                                        <div ng-message="maxlength">شماره قرارداد نباید بیش از هفتاد کاراکتر
+                                            باشد
+                                        </div>
+                                    </div>
+                                </div>
+                            </sd-input-container>
+
+                            <div class="d-flex flex-column">
+                                <sd-input-container class="material text-right">
+                                    <label for="">مبلغ درخواست</label>
+                                    <div class="input-group">
+                                        <sd-icon>
+                                            <i class="fas s-bill"></i>
+                                        </sd-icon>
+                                        <input currency-input class="so-input-xl w-100" ng-minlength="3"
+                                            ng-maxlength="16" ng-model="self.vendor.requestAmount" name="requestAmount"
+                                            required />
+                                        <div ng-messages="vendorFormLast.requestAmount.$error">
+                                            <div ng-message="required">
+                                                مبلغ درخواست الزامی میباشد
+                                            </div>
+                                            <div ng-message="minlength">مبلغ درخواست نباید کمتر از سه رقم باشد
+                                            </div>
+                                            <div ng-message="maxlength">مبلغ درخواست نباید بیشتر از شانزده رقم باشد
+                                            </div>
+                                        </div>
+                                    </div>
+                                </sd-input-container>
+                                <div class="text-l-gray so-h5">
+                                    تذکر: مبلغ درخواست لیزینگ باید حداکثر 70% مبلغ قرارداد باشد، در غیراینصورت درخواست
+                                    توسط
+                                    کارشناس مورد قبول واقع نمیشود
+                                </div>
+                            </div>
+
+
+                            <sd-input-container class="material text-right mt-4">
+                                <sd-icon>
+                                    <i class="fas s-shield-check"></i>
+                                </sd-icon>
+                                <label for="">مرجع معرفی کننده</label>
+                                <select class="custom-select so-input-xl w-100" required
+                                    ng-model="self.vendor.introducer" name="introducer">
+                                    <!-- <option value="">نوع شرکت</option> -->
+                                    <option ng-value="1">معاونت علمی و فناوری ریاست جمهوری</option>
+                                    <option ng-value="2">صندوق نوآوری و شکوفایی</option>
+                                    <option ng-value="3">پارک فناوری پردیس</option>
+                                    <option ng-value="4">صندوق توسعه فناوری های نوین</option>
+                                    <option ng-value="0">سایر</option>
+                                    <!-- <option value="{{item.key}}" ng-repeat="item in self.introducerGroup" ng-bind="item.key"></option> -->
+                                </select>
+                                <div ng-messages="vendorFormLast.introducer.$error">
+                                    <div ng-message="required">
+                                        ذکر مرجع معرفی کننده الزامی میباشد
+                                    </div>
+                                </div>
+                            </sd-input-container>
+                            <sd-input-container class="material text-right" ng-if="self.vendor.introducer == 0">
+                                <label for="">نام مرجع معرفی کننده</label>
+                                <div class="input-group">
+                                    <sd-icon>
+                                        <i class="fas s-apartment"></i>
+                                    </sd-icon>
+                                    <input class="so-input-xl w-100" type="text" ng-minlength="2" ng-maxlength="40"
+                                        required ng-model="self.vendor.introducerName" name="introducerName" />
+                                    <div ng-messages="vendorFormLast.introducerName.$error">
+                                        <div ng-message="required">
+                                            درصورت انتخاب سایر، ورود نام پارک مرجع معرفی کننده الزامیست
+                                        </div>
+                                        <div ng-message="minlength">نام پارک نباید کمتر از دو کاراکتر
+                                            باشد
+                                        </div>
+                                        <div ng-message="maxlength">نام پارک نباید بیش از چهل کاراکتر
+                                            باشد
+                                        </div>
+                                        <div ng-message="inputFilterAlphabet">
+                                            نام پارک باید فارسی باشد
+                                        </div>
+                                    </div>
+                                </div>
+                            </sd-input-container>
+                            <div class="d-flex justify-content-between mt-3 mb-5">
+                                <div class="so-body-1 font-weight-bold">
+                                    مدارک خریدار
+                                </div>
+                                <!-- <div class="so-h5 font-weight-bold text-l-gray">
+                                    فایل تکمیل شده کاربرگ ارزیابی را در اینجا بارگذاری نمایید. توجه داشته باشید که
+                                    میبایست فایل ورد بارگذاری شود
+                                </div> -->
+                                <div class="upload-box ml-4">
+                                    <div class="before-upload" ng-model="self.vendor.buyerDocuments"
+                                        ngf-model-options="{updateOn: 'change'}" ng-if="self.vendor.buyerDocuments==null"
+                                        ngf-select="self.uploadBuyerDocuments($files)">
+                                        <i class="far s-circle-plus s-8x text-white bg-orange p-3"></i>
+                                    </div>
+                                    <div class="after-upload d-flex justify-content-center align-items-center"
+                                        id="buyerDocuments" ng-if="self.vendor.buyerDocuments!=null">
+                                        <div class="loading-container" ng-if="self.loadingShow">
+                                            <div class="loader"></div>
+                                            <div class="loading-text so-h6">منتظر بمانید...</div>
+                                        </div>
+                                        <i class="fa s-check-circle s-8x text-white bg-orange p-3"></i>
+                                        <button ng-model="self.vendor.buyerDocuments"
+                                            class="btn edit shadow-none h-100 w-100"
+                                            ngf-select="self.uploadBuyerDocuments($files)">
+                                            <i class="fas s-edit s-2x text-white"></i>
+                                            <div class="loading-text text-white so-h6">بارگزاری مجدد</div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between mt-3 mb-5">
+                                <div class="so-body-1 font-weight-bold">
+                                    بارگذاری فایل قرارداد فی ما بین
+                                </div>
+                                <!-- <div class="so-h5 font-weight-bold text-l-gray">
+                                    فایل تکمیل شده کاربرگ ارزیابی را در اینجا بارگذاری نمایید. توجه داشته باشید که
+                                    میبایست فایل ورد بارگذاری شود
+                                </div> -->
+                                <div class="upload-box ml-4">
+                                    <div class="before-upload" ng-model="self.vendor.contractFile"
+                                        ngf-model-options="{updateOn: 'change'}" ng-if="self.vendor.contractFile==null"
+                                        ngf-select="self.uploadContractFile($files)" ngf-pattern="'.docx'"
+                                        ngf-accept="'.docx'">
+                                        <i class="far s-circle-plus s-8x text-white bg-orange p-3"></i>
+                                    </div>
+                                    <div class="after-upload d-flex justify-content-center align-items-center"
+                                        id="contractFile" ng-if="self.vendor.contractFile!=null">
+                                        <div class="loading-container" ng-if="self.loadingShow">
+                                            <div class="loader"></div>
+                                            <div class="loading-text so-h6">منتظر بمانید...</div>
+                                        </div>
+                                        <i class="fa s-check-circle s-8x text-white bg-orange p-3"></i>
+                                        <button ng-model="self.vendor.contractFile"
+                                            class="btn edit shadow-none h-100 w-100"
+                                            ngf-select="self.uploadContractFile($files)">
+                                            <i class="fas s-edit s-2x text-white"></i>
+                                            <div class="loading-text text-white so-h6">بارگزاری مجدد</div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between mt-3 mb-5">
+                                <div class="so-body-1 font-weight-bold">
+                                    نامه معرفی خریدار
+                                </div>
+                                <!-- <div class="so-h5 font-weight-bold text-l-gray">
+                                    فایل تکمیل شده کاربرگ ارزیابی را در اینجا بارگذاری نمایید. توجه داشته باشید که
+                                    میبایست فایل ورد بارگذاری شود
+                                </div> -->
+                                <div class="upload-box ml-4">
+                                    <div class="before-upload" ng-model="self.vendor.buyerIntroduceLetter"
+                                        ngf-model-options="{updateOn: 'change'}"
+                                        ng-if="self.vendor.buyerIntroduceLetter==null"
+                                        ngf-select="self.uploadBuyerIntroduceLetter($files)" ngf-pattern="'.docx'"
+                                        ngf-accept="'.docx'">
+                                        <i class="far s-circle-plus s-8x text-white bg-orange p-3"></i>
+                                    </div>
+                                    <div class="after-upload d-flex justify-content-center align-items-center"
+                                        id="buyerIntroduceLetter" ng-if="self.vendor.buyerIntroduceLetter!=null">
+                                        <div class="loading-container" ng-if="self.loadingShow">
+                                            <div class="loader"></div>
+                                            <div class="loading-text so-h6">منتظر بمانید...</div>
+                                        </div>
+                                        <i class="fa s-check-circle s-8x text-white bg-orange p-3"></i>
+                                        <button ng-model="self.vendor.buyerIntroduceLetter"
+                                            class="btn edit shadow-none h-100 w-100"
+                                            ngf-select="self.uploadBuyerIntroduceLetter($files)">
+                                            <i class="fas s-edit s-2x text-white"></i>
+                                            <div class="loading-text text-white so-h6">بارگزاری مجدد</div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between mt-3 mb-5">
+                                <div class="so-body-1 font-weight-bold">
+                                    کاربرگ ارزیابی خریدار
+                                </div>
+                                <!-- <div class="so-h5 font-weight-bold text-l-gray">
+                                    فایل تکمیل شده کاربرگ ارزیابی را در اینجا بارگذاری نمایید. توجه داشته باشید که
+                                    میبایست فایل ورد بارگذاری شود
+                                </div> -->
+                                <div class="upload-box ml-4">
+                                    <div class="before-upload" ng-model="self.vendor.buyerWorksheetAttachment"
+                                        ngf-model-options="{updateOn: 'change'}"
+                                        ng-if="self.vendor.buyerWorksheetAttachment==null"
+                                        ngf-select="self.uploadBuyerWorksheetAttachment($files)" ngf-pattern="'.docx'"
+                                        ngf-accept="'.docx'">
+                                        <i class="far s-circle-plus s-8x text-white bg-orange p-3"></i>
+                                    </div>
+                                    <div class="after-upload d-flex justify-content-center align-items-center"
+                                        id="buyerWorksheetAttachment"
+                                        ng-if="self.vendor.buyerWorksheetAttachment!=null">
+                                        <div class="loading-container" ng-if="self.loadingShow">
+                                            <div class="loader"></div>
+                                            <div class="loading-text so-h6">منتظر بمانید...</div>
+                                        </div>
+                                        <i class="fa s-check-circle s-8x text-white bg-orange p-3"></i>
+                                        <button ng-model="self.vendor.buyerWorksheetAttachment"
+                                            class="btn edit shadow-none h-100 w-100"
+                                            ngf-select="self.uploadBuyerWorksheetAttachment($files)">
+                                            <i class="fas s-edit s-2x text-white"></i>
+                                            <div class="loading-text text-white so-h6">بارگزاری مجدد</div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between mt-3 mb-5">
+                                <div class="so-body-1 font-weight-bold">
+                                    کاربرگ ارزیابی فروشنده
+                                </div>
+                                <!-- <div class="so-h5 font-weight-bold text-l-gray">
+                                    فایل تکمیل شده کاربرگ ارزیابی را در اینجا بارگذاری نمایید. توجه داشته باشید که
+                                    میبایست فایل ورد بارگذاری شود
+                                </div> -->
+                                <div class="upload-box ml-4">
+                                    <div class="before-upload" ng-model="self.vendor.sellerWorksheetAttachment"
+                                        ngf-model-options="{updateOn: 'change'}"
+                                        ng-if="self.vendor.sellerWorksheetAttachment==null"
+                                        ngf-select="self.uploadSellerWorksheetAttachment($files)" ngf-pattern="'.docx'"
+                                        ngf-accept="'.docx'">
+                                        <i class="far s-circle-plus s-8x text-white bg-orange p-3"></i>
+                                    </div>
+                                    <div class="after-upload d-flex justify-content-center align-items-center"
+                                        id="sellerWorksheetAttachment"
+                                        ng-if="self.vendor.sellerWorksheetAttachment!=null">
+                                        <div class="loading-container" ng-if="self.loadingShow">
+                                            <div class="loader"></div>
+                                            <div class="loading-text so-h6">منتظر بمانید...</div>
+                                        </div>
+                                        <i class="fa s-check-circle s-8x text-white bg-orange p-3"></i>
+                                        <button ng-model="self.vendor.sellerWorksheetAttachment"
+                                            class="btn edit shadow-none h-100 w-100"
+                                            ngf-select="self.uploadSellerWorksheetAttachment($files)">
+                                            <i class="fas s-edit s-2x text-white"></i>
+                                            <div class="loading-text text-white so-h6">بارگزاری مجدد</div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end new -->
+
+                        </div>
+                    </div>
+                </ng-form>
+                <div class="row mt-3">
+                    <div class="col-lg-12">
+                        <button class="btn btn-green so-btn-md ml-2" ng-click="self.submit(self.vendor)"
+                            ng-disabled="vendorForm.$invalid">
+                            ثبت
+                        </button>
+                        <button class="btn btn-orange so-btn-md text-white" type="button"
+                            ui-sref="panel.loan.request.KnowledgeInformation">
+                            بازگشت
+                        </button>
+                    </div>
+                </div>
+                </ng-form>
+            </form>
+        </div>
+    </div>
+</main>

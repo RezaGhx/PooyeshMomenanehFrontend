@@ -1,0 +1,109 @@
+<form cg-busy="self.promiseLoading" name="informationForm" autocomplete="off"
+    class="information-box p-5 bg-white mt-3 shadow" novalidate
+    ng-submit="self.submit(self.information,informationForm)">
+    <h1 class="so-subheading-2 text-d-gray">اطلاعات شرکت</h1>
+    <h2 class="so-h5 text-silver">برای ساده تر شدن مراحل دریافت خدمات بهتر است اطلاعات عمومی شرکت خود را تکمیل
+        نمایید.</h2>
+    <sd-input-container class="material text-right">
+        <sd-icon>
+            <i class="fas s-radio"></i>
+        </sd-icon>
+        <label for="">کد ثبتی</label>
+        <input class="so-input-xl" type="text" ng-minlength="2" ng-maxlength="70" ng-input-filter-number="uint"
+            ng-model="self.information.registerNumber" name="RegisterNumber" />
+        <div ng-messages="informationForm.RegisterNumber.$error">
+            <div ng-message="required">
+                پر کردن فیلد الزامی می‌باشد
+            </div>
+            <div ng-message="minlength">کد ثبتی نباید کمتر از دو کاراکتر باشد</div>
+            <div ng-message="maxlength">کد ثبتی نباید بیش از هفتاد کاراکتر باشد</div>
+        </div>
+    </sd-input-container>
+    <sd-input-container class="material text-right">
+        <label for="">تاریخ ثبت</label>
+
+        <adm-dtp class="w-100" ng-model='self.information.registerDate' maxdate="'{{self.dateLimit}}'">
+            <sd-icon>
+                <i class="fas s-calendar"></i>
+            </sd-icon>
+            <input class="so-input-xl" type='text' name="RegisterDate" ng-model="self.information.registerDate"
+                maxdate="'{{self.dateLimit}}'" dtp-input />
+            <span dtp-destroy>
+                <svg class="removeIcon ng-scope" viewBox="0 0 24 24" dtp-destroy ng-if="self.information.registerDate">
+                    <use xlink:href="#dtp-i-close"></use>
+                </svg>
+            </span>
+            <div ng-messages="informationForm.RegisterDate.$error">
+                <div ng-message="required">
+                    پر کردن فیلد الزامی می‌باشد
+                </div>
+            </div>
+        </adm-dtp>
+    </sd-input-container>
+    <sd-input-container class="material text-right">
+        <label for="">کد اقتصادی</label>
+
+        <div class="input-group">
+            <sd-icon>
+                <i class="fas s-bitcoin"></i>
+            </sd-icon>
+            <input class="so-input-xl" type="text" ng-minlength="2" ng-maxlength="70" ng-input-filter-number="uint"
+                ng-model="self.information.economicCode" name="EconomicCode" />
+
+            <div ng-messages="informationForm.EconomicCode.$error">
+                <div ng-message="required">
+                    پر کردن فیلد الزامی می‌باشد
+                </div>
+                <div ng-message="minlength">کد اقتصادی نباید کمتر از دو کاراکتر باشد</div>
+                <div ng-message="maxlength">کد اقتصادی نباید بیش از هفتاد کاراکتر باشد</div>
+            </div>
+        </div>
+
+    </sd-input-container>
+    <sd-input-container class="material text-right">
+        <sd-icon>
+            <i class="fas s-card-star"></i>
+        </sd-icon>
+        <label for="">نوع شرکت</label>
+        <select class="custom-select so-input-xl" ng-model="self.information.companyRegistrationType"
+            name="CompanyRegistrationType">
+            <option ng-value="1" selected>سهامی خاص</option>
+            <option ng-value="2" selected>مسئولیت محدود</option>
+            <option ng-value="3" selected>سهامی عام</option>
+            <option ng-value="4" selected>تعاونی</option>
+            <option ng-value="5" selected>تضامینی</option>
+            <option ng-value="6" selected>موسسه غیر تجاری</option>
+        </select>
+        <div ng-messages="informationForm.CompanyRegistrationType.$error">
+            <div ng-message="required">
+                پر کردن فیلد الزامی می‌باشد
+            </div>
+        </div>
+    </sd-input-container>
+    <sd-input-container class="material text-right">
+        <sd-icon>
+            <i class="fas s-id-card"></i>
+        </sd-icon>
+        <label for="">نوع فعالیت</label>
+        <select class="custom-select so-input-xl" ng-model="self.information.activityType" name="ActivityType">
+            <option ng-value="1" selected>تولیدی</option>
+            <option ng-value="2" selected>توزیعی </option>
+            <option ng-value="3" selected>بازرگانی داخلی</option>
+            <option ng-value="4" selected>بازرگانی خارجی</option>
+            <option ng-value="5" selected>آزمایشگاهی/ تحقیقاتی</option>
+        </select>
+        <div ng-messages="informationForm.ActivityType.$error">
+            <div ng-message="required">
+                پر کردن فیلد الزامی می‌باشد
+            </div>
+        </div>
+    </sd-input-container>
+    <button type="submit" class="btn btn-blue so-btn-xl mt-2">
+        بعدی
+    </button>
+
+</form>
+<a ui-sref="general.completeInformation.specialMemberships"
+    class="text-blue so-h5 d-block mt-4 text-underline-position">
+    <ins>عبور سریع از این مرحله</ins>
+</a>

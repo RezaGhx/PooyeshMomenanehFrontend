@@ -1,0 +1,75 @@
+& {
+  background: url("../images/element.png");
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: 20%;
+  background-color: #E7EEF2;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+
+  .image {
+    height: 67px;
+  }
+
+  .btn-height-width-style {
+    height: 35px;
+    width: 40px;
+  }
+}
+
+.box {
+  transition: all ease-out 0.5s;
+  
+  overflow: hidden;
+
+  &.box-height-knowledge{
+    height: 120px;
+  }
+  &.box-height-park{
+    height: 70px;
+  }
+
+  &.ng-hide {
+    transition: all ease-out 0.3s;
+    height: 0;
+  }
+}
+
+#unique-upload {
+  .before-upload {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding-right: 20px;
+    padding-left: 20px;
+    text-align: center;
+  }
+
+  .after-upload {
+    position: relative;
+    padding-right: 1.25rem;
+    padding-left: 1.25rem;
+    text-align: center;
+    background-color: get-color('orange');
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-image: radial-gradient(circle at bottom left, #eeeeee 25%, #ffd26c 100%);
+
+    .icon {
+      color: get-color('n-gray');
+
+      &:hover {
+        color: get-color('black');
+        transition: .5s linear;
+      }
+    }
+  }
+}

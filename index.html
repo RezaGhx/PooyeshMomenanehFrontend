@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa" ng-app="app" ng-controller="AppController as self">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title ng-bind="self.title"></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .ng-cloak,
+        .x-ng-cloak,
+        [data-ng-cloak],
+        [ng-cloak],
+        [ng\:cloak],
+        [x-ng-cloak] {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <a ui-sref="panel.loan.completeRequest.contractHistoryInformation({type: 'dasd'})">adsdasddsd</a> -->
+    <!-- <a ui-sref="general.completeInformation.logoUpload">
+        General
+    </a>
+    <a ui-sref="Dashboard.Main">
+        Dashboard main
+    </a>
+    <a ui-sref="Dashboard">
+        Dashboard
+    </a> -->
+    <ui-view class="view-box"></ui-view>
+
+</body>
+
+</html>

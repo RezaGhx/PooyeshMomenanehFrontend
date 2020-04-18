@@ -1,0 +1,299 @@
+.member-box {
+  padding: 16px 16px 40px 16px;
+  border: 1.5px solid get-color("l-purple");
+
+  .button-add-member {
+    position: absolute;
+    bottom: -63px;
+  }
+}
+
+.upload-box {
+  margin: 0;
+  justify-content: flex-end;
+
+  .after-upload,
+  .before-upload {
+    height: 100px;
+    width: 100px;
+  }
+
+  img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.upload-document-signing {
+  margin: 0px 0px 15px 15px;
+  height: 220px;
+  background-color: get-color("l-silver");
+  flex: 0 0 calc(100% / 4 - 15px);
+  position: relative;
+
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .before-upload {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding-right: 20px;
+    padding-left: 20px;
+    text-align: center;
+  }
+
+  .after-upload {
+    position: relative;
+    padding-right: 1.25rem;
+    padding-left: 1.25rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background: radial-gradient(
+      circle at bottom left,
+      rgba(238, 238, 238, 0.81) 25%,
+      #ffd26c 100%
+    );
+
+    .icon {
+      color: get-color("n-gray");
+
+      &:hover {
+        color: get-color("black");
+        transition: 0.5s linear;
+      }
+    }
+  }
+}
+
+.warranty-type {
+  .tender-box {
+    background: url("../../images/tender.jpg") no-repeat;
+    background-size: cover;
+    position: relative;
+
+    &::after {
+      opacity: 0;
+      position: absolute;
+      content: "شرکت در مناقصه";
+      height: 100%;
+      width: 100%;
+      background-color: rgba(94, 96, 0, 0.9);
+      top: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+      color: white;
+      transition: all 0.5s ease;
+    }
+
+    &:hover::after {
+      opacity: 1;
+    }
+
+    .tender-title {
+      color: #5e6000;
+    }
+  }
+  .payment-box {
+    background: url("../../images/payment.jpg") no-repeat;
+    background-size: cover;
+    position: relative;
+
+    &::after {
+      opacity: 0;
+      position: absolute;
+      content: "پیش پرداخت قرارداد";
+      height: 100%;
+      width: 100%;
+      background-color: rgba(122, 110, 0, 0.9);
+      top: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+      color: white;
+      transition: all 0.5s ease;
+    }
+
+    &:hover::after {
+      opacity: 1;
+    }
+
+    .payment-title {
+      color: #7a6e00;
+    }
+  }
+
+  .advantage-box {
+    background: url("../../images/advantage.jpg") no-repeat;
+    background-size: cover;
+    position: relative;
+
+    &::after {
+      opacity: 0;
+      position: absolute;
+      content: "حسن انجام کار";
+      height: 100%;
+      width: 100%;
+      background-color: rgba(132, 93, 23, 0.9);
+      top: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+      color: white;
+      transition: all 0.5s ease;
+    }
+
+    &:hover::after {
+      opacity: 1;
+    }
+
+    .advantage-title {
+      color: #845d17;
+    }
+  }
+
+  .credit-box {
+    background: url("../../images/credit.jpg") no-repeat;
+    background-size: cover;
+    position: relative;
+
+    &::after {
+      opacity: 0;
+      position: absolute;
+      content: "اعتباری";
+      height: 100%;
+      width: 100%;
+      background-color: rgba(124, 65, 46, 0.9);
+      top: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+      color: white;
+      transition: all 0.5s ease;
+    }
+
+    &:hover::after {
+      opacity: 1;
+    }
+
+    .credit-title {
+      color: #7c412e;
+    }
+  }
+}
+
+.collateral-type-box {
+  background: url("../../../images/select_vasighe.jpg") no-repeat;
+  background-size: cover;
+
+  .collateral-type-title {
+    color: #4c2b00;
+  }
+}
+
+.upload-box {
+  .before-upload {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .after-upload {
+    position: relative;
+    background-color: get-color("orange");
+
+    img {
+      object-fit: contain;
+    }
+
+    .edit {
+      opacity: 0;
+      position: absolute;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      opacity: 0;
+      height: 100%;
+      width: 100%;
+      top: -50px;
+      right: 0;
+      transition: 0.5s ease;
+    }
+
+    &:hover {
+      .edit {
+        transition: 0.9s ease;
+        opacity: 1;
+        z-index: 5;
+      }
+
+      &::after {
+        content: "";
+        top: 0;
+        background-color: get-color("black");
+        opacity: 0.68;
+        transition: 0.5s ease;
+      }
+    }
+  }
+}
+
+.border-right-n-green {
+  border-right: 2px solid get-color("n-green");
+}
+
+.warning-payment-text {
+  width: 57%;
+  display: inline-block;
+  text-align: justify;
+}
+
+.border-left-silver {
+  border-left: 1px solid get-color("silver");
+}
+
+.h-59 {
+  height: 58.19px;
+}
+
+.h-76 {
+  height: 76px;
+  width: 65px;
+}
+
+.fade-custom {
+  transition: all linear 1s;
+  opacity: 1;
+
+  &.ng-hide {
+    opacity: 0;
+  }
+}
+
+.ng-hide {
+  opacity: 0;
+  transition: none 0;
+}
+
+.bank-logo {
+  width: 118px;
+}

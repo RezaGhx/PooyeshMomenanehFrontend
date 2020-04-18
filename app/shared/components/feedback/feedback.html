@@ -1,0 +1,138 @@
+<div class="row feedBack so-typography mt-4">
+    <div class="col-lg-12">
+        <h3>
+            ثبت بازخورد
+        </h3>
+        <div class="row" ng-show="self.feedback.rate == 0">
+            <div class="col-lg-12">
+                <div class="mb-3">
+                    با شرکت در نظرسنجی و اعلام نقاط ضعف و قوت سامانه، ما را در ارائه هر چه بهتر خدمات، یاری
+                    نمایید
+                </div>
+                <div class="bg-l-sky d-flex flex-column align-items-center px-4 pt-3 pb-2">
+                    <div class="align-self-start d-flex justify-content-between w-100 flex-wrap">
+                        <span>چقدر از روند کلی ارائه خدمات ما راضی بودید؟</span>
+                        <span class="so-h5 text-blue pointer" ng-click="self.skip()">نظری ندارم</span>
+                    </div>
+                    <div class="my-3">
+                        <star-rating-comp rating="self.feedback.rate" class="w-100 d-flex" on-click="self.rate($event)"
+                            star-type="'icon'" direction="'ltr" show-hover-stars="true" size="'large'" color="'ok'">
+                        </star-rating-comp>
+                    </div>
+                    <div>
+                        <button class="btn so-btn-sm btn-l-green"
+                            ng-click="self.checkRating(self.feedback.rate)">ثبت</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row justify-content-center" ng-show="self.feedback.rate != 0">
+            <div class="col-lg-11">
+                <div class="row align-items-end mb-4">
+                    <div class="col-lg-4">
+                        <span class="so-subheading-2">
+                            امتیاز شما:
+                        </span>
+                        <span>
+                            3 از 5
+                        </span>
+                        <!-- <span class="text-dec text-blue so-h5 mr-3">
+                            ویرایش امتیاز
+                        </span> -->
+                    </div>
+                    <div class="col-lg-8">
+                        <star-rating-comp rating="self.feedback.rate" class="w-100 d-flex" on-click="self.rate($event)"
+                            star-type="'icon'" direction="'ltr" show-hover-stars="true" size="'large'" color="'ok'">
+                        </star-rating-comp>
+                    </div>
+                </div>
+                <div class="bg-l-sky px-5 py-3" ng-if="self.feedback.rate > 4">
+                    <div class="d-flex justify-content-between flex-wrap">
+                        <h3>نقاط قوت</h3>
+                        <span class="so-h5 text-blue pointer" ng-click="self.skip()">نظری ندارم</span>
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                        <div class="d-flex flex-wrap justify-content-center">
+                            <button ng-click="self.selectedReasons(item)" ng-class="{'selected': item.selected}"
+                                class="btn so-btn-xl btn-white ml-5"
+                                ng-repeat="item in self.reasons | filter :{isPositive: true}"
+                                ng-bind="item.reasonTitle"></button>
+                        </div>
+                        <div class="mt-3 ml-5">
+                            <h3 class="">اگر پیشنهاد یا انتقادی دارید لطفا برای ما شرح دهید</h3>
+                            <sd-input-container class="material text-right mt-2">
+                                <div class="input-group">
+                                    <textarea class="px-3 py-2 textarea-custom h-100"
+                                        ng-model="self.feedback.description" ng-input-filter-alphabet="persian"
+                                        placeholder="توضیحات..." ng-minlength="2" ng-maxlength="200" name="description"
+                                        cols="130" rows="8" required></textarea>
+                                    <div ng-messages="verifyForm.description.$error">
+                                        <div ng-message="required">
+                                            پر کردن فیلد الزامی می‌باشد
+                                        </div>
+                                        <div ng-message="minlength">توضیحات نمیتواند کمتر از دو
+                                            کاراکتر باشد
+                                        </div>
+                                        <div ng-message="maxlength">توضیحات نمیتواند بیشتر از دویست
+                                            کاراکتر باشد
+                                        </div>
+                                        <div ng-message="inputFilterAlphabet">
+                                            توضیحات باید فارسی باشد
+                                        </div>
+                                    </div>
+                                </div>
+                            </sd-input-container>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button class="btn so-btn-sm btn-l-green" ng-click="self.submit(self.feedback)">ثبت</button>
+                    </div>
+                </div>
+                <div class="bg-l-sky px-5 py-3" ng-if="4 >= self.feedback.rate">
+                    <div class="d-flex justify-content-between flex-wrap">
+                        <h3>نقاط ضعف</h3>
+                        <span class="so-h5 text-blue pointer" ng-click="self.skip()">نظری ندارم</span>
+                    </div>
+
+                    <div class="d-flex flex-column align-items-center">
+                        <div class="d-flex flex-wrap justify-content-center">
+                            <button ng-click="self.selectedReasons(item)" ng-class="{'selected': item.selected}"
+                                class="btn so-btn-xl btn-white ml-5"
+                                ng-repeat="item in self.reasons | filter :{isPositive: false}"
+                                ng-bind="item.reasonTitle"></button>
+                        </div>
+                        <div class="mt-3 ml-5">
+                            <h3 class="">اگر پیشنهاد یا انتقادی دارید لطفا برای ما شرح دهید</h3>
+                            <sd-input-container class="material text-right mt-2">
+                                <div class="input-group">
+                                    <textarea class="px-3 py-2 textarea-custom h-100"
+                                        ng-model="self.feedback.description" ng-input-filter-alphabet="persian"
+                                        placeholder="توضیحات..." ng-minlength="2" ng-maxlength="200" name="description"
+                                        cols="130" rows="8" required></textarea>
+                                    <div ng-messages="verifyForm.description.$error">
+                                        <div ng-message="required">
+                                            پر کردن فیلد الزامی می‌باشد
+                                        </div>
+                                        <div ng-message="minlength">توضیحات نمیتواند کمتر از دو
+                                            کاراکتر باشد
+                                        </div>
+                                        <div ng-message="maxlength">توضیحات نمیتواند بیشتر از دویست
+                                            کاراکتر باشد
+                                        </div>
+                                        <div ng-message="inputFilterAlphabet">
+                                            توضیحات باید فارسی باشد
+                                        </div>
+                                    </div>
+                                </div>
+                            </sd-input-container>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button class="btn so-btn-sm btn-l-green" ng-click="self.submit(self.feedback)">ثبت</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

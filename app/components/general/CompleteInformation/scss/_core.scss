@@ -1,0 +1,57 @@
+.main-content {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: auto;
+}
+
+.guides {
+  display: flex;
+  align-items: flex-end;
+
+  .level {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    border-bottom: 7px solid;
+    @include set-font-styles($config, display-1);
+    color: get-color("l-purple");
+
+    &.active {
+      @include set-font-styles($config, display-2);
+      color: get-color("blue");
+    }
+  }
+}
+
+.information-box {
+  margin-top: 10px;
+  padding-top: 40px;
+  padding-bottom: 31px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .logo-intro {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 10% 0%;
+  }
+}
+
+.add-logo {
+  cursor: pointer;
+  width: 135px;
+  margin-top: 30%;
+}
+
+.add-logo-file {
+  display: none;
+}
+
+.text-underline-position {
+  text-underline-position: under;
+}

@@ -1,0 +1,14 @@
+<section id="general" class="container-fluid py-4">
+    <header class="header">
+        <a ui-sref="panel.dashboard">
+            <img class="image" src="../../images/sandogh_logo.svg" alt="صندوق توسعه فناوری های نوین">
+        </a>
+        <div class="d-flex align-items-center my-4 my-md-0">
+            <span ng-bind="self.user.name"></span>
+            <button ng-click="self.logout()" class="btn btn-n-gray mr-3 d-flex justify-content-center btn-height-width-style">
+                <i class="fas s-exit text-white s-lg s-rotate-180"></i>
+            </button>
+        </div>
+    </header>
+    <ui-view></ui-view>
+</section>

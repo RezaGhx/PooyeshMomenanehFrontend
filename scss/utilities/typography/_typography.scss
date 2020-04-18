@@ -1,0 +1,184 @@
+@import "./typography-fonts";
+@import "./typography-utils";
+
+// Represents a typography level
+@function set-typography-level(
+  $font-size,
+  $line-height: $font-size,
+  $font-weight: 400,
+  $font-family: null,
+  $letter-spacing: null
+) {
+  @return (
+    font-size: $font-size,
+    line-height: $line-height,
+    font-weight: $font-weight,
+    font-family: $font-family,
+    letter-spacing: $letter-spacing
+  );
+}
+
+// Represents a collection of typography levels.
+// Use $display-2 - $display-1 -title - subheading-2 -body-1 -$caption
+@function typography-config(
+  $font-family: "iranyekan ,roboto ,Arial",
+  $display-4: set-typography-level(28px, 112px, 220, $letter-spacing: -0.05em), 
+  $display-3: set-typography-level(22px, 56px, 400, $letter-spacing: -0.02em),
+  $display-2: set-typography-level(28px, normal, 500, $letter-spacing: -0.005em),
+  $display-1: set-typography-level(22px, normal, 500),
+  $headline: set-typography-level(14px, 32px, 400),
+  $title: set-typography-level(18px, normal, 500),
+  $subheading-2: set-typography-level(16px, normal, 500),
+  $subheading-1: set-typography-level(15px, normal, 400),
+  $body-2: set-typography-level(14px, normal, 500),
+  $body-1: set-typography-level(14px, normal, 400),
+  $caption: set-typography-level(7px, 20px, 400),
+  $button: set-typography-level(14px, normal, 400),
+  $input: set-typography-level(12px, normal, 400)
+) {
+  // Declare an initial map with all of the levels.
+  $config: (
+    display-4: $display-4,
+    display-3: $display-3,
+    display-2: $display-2,
+    display-1: $display-1,
+    headline: $headline,
+    title: $title,
+    subheading-2: $subheading-2,
+    subheading-1: $subheading-1,
+    body-2: $body-2,
+    body-1: $body-1,
+    caption: $caption,
+    button: $button,
+    input: $input
+  );
+
+  // Loop through the levels and set the `font-family` of the ones that don't have one to the base.
+  // Note that Sass can't modify maps in place, which means that we need to merge and re-assign.
+  @each $key, $level in $config {
+    @if map-get($level, font-family) == null {
+      $new-level: map-merge(
+        $level,
+        (
+          font-family: $font-family
+        )
+      );
+      $config: map-merge(
+        $config,
+        (
+          $key: $new-level
+        )
+      );
+    }
+  }
+
+  // Add the base font family to the config.
+  @return map-merge(
+    $config,
+    (
+      font-family: $font-family
+    )
+  );
+}
+
+$config: typography-config();
+
+// Adds the base typography styles, based on a config.
+@mixin base-typography($config, $selector: ".so-typography") {
+  // .so-display-4,
+  // #{$selector} .display-4 {
+  //   @include set-font-styles($config, display-4);
+  //   margin: 0 0 16px;
+  // }
+
+  // .so-display-3,
+  // #{$selector} .display-3 {
+  //   @include set-font-styles($config, display-3);
+  //   margin: 0 0 16px;
+  // }
+
+  .so-display-2,
+  #{$selector} .display-2 {
+    @include set-font-styles($config, display-2);
+    margin: 0 0 14px;
+  }
+
+  .so-display-1,
+  #{$selector} .display-1 {
+    @include set-font-styles($config, display-1);
+    margin: 0 0 14px;
+  }
+
+  // .so-headline,
+  // #{$selector} h1 {
+  //   @include set-font-styles($config, headline);
+  //   margin: 0 0 16px;
+  // }
+
+  .so-title,
+  #{$selector}-h2,
+  #{$selector} h2 {
+    @include set-font-styles($config, title);
+    margin: 0 0 18px;
+  }
+
+  .so-subheading-2,
+  #{$selector}-h3,
+  #{$selector} h3 {
+    @include set-font-styles($config, subheading-2);
+    margin: 0 0 18px;
+  }
+
+  .so-subheading-1,
+  #{$selector}-h4,
+  #{$selector} h4 {
+    @include set-font-styles($config, subheading-1);
+  }
+
+  .so-h5,
+  #{$selector}-h5,
+  #{$selector} h5 {
+    @include set-font-shorthand(
+      // calc is used here to support css variables
+        calc(#{get-font-size($config, body-1)} * 0.83),
+      get-font-weight($config, body-1),
+      get-line-height($config, body-1),
+      get-font-family($config, body-1)
+    );
+    // margin:  0 0 30px;
+  }
+
+  .so-h6,
+  #{$selector}-h6,
+  #{$selector} h6 {
+    @include set-font-shorthand(
+      // calc is used here to support css variables
+        calc(#{get-font-size($config, body-1)} * 0.67),
+      get-font-weight($config, body-1),
+      get-line-height($config, body-1),
+      get-font-family($config, body-1)
+    );
+    margin:  0 0 8px;
+  }
+
+  // .so-body-2,
+  // #{$selector} .body-2 {
+  //   @include set-font-styles($config, body-2);
+  //   margin: 0 0 64px;
+  // }
+
+  .so-body-1,
+  #{$selector} .body-1 {
+    @include set-font-styles($config, body-1);
+
+    p {
+      margin: 0 0 16px;
+    }
+  }
+
+  .so-caption,
+  #{$selector} .caption {
+    @include set-font-styles($config, caption);
+  }
+}
+

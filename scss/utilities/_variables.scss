@@ -1,0 +1,62 @@
+$font-family-iran-yekan: iranyekan, roboto, Arial;
+$container-padding: 53px;
+$bp-mobile: "only screen and (max-width: 600px)";
+$bp-tablet: "only screen and (max-width: 1392px)";
+
+//button variables
+$btn-container-margin: 0 0 12px;
+
+$btn-height: 46.188px;
+
+$btn-xs-size: 70px;
+$btn-sm-size: 140px;
+$btn-md-size: 200px;
+$btn-lg-size: 305.693px;
+$btn-xl-size: 356.42px;
+
+$btn-padding: 0 0.75rem;
+$btn-border-width: 1px;
+$btn-border-style: solid;
+
+//input variables
+$input-container-margin: 0 0 12px;
+$input-container-label-font: "so-h5";
+
+$input-xs-size: 70px;
+$input-sm-size: 140px;
+$input-md-size: 200px;
+$input-lg-size: 305.693px;
+$input-xl-size: 356.42px;
+
+$input-padding: 0 9px;
+$input-border-width: 1px;
+$input-border-style: solid;
+$input-height: 46.188px;
+$input-icon-color: "silver";
+$input-border-color: "silver";
+$input-text-color: "d-gray";
+$input-focus-border-color: "black";
+$input-placeholder-color: "silver";
+$input-invalid-border-color: "red";
+$input-valid-border-color: "green";
+$input-padding-right-icon: 35px;
+
+$input-icon-top: 12px;
+$input-icon-right: 12px;
+
+$select-indicator-color: $input-border-color;
+$select-indicator: url("data:image/svg+xml;charset=UTF-8,%3csvg role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3e%3cpath fill='#{$select-indicator-color}'  d='M491.6,138.1L255.9,373.9L20.4,138.4C20.4,138.4,491.6,139.1,491.6,138.1z'%3e%3c/path%3e%3c/svg%3e");
+$select-bg-size: 15px;
+
+//scroll variables
+$scrollbar-width: 10px;
+$scrollbar-track-background-color: #f1f1f1;
+$scrollbar-thumb-background-color: #888;
+$scrollbar-thumb-hover-background-color: #555;
+
+$scroll-selection-background-color: #17407a;
+$scroll-selection-color: #fcbc2b;
+
+//ng-messages
+$transition-ng-messages: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+$font-ng-messages: "so-h5";

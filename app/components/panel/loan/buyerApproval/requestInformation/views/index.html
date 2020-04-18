@@ -1,0 +1,689 @@
+<section class="warranty-type">
+    <div class="row">
+        <div class="col-lg-12">
+            <form ng-if="self.type!=4" name="companyForm" autocomplete="off" novalidate
+                ng-submit="self.submit(self.loan,companyForm)" promise-btn>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="so-title font-weight-bold">تایید اطلاعات درخواست</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="bg-l-silver px-5 py-4 mb-4" ng-if="self.type!=4">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="so-title">اطلاعات تسهیلات درخواستی</div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="row">
+                                        <div class="col-lg-3 mb-3">
+                                            <span class="so-body-1 font-weight-bold">نوع تسهیلات:</span>
+                                        </div>
+                                        <div class="col-lg-7">
+                                            <span class="so-body-1 text-n-green"
+                                                ng-bind="self.loan.type | loanTypeFilter"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="row">
+                                        <div class="col-lg-3 mb-3">
+                                            <span class="so-body-1 font-weight-bold">مبلغ تسهیلات:</span>
+                                        </div>
+                                        <div class="col-lg-7">
+                                            <span class="so-body-1 text-n-green"
+                                                ng-bind="self.loan.amount | number"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="row">
+                                        <div class="col-lg-3 mb-3">
+                                            <span class="so-body-1 font-weight-bold">مرجع معرفی کننده:</span>
+                                        </div>
+                                        <div class="col-lg-7">
+                                            <span ng-if="self.loan.introducer != 0" class="so-body-1 text-silver"
+                                                ng-bind="self.loan.introducer | loanIntroducerFilter"></span>
+                                            <span ng-if="self.loan.introducer == 0" class="so-body-1 text-silver"
+                                                ng-bind="self.loan.introducerLetterNumber"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="row">
+                                        <div class="col-lg-4 mb-3">
+                                            <span class="so-body-1 font-weight-bold">شماره نامه معرفی:</span>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <span class="so-body-1 text-silver"
+                                                ng-bind="self.loan.introducerLetterNumber"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="row">
+                                        <div class="col-lg-4 mb-3">
+                                            <span class="so-body-1 font-weight-bold">توضیحات:</span>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <span class="so-body-1 text-silver"
+                                                ng-bind="self.loan.requestReason"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-l-silver px-5 py-4">
+                            <div class="row mb-4">
+                                <div class="col-lg-12">
+                                    <div class="so-title">اطلاعات شرکت</div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-lg-4 mb-3">
+                                            <span class="so-body-1 font-weight-bold">کد اقتصادی:</span>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <span class="so-body-1 text-silver"
+                                                ng-bind="self.company.info.economicCode"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-lg-4 mb-3">
+                                            <span class="so-body-1 font-weight-bold">شماره ثبت:</span>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <span class="so-body-1 text-silver"
+                                                ng-bind="self.company.registry.registerNumber"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-lg-4 mb-3">
+                                            <span class="so-body-1 font-weight-bold">نوع شرکت</span>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <span class="so-body-1 text-silver"
+                                                ng-bind="self.company.info.companyRegistrationType | companyTypeFilter"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-lg-4 mb-3">
+                                            <span class="so-body-1 font-weight-bold">سرمایه ثبتی:</span>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <span class="so-body-1 text-silver"
+                                                ng-bind="self.company.registry.fund | number"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-lg-4 mb-3">
+                                            <span class="so-body-1 font-weight-bold">نوع فعالیت:</span>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <span class="so-body-1 text-silver"
+                                                ng-bind="self.company.info.activityType | activityTypeFilter"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-lg-4 mb-3">
+                                            <span class="so-body-1 font-weight-bold">تاریخ ثبت:</span>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <span class="so-body-1 text-silver"
+                                                ng-bind="self.company.registry.registerDate | jalaliDateFilter : 'jYYYY/jM/jD'"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-lg-4 mb-3">
+                                            <span class="so-body-1 font-weight-bold">شماره ثابت:</span>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <span class="so-body-1 text-silver"
+                                                ng-bind="self.company.info.contactInfo.phoneNumber"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-lg-4 mb-3">
+                                            <span class="so-body-1 font-weight-bold">شماره فکس</span>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <span class="so-body-1 text-silver"
+                                                ng-bind="self.company.info.contactInfo.fax"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-lg-4 mb-3">
+                                            <span class="so-body-1 font-weight-bold">استان:</span>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <span class="so-body-1 text-silver"
+                                                ng-bind="self.company.info.contactInfo.province"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-lg-4 mb-3">
+                                            <span class="so-body-1 font-weight-bold">شهر:</span>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <span class="so-body-1 text-silver"
+                                                ng-bind="self.company.info.contactInfo.city"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="row">
+                                        <div class="col-lg-2 mb-3">
+                                            <span class="so-body-1 font-weight-bold">کد پستی:</span>
+                                        </div>
+                                        <div class="col-lg-10">
+                                            <span class="so-body-1 text-silver"
+                                                ng-bind="self.company.info.contactInfo.postalCode"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="row">
+                                        <div class="col-lg-2 mb-3">
+                                            <span class="so-body-1 font-weight-bold">ایمیل</span>
+                                        </div>
+                                        <div class="col-lg-10">
+                                            <span class="so-body-1 text-silver"
+                                                ng-bind="self.company.info.contactInfo.email|limitTo:50"
+                                                title="{{self.company.info.contactInfo.email}}"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="row">
+                                        <div class="col-lg-2 mb-3">
+                                            <span class="so-body-1 font-weight-bold">آدرس:</span>
+                                        </div>
+                                        <div class="col-lg-10">
+                                            <span class="so-body-1 text-silver"
+                                                ng-bind="self.company.info.contactInfo.address"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="so-title">اطلاعات دانش بنیان</div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="row">
+                                                <div class="col-lg-4 mb-3">
+                                                    <span class="so-body-1 font-weight-bold">دانش بنیانی:</span>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <span ng-if="self.company.knowledge.isKnowledgeBase"
+                                                        class="so-body-1 text-green">دارد</span>
+                                                    <span ng-if="!self.company.knowledge.isKnowledgeBase"
+                                                        class="so-body-1 text-red">ندارد</span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-4 mb-3">
+                                                    <span class="so-body-1 font-weight-bold">خلاق:</span>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <span ng-if="!self.company.knowledge.isCreative"
+                                                        class="so-body-1 text-red">خیر</span>
+                                                    <span ng-if="self.company.knowledge.isCreative"
+                                                        class="so-body-1 text-green">بله</span>
+                                                </div>
+                                            </div>
+                                            <div class="row" ng-if="self.company.knowledge.isKnowledgeBase">
+                                                <div class="col-lg-4 mb-3">
+                                                    <span class="so-body-1 font-weight-bold">وضعیت شرکت:</span>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <span class="so-body-1 text-silver"
+                                                        ng-bind="self.company.knowledge.knowledgeBaseInfo.companyStatus | isStartupTypeFilter"></span>
+                                                </div>
+                                            </div>
+                                            <div class="row" ng-if="self.company.knowledge.isKnowledgeBase">
+                                                <div class="col-lg-4 mb-3">
+                                                    <span class="so-body-1 font-weight-bold">حوزه کاری:</span>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <span class="so-body-1 text-silver"
+                                                        ng-bind="self.company.knowledge.knowledgeBaseInfo.knowledgeBaseType | knowledgeBaseTypeFilter"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="so-title">اطلاعات استقرار</div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="row">
+                                                <div class="col-lg-4 mb-3">
+                                                    <span class="so-body-1 font-weight-bold">مستقر در پارک:</span>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <span ng-if="!self.company.knowledge.isInPark"
+                                                        class="so-body-1 text-red">خیر</span>
+                                                    <span ng-if="self.company.knowledge.isInPark"
+                                                        class="so-body-1 text-green">بله</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-lg-12">
+                        <button class="btn btn-green so-btn-md ml-3" type="submit">
+                            تایید درخواست
+                        </button>
+                        <button class="btn btn-orange so-btn-md text-white" type="button" ng-if="self.type==4"
+                            ui-sref="panel.loan.request.requestData">
+                            بازگشت
+                        </button>
+                        <button class="btn btn-orange so-btn-md text-white" type="button" ng-if="self.type!=4"
+                            ui-sref="panel.loan.request.KnowledgeInformation">
+                            بازگشت
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <form ng-if="self.type==4" name="companyForm" autocomplete="off" novalidate
+                ng-submit="self.submit(self.vendor,companyForm)" promise-btn>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="so-title font-weight-bold">تایید اطلاعات درخواست</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div cg-busy="self.promiseLoading" class="bg-l-silver px-5 py-4 mb-4" ng-if="self.type==4">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="so-title">اطلاعات لیزینگ درخواستی</div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="so-subheading-2">اطلاعات قرارداد</div>
+                                </div>
+                                <!-- <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-5 mb-3">
+                                        <span class="so-body-1 font-weight-bold">شماره پرونده:</span>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <span class="so-body-1 text-silver"
+                                            ng-bind="self.vendor.folderNumber"></span>
+                                    </div>
+                                </div>
+                            </div> -->
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-lg-5 mb-3">
+                                            <span class="so-body-1 font-weight-bold">نام محصول:</span>
+                                        </div>
+                                        <div class="col-lg-7">
+                                            <span class="so-body-1 text-silver"
+                                                ng-bind="self.vendor.productName"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-lg-5 mb-3">
+                                            <span class="so-body-1 font-weight-bold">شماره قرارداد:</span>
+                                        </div>
+                                        <div class="col-lg-7">
+                                            <span class="so-body-1 text-silver"
+                                                ng-bind="self.vendor.contractNumber"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-lg-5 mb-3">
+                                            <span class="so-body-1 font-weight-bold">مبلغ قرارداد:</span>
+                                        </div>
+                                        <div class="col-lg-7">
+                                            <span class="so-body-1 text-silver"
+                                                ng-bind="self.vendor.contractAmount"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-lg-5 mb-3">
+                                            <span class="so-body-1 font-weight-bold">مبلغ درخواست:</span>
+                                        </div>
+                                        <div class="col-lg-7">
+                                            <span class="so-body-1 text-silver"
+                                                ng-bind="self.vendor.requestAmount"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-lg-5 mb-3">
+                                            <span class="so-body-1 font-weight-bold">تاریخ قرارداد:</span>
+                                        </div>
+                                        <div class="col-lg-7">
+                                            <span class="so-body-1 text-silver"
+                                                ng-bind="self.vendor.contractDate | jalaliDateFilter : 'jYYYY/jM/jD'"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-lg-5 mb-3">
+                                            <span class="so-body-1 font-weight-bold">مرجع معرفی کننده:</span>
+                                        </div>
+                                        <div class="col-lg-7">
+                                            <span ng-if="self.vendor.introducer != 0" class="so-body-1 text-silver"
+                                                ng-bind="self.vendor.introducer | loanIntroducerFilter"></span>
+                                            <span ng-if="self.vendor.introducer == 0" class="so-body-1 text-silver"
+                                                ng-bind="self.vendor.introducerName"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-lg-12">
+                                    <div class="so-subheading-2">اطلاعات خریدار</div>
+                                </div> -->
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-lg-5 mb-3">
+                                            <span ng-if="self.vendor.buyerType == 1"
+                                                class="so-body-1 font-weight-bold">نام شرکت:</span>
+                                            <span ng-if="self.vendor.buyerType == 0"
+                                                class="so-body-1 font-weight-bold">نام و نام خانوادگی:</span>
+                                        </div>
+                                        <div class="col-lg-7">
+                                            <span ng-if="self.vendor.buyerType == 1" class="so-body-1 text-silver"
+                                                ng-bind="self.vendor.companyName"></span>
+                                            <span ng-if="self.vendor.buyerType == 0" class="so-body-1 text-silver"
+                                                ng-bind="self.vendor.firstName + ' ' + self.vendor.lastName"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-lg-5 mb-3">
+                                            <span ng-if="self.vendor.buyerType == 1"
+                                                class="so-body-1 font-weight-bold">شناسه ملی:</span>
+                                            <span ng-if="self.vendor.buyerType == 0"
+                                                class="so-body-1 font-weight-bold">کد ملی:</span>
+                                        </div>
+                                        <div class="col-lg-7">
+                                            <span ng-if="self.vendor.buyerType == 1" class="so-body-1 text-silver"
+                                                ng-bind="self.vendor.nationalId"></span>
+                                            <span ng-if="self.vendor.buyerType == 0" class="so-body-1 text-silver"
+                                                ng-bind="self.vendor.nationalCode"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-l-silver px-5 py-4">
+                            <div class="row mb-4">
+                                <div class="col-lg-12">
+                                    <div class="so-title">اطلاعات شرکت</div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-lg-4 mb-3">
+                                            <span class="so-body-1 font-weight-bold">کد اقتصادی:</span>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <span class="so-body-1 text-silver"
+                                                ng-bind="self.company.info.economicCode"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-lg-4 mb-3">
+                                            <span class="so-body-1 font-weight-bold">شماره ثبت:</span>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <span class="so-body-1 text-silver"
+                                                ng-bind="self.company.registry.registerNumber"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-lg-4 mb-3">
+                                            <span class="so-body-1 font-weight-bold">نوع شرکت</span>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <span class="so-body-1 text-silver"
+                                                ng-bind="self.company.info.companyRegistrationType | companyTypeFilter"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-lg-4 mb-3">
+                                            <span class="so-body-1 font-weight-bold">سرمایه ثبتی:</span>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <span class="so-body-1 text-silver"
+                                                ng-bind="self.company.registry.fund | number"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-lg-4 mb-3">
+                                            <span class="so-body-1 font-weight-bold">نوع فعالیت:</span>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <span class="so-body-1 text-silver"
+                                                ng-bind="self.company.info.activityType | activityTypeFilter"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-lg-4 mb-3">
+                                            <span class="so-body-1 font-weight-bold">تاریخ ثبت:</span>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <span class="so-body-1 text-silver"
+                                                ng-bind="self.company.registry.registerDate | jalaliDateFilter : 'jYYYY/jM/jD'"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-lg-4 mb-3">
+                                            <span class="so-body-1 font-weight-bold">شماره ثابت:</span>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <span class="so-body-1 text-silver"
+                                                ng-bind="self.company.info.contactInfo.phoneNumber"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-lg-4 mb-3">
+                                            <span class="so-body-1 font-weight-bold">شماره فکس</span>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <span class="so-body-1 text-silver"
+                                                ng-bind="self.company.info.contactInfo.fax"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-lg-4 mb-3">
+                                            <span class="so-body-1 font-weight-bold">استان:</span>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <span class="so-body-1 text-silver"
+                                                ng-bind="self.company.info.contactInfo.province"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-lg-4 mb-3">
+                                            <span class="so-body-1 font-weight-bold">شهر:</span>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <span class="so-body-1 text-silver"
+                                                ng-bind="self.company.info.contactInfo.city"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="row">
+                                        <div class="col-lg-2 mb-3">
+                                            <span class="so-body-1 font-weight-bold">کد پستی:</span>
+                                        </div>
+                                        <div class="col-lg-10">
+                                            <span class="so-body-1 text-silver"
+                                                ng-bind="self.company.info.contactInfo.postalCode"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="row">
+                                        <div class="col-lg-2 mb-3">
+                                            <span class="so-body-1 font-weight-bold">ایمیل</span>
+                                        </div>
+                                        <div class="col-lg-10">
+                                            <span class="so-body-1 text-silver"
+                                                ng-bind="self.company.info.contactInfo.email|limitTo:50"
+                                                title="{{self.company.info.contactInfo.email}}"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="row">
+                                        <div class="col-lg-2 mb-3">
+                                            <span class="so-body-1 font-weight-bold">آدرس:</span>
+                                        </div>
+                                        <div class="col-lg-10">
+                                            <span class="so-body-1 text-silver"
+                                                ng-bind="self.company.info.contactInfo.address"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="so-title">اطلاعات دانش بنیان</div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="row">
+                                                <div class="col-lg-4 mb-3">
+                                                    <span class="so-body-1 font-weight-bold">دانش بنیانی:</span>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <span ng-if="self.company.knowledge.isKnowledgeBase"
+                                                        class="so-body-1 text-green">دارد</span>
+                                                    <span ng-if="!self.company.knowledge.isKnowledgeBase"
+                                                        class="so-body-1 text-red">ندارد</span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-4 mb-3">
+                                                    <span class="so-body-1 font-weight-bold">خلاق:</span>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <span ng-if="!self.company.knowledge.isCreative"
+                                                        class="so-body-1 text-red">خیر</span>
+                                                    <span ng-if="self.company.knowledge.isCreative"
+                                                        class="so-body-1 text-green">بله</span>
+                                                </div>
+                                            </div>
+                                            <div class="row" ng-if="self.company.knowledge.isKnowledgeBase">
+                                                <div class="col-lg-4 mb-3">
+                                                    <span class="so-body-1 font-weight-bold">وضعیت شرکت:</span>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <span class="so-body-1 text-silver"
+                                                        ng-bind="self.company.knowledge.knowledgeBaseInfo.companyStatus | isStartupTypeFilter"></span>
+                                                </div>
+                                            </div>
+                                            <div class="row" ng-if="self.company.knowledge.isKnowledgeBase">
+                                                <div class="col-lg-4 mb-3">
+                                                    <span class="so-body-1 font-weight-bold">حوزه کاری:</span>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <span class="so-body-1 text-silver"
+                                                        ng-bind="self.company.knowledge.knowledgeBaseInfo.knowledgeBaseType | knowledgeBaseTypeFilter"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="so-title">اطلاعات استقرار</div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="row">
+                                                <div class="col-lg-4 mb-3">
+                                                    <span class="so-body-1 font-weight-bold">مستقر در پارک:</span>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <span ng-if="!self.company.knowledge.isInPark"
+                                                        class="so-body-1 text-red">خیر</span>
+                                                    <span ng-if="self.company.knowledge.isInPark"
+                                                        class="so-body-1 text-green">بله</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-lg-12">
+                        <button class="btn btn-green so-btn-md ml-3" type="submit">
+                            تایید درخواست
+                        </button>
+                        <button class="btn btn-orange so-btn-md text-white" type="button"
+                            ui-sref="panel.loan.buyerApproval.KnowledgeInformation">
+                            بازگشت
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

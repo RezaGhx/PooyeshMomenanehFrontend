@@ -1,0 +1,95 @@
+.iziToast {
+  font-family: $font-family-iran-yekan;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+* {
+  outline: none;
+}
+
+.custom-checkbox {
+  .custom-control-label {
+    &::before {
+      top: 3px;
+    }
+
+    &::after {
+      top: 3px;
+    }
+  }
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+@media #{$bp-mobile} {
+  .container-fluid {
+    width: 100%;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  /*aside*/
+  .sidebar {
+    display: none;
+  }
+}
+
+.view-box {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  section:first-of-type {
+    flex: 1 0 auto;
+  }
+}
+
+textarea {
+  resize: none;
+}
+
+.ADMdtp-calendar-container.rtl {
+  font-family: $font-family-iran-yekan;
+  line-height: 1.42857143;
+  color: #797979;
+}
+
+.sd-input-valid {
+  sd-icon,
+  .sd-input {
+    color: get-color("green");
+  }
+}
+
+.sd-input-invalid {
+  sd-icon,
+  .sd-input {
+    color: get-color("red");
+  }
+}
+
+.sd-input-focused {
+  sd-icon,
+  .sd-input {
+    color: get-color("black");
+  }
+}
+
+// .rating.noticeable  .star svg {
+//   font-size: 50px !important;
+// }

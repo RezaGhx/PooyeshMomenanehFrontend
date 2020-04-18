@@ -1,0 +1,204 @@
+<main class="warranty-type">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="mb-4">
+                دارایی های شرکت
+            </h2>
+            <div class="row" cg-busy="self.promiseLoading">
+                <div class="col-lg-12" ng-show="self.company.directorMembers.length !=0">
+                    <div>
+                        <table class="table spacing-table csm-table" show-filter="false">
+                            <thead class="ng-scope">
+                                <tr>
+                                    <th class="header ">
+                                    </th>
+                                    <th class="header ">
+                                        <span class="ng-binding sort-indicator">عنوان دارایی</span>
+                                    </th>
+                                    <th class="header ">
+                                        <span class="ng-binding sort-indicator">ارزش دفتری</span>
+                                    </th>
+                                    <th class="header ">
+                                        <span class="ng-binding sort-indicator">ارزش فعلی</span>
+                                    </th>
+                                    <th class="header ">
+                                        <span class="ng-binding sort-indicator">تصویر اسناد</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="row in self.company.directorMembers">
+                                <tr class="bg-matte-gray">
+                                    <td>
+                                        <div class="pointer" ng-click="self.deleteItem(row)">
+                                            <i class="fas s-times s-2x"></i>
+                                        </div>
+                                    </td>
+                                    <td class="" data-title="'عنوان دارایی'" filter="false">
+                                        <span>{{row.title}}</span>
+                                    </td>
+                                    <td data-title="'ارزش دفتری'" filter="false">
+                                        {{row.bookValue | number}}
+                                    </td>
+                                    <td data-title="'ارزش فعلی'" filter="false">
+                                        {{row.currentValue | number}}
+                                    </td>
+                                    <td data-title="'تصویر اسناد'" filter="false">
+                                        <div class="so-h5 text-blue mb-1" ng-if="row.attachment">
+                                            <i class="fas s-download ml-1"></i>
+                                            <a class="text-blue" target="_blank"
+                                                ng-href={{$root.download+row.attachment}}>دریافت</a>
+                                        </div>
+                                        <div class="so-h5 text-red mb-1" ng-if="!row.attachment">
+                                            فایلی بارگذاری نشده
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <form name="assetsForm" autocomplete="off" ng-submit="self.pushToList(self.assets,assetsForm)" noValidate>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="member-box">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <sd-input-container class="material text-right">
+                                        <label for="">عنوان دارایی</label>
+
+                                        <div class="input-group">
+                                            <sd-icon>
+                                                <i class="fas s-apartment"></i>
+                                            </sd-icon>
+                                            <input class="so-input-xl w-100" type="text" ng-minlength="2"
+                                                ng-maxlength="40" ng-input-filter-alphabet="persianAlphabet"
+                                                ng-model="self.assets.title" name="title" required />
+                                            <div ng-messages="assetsForm.title.$error">
+                                                <div ng-message="required">
+                                                    پر کردن فیلد الزامی می‌باشد
+                                                </div>
+                                                <div ng-message="minlength">عنوان دارایی نباید کمتر از دو کاراکتر باشد
+                                                </div>
+                                                <div ng-message="maxlength">عنوان دارایی نباید بیش از چهل کاراکتر باشد
+                                                </div>
+                                                <div ng-message="inputFilterAlphabet">
+                                                    عنوان دارایی باید فارسی باشد
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </sd-input-container>
+                                </div>
+                                <div class="col-lg-6">
+                                    <sd-input-container class="material text-right">
+                                        <label for="">ارزش دفتری</label>
+
+                                        <div class="input-group">
+                                            <sd-icon>
+                                                <i class="fas s-apartment"></i>
+                                            </sd-icon>
+                                            <input currency-input class="so-input-xl w-100" type="text" ng-minlength="2"
+                                                ng-maxlength="40" ng-model="self.assets.bookValue" name="bookValue"
+                                                required />
+
+                                            <div ng-messages="assetsForm.bookValue.$error">
+                                                <div ng-message="required">
+                                                    پر کردن فیلد الزامی می‌باشد
+                                                </div>
+                                                <div ng-message="minlength">ارزش دفتری نباید کمتر از دو کاراکتر
+                                                    باشد
+                                                </div>
+                                                <div ng-message="maxlength">ارزش دفتری نباید بیش از چهل کاراکتر
+                                                    باشد
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </sd-input-container>
+                                </div>
+                                <div class="col-lg-6 d-flex flex-wrap">
+                                    <div class="col-lg-4 px-0">
+                                        <div class="upload-box justify-content-start">
+                                            <div class="before-upload" ng-model="self.assets.attachment"
+                                                ngf-model-options="{updateOn: 'change'}"
+                                                ng-if="self.assets.attachment==null"
+                                                ngf-select="self.uploadDocumentAttachment($files)">
+                                                <i class="far s-circle-plus s-8x text-white bg-orange p-3"></i>
+                                            </div>
+                                            <div class="after-upload w-100 h-100 d-flex justify-content-center align-items-center"
+                                                id="myList" ng-if="self.assets.attachment!=null">
+                                                <div class="loading-container" ng-if="self.loadingShow">
+                                                    <div class="loader"></div>
+                                                    <div class="loading-text so-h6">منتظر بمانید...</div>
+                                                </div>
+                                                <i class="fa s-check-circle s-8x text-white bg-orange p-3"></i>
+                                                <button ng-model="self.assets.attachment"
+                                                    class="btn edit shadow-none h-100 w-100"
+                                                    ngf-select="self.uploadDocumentAttachment($files)">
+                                                    <i class="fas s-edit s-2x text-white"></i>
+                                                    <div class="loading-text text-white so-h6">بارگزاری مجدد
+                                                    </div>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="so-body-1 font-weight-bold">
+                                            تصویر سند
+                                        </div>
+                                        <div class="so-h5 font-weight-bold text-l-gray">
+                                            لطفا تصویر سند دارایی را در این مکان بارگذاری نمایید
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-lg-6">
+                                    <sd-input-container class="material text-right">
+                                        <label for="">ارزش فعلی</label>
+
+                                        <div class="input-group">
+                                            <sd-icon>
+                                                <i class="fas s-apartment"></i>
+                                            </sd-icon>
+                                            <input class="so-input-xl w-100" type="text" ng-minlength="2"
+                                                ng-maxlength="40" currency-input ng-model="self.assets.currentValue"
+                                                name="currentValue" required />
+
+                                            <div ng-messages="assetsForm.currentValue.$error">
+                                                <div ng-message="required">
+                                                    پر کردن فیلد الزامی می‌باشد
+                                                </div>
+                                                <div ng-message="minlength">ارزش فعلی نباید کمتر از دو کاراکتر باشد
+                                                </div>
+                                                <div ng-message="maxlength">ارزش فعلی نباید بیش از چهل کاراکتر باشد
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </sd-input-container>
+                                </div>
+                                <div class="col-lg-12 d-flex justify-content-center">
+                                    <div class="button-add-member">
+                                        <button type="submit" class="btn btn-l-purple so-btn-md">
+                                            <span>
+                                                <i class="fas s-plus text-white"></i>
+                                            </span>
+                                            <span class="text-white">
+                                                اضافه نمودن
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="mt-5">
+                <button class="btn so-btn-md btn-n-green" ng-click="self.goToNextStep()">مرحله بعد</button>
+            </div>
+        </div>
+    </div>
+</main>

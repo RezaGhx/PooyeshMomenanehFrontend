@@ -1,0 +1,260 @@
+<main class="warranty-type">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="mb-5">
+                مجوزها و استانداردها
+            </h2>
+
+            <div class="row" cg-busy="self.promiseLoading">
+                <div class="col-lg-12" ng-show="self.company.license.length !=0">
+                    <div>
+                        <table class="table spacing-table csm-table" show-filter="false">
+                            <thead class="ng-scope">
+                                <tr>
+                                    <th class="header ">
+                                    </th>
+                                    <th class="header ">
+                                        <span class="ng-binding sort-indicator">نوع مجوز</span>
+                                    </th>
+                                    <th class="header ">
+                                        <span class="ng-binding sort-indicator">تاریخ دریافت</span>
+                                    </th>
+                                    <th class="header ">
+                                        <span class="ng-binding sort-indicator">مرجع صادرکننده</span>
+                                    </th>
+                                    <th class="header ">
+                                        <span class="ng-binding sort-indicator">تاریخ اعتبار</span>
+                                    </th>
+                                    <th class="header ">
+                                        <span class="ng-binding sort-indicator">توضیحات</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="row in self.company.license">
+                                <tr class="bg-matte-gray">
+                                    <td>
+                                        <div class="pointer" ng-click="self.deleteItem(row)">
+                                            <i class="fas s-times s-2x"></i>
+                                        </div>
+                                    </td>
+                                    <td class="" data-title="'نوع مجوز'" filter="false">
+                                        <span>{{row.type}}</span>
+                                    </td>
+                                    <td data-title="'تاریخ دریافت'" filter="false">
+                                        {{row.receivedDate | jalaliDateFilter : 'jYYYY/jMM/jDD'}}
+                                    </td>
+                                    <td data-title="'مرجع صادرکننده'" filter="false">
+                                        {{row.issuer}}
+                                    </td>
+                                    <td data-title="'تاریخ اعتبار'" filter="false">
+                                        {{row.expirationDate | jalaliDateFilter : 'jYYYY/jMM/jDD'}}
+                                    </td>
+                                    <td data-title="'توضیحات'" filter="false">
+                                        {{row.description}}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <form name="directorForm" promise-btn autocomplete="off"
+                ng-submit="self.pushToList(self.member,directorForm)" noValidate>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="member-box">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <sd-input-container class="material text-right">
+                                        <label for="">نوع مجوز</label>
+
+                                        <div class="input-group">
+                                            <sd-icon>
+                                                <i class="fas s-apartment"></i>
+                                            </sd-icon>
+                                            <input class="so-input-xl w-100" type="text" ng-minlength="2"
+                                                ng-maxlength="40" ng-input-filter-alphabet="persianAlphabet"
+                                                ng-model="self.member.type" name="type" required />
+
+                                            <div ng-messages="directorForm.type.$error">
+                                                <div ng-message="required">
+                                                    پر کردن فیلد الزامی می‌باشد
+                                                </div>
+                                                <div ng-message="minlength">نوع مجوز نباید کمتر از دو کاراکتر باشد</div>
+                                                <div ng-message="maxlength">نوع مجوز نباید بیش از چهل کاراکتر باشد</div>
+                                                <div ng-message="inputFilterAlphabet">
+                                                    نوع مجوز باید فارسی باشد
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </sd-input-container>
+                                </div>
+                                <div class="col-lg-6">
+                                    <sd-input-container class="material text-right">
+                                        <label for="">تاریخ دریافت</label>
+
+                                        <adm-dtp class="w-100" required ng-model='self.member.receivedDate'>
+                                            <sd-icon>
+                                                <i class="fas s-calendar"></i>
+                                            </sd-icon>
+                                            <input class="so-input-xl w-100" type='text' name="receivedDate"
+                                                ng-model="self.member.receivedDate" dtp-input required />
+                                            <span dtp-destroy>
+                                                <svg class="removeIcon ng-scope" viewBox="0 0 24 24" dtp-destroy
+                                                    ng-if="self.member.receivedDate">
+                                                    <use xlink:href="#dtp-i-close"></use>
+                                                </svg>
+                                            </span>
+                                            <div ng-messages="directorForm.receivedDate.$error"
+                                                ng-show="directorForm.receivedDate.$touched">
+                                                <div ng-message="required">
+                                                    پر کردن فیلد الزامی می‌باشد
+                                                </div>
+                                            </div>
+                                        </adm-dtp>
+                                    </sd-input-container>
+                                </div>
+                                <div class="col-lg-6">
+                                    <sd-input-container class="material text-right">
+                                        <label for="">مرجع صادر کننده</label>
+
+                                        <div class="input-group">
+                                            <sd-icon>
+                                                <i class="fas s-apartment"></i>
+                                            </sd-icon>
+                                            <input class="so-input-xl w-100" type="text" ng-minlength="2"
+                                                ng-maxlength="40" ng-input-filter-alphabet="persianAlphabet"
+                                                ng-model="self.member.issuer" name="issuer" required />
+
+                                            <div ng-messages="directorForm.issuer.$error">
+                                                <div ng-message="required">
+                                                    پر کردن فیلد الزامی می‌باشد
+                                                </div>
+                                                <div ng-message="minlength">مرجع نباید کمتر از دو کاراکتر باشد</div>
+                                                <div ng-message="maxlength">مرجع نباید بیش از چهل کاراکتر باشد</div>
+                                                <div ng-message="inputFilterAlphabet">
+                                                    مرجع باید فارسی باشد
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </sd-input-container>
+                                </div>
+                                <div class="col-lg-6">
+                                    <sd-input-container class="material text-right">
+                                        <label for="">تاریخ اعتبار</label>
+
+                                        <adm-dtp class="w-100" required ng-model='self.member.expirationDate'>
+                                            <sd-icon>
+                                                <i class="fas s-calendar"></i>
+                                            </sd-icon>
+                                            <input class="so-input-xl w-100" type='text' name="expirationDate"
+                                                ng-model="self.member.expirationDate" dtp-input required />
+                                            <span dtp-destroy>
+                                                <svg class="removeIcon ng-scope" viewBox="0 0 24 24" dtp-destroy
+                                                    ng-if="self.member.expirationDate">
+                                                    <use xlink:href="#dtp-i-close"></use>
+                                                </svg>
+                                            </span>
+                                            <div ng-messages="directorForm.expirationDate.$error"
+                                                ng-show="directorForm.expirationDate.$touched">
+                                                <div ng-message="required">
+                                                    پر کردن فیلد الزامی می‌باشد
+                                                </div>
+                                            </div>
+                                        </adm-dtp>
+                                    </sd-input-container>
+                                </div>
+                                <div class="col-lg-12">
+                                    <sd-input-container class="material text-right">
+                                        <label for="">توضیحات</label>
+
+                                        <div class="input-group">
+                                            <sd-icon>
+                                                <i class="fas s-apartment"></i>
+                                            </sd-icon>
+                                            <input class="so-input-xl w-100" type="text" ng-minlength="2"
+                                                ng-maxlength="500" ng-input-filter-alphabet="persianAlphabet"
+                                                ng-model="self.member.description" name="description" required />
+
+                                            <div ng-messages="directorForm.description.$error">
+                                                <div ng-message="required">
+                                                    پر کردن فیلد الزامی می‌باشد
+                                                </div>
+                                                <div ng-message="minlength">توضیحات نباید کمتر از دو کاراکتر
+                                                    باشد
+                                                </div>
+                                                <div ng-message="maxlength">توضیحات نباید بیش از پانصد کاراکتر
+                                                    باشد
+                                                </div>
+                                                <div ng-message="inputFilterAlphabet">
+                                                    توضیحات باید فارسی باشد
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </sd-input-container>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="row">
+                                        <div class="col-lg-12 d-flex mt-3">
+                                            <div class="col-lg-3 px-0">
+                                                <div class="so-body-1 font-weight-bold">
+                                                    بارگذاری مستندات
+                                                </div>
+                                                <div class="so-h5 font-weight-bold text-l-gray">
+                                                    مستندات می بایست فایل زیپ باشد
+                                                </div>
+                                            </div>
+                                            <div class="upload-box ml-5">
+                                                <div class="before-upload w-100 h-100" ng-model="self.member.attachment"
+                                                    required ngf-model-options="{updateOn: 'change'}"
+                                                    ng-if="self.member.attachment==null"
+                                                    ngf-select="self.uploadDocumentAttachment($files)">
+                                                    <i class="far s-circle-plus s-8x text-white bg-orange p-3"></i>
+                                                </div>
+                                                <div class="after-upload w-100 h-100 d-flex justify-content-center align-items-center"
+                                                    id="myList" ng-if="self.member.attachment!=null">
+                                                    <div class="loading-container" ng-if="self.loadingShow">
+                                                        <div class="loader"></div>
+                                                        <div class="loading-text so-h6">منتظر بمانید...</div>
+                                                    </div>
+                                                    <i class="fa s-check-circle s-8x text-white bg-orange p-3"></i>
+                                                    <button ng-model="self.member.attachment"
+                                                        class="btn edit shadow-none h-100 w-100"
+                                                        ngf-select="self.uploadDocumentAttachment($files)" required>
+                                                        <i class="fas s-edit s-2x text-white"></i>
+                                                        <div class="loading-text text-white so-h6">بارگزاری مجدد
+                                                        </div>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 d-flex justify-content-center">
+                                    <div class="button-add-member">
+                                        <button type="submit" class="btn btn-l-purple so-btn-md">
+                                            <span>
+                                                <i class="fas s-plus text-white"></i>
+                                            </span>
+                                            <span class="text-white">
+                                                اضافه نمودن
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="mt-5">
+                <button class="btn so-btn-md btn-n-green" ng-click="self.checkTypeLoan()">مرحله
+                    بعد</button>
+                <button class="btn so-btn-md btn-orange text-white"
+                    ui-sref="panel.loan.completeRequest.humanResourceInformation">بازگشت</button>
+            </div>
+        </div>
+    </div>
+</main>

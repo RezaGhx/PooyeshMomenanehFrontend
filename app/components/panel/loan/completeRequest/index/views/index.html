@@ -1,0 +1,25 @@
+<section id="completeRequest" class="container-fluid my-5">
+    <h1 class="so-title d-flex">
+        <i class="fas s-plus s-2x text-blue"></i>
+        <span class="pr-3">
+            ثبت درخواست تسهیلات
+        </span>
+    </h1>
+    <div class="row">
+        <div class="col-3">
+            <ul id="progress">
+                <li class="item" ng-if="!item.notShow" ng-repeat="item in self.progressItem"
+                    ng-class="{active: self.state.includes('{{item.stateName}}') && $even}">
+                    <div ng-if="$even" class="d-flex">
+                        <div class="node"></div>
+                        <h2 class="so-title" ng-bind="item.title"></h2>
+                    </div>
+                    <div ng-if="$odd" class="divider"></div>
+                </li>
+            </ul>
+        </div>
+        <div class="col-9">
+            <ui-view></ui-view>
+        </div>
+    </div>
+</section>

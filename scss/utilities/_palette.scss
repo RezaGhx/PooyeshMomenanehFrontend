@@ -1,0 +1,61 @@
+$orange: #fcbc2b !default;
+$blue: #17407a !default;
+$n-gray: #666666 !default;
+$l-silver: #e6e6e6 !default;
+$l-green: #7ba768 !default;
+$l-blue: #f6f9fc !default;
+$d-gray: #333333 !default;
+$silver: #989898 !default;
+$l-gray: #999999 !default;
+$l-purple: #bdccd4 !default;
+$n-blue: #00a99d !default;
+$m-blue: #EAEFF4 !default;
+$l-orange: #01b1c8 !default;
+$red: #F44336 !default;
+$green: #009245 !default;
+$black: #000000 !default;
+$white: #ffffff !default;
+$sky: #E6F4FF !default;
+$l-sky: #E7EFF2 !default;
+$s-green: #FFEBF1 !default;
+$n-green: #22B573 !default;
+$stone: #DEE0E6 !default;
+$l-stone: #F2F2F2 !default;
+$d-blue: #083D5D !default;
+
+
+$theme-colors: ();
+$theme-colors: map-merge(
+  (
+    "orange": $orange,
+    "blue": $blue,
+    "n-gray": $n-gray,
+    "l-silver": $l-silver,
+    "l-green": $l-green,
+    "l-blue": $l-blue,
+    "d-gray": $d-gray,
+    "silver": $silver,
+    "l-gray": $l-gray,
+    "l-purple": $l-purple,
+    "n-blue": $n-blue,
+    "m-blue": $m-blue,
+    "l-orange": $l-orange,
+    "red": $red,
+    "green": $green,
+    "black": $black,
+    "white": $white,
+    "sky": $sky,
+    "l-sky": $l-sky,
+    "s-green": $s-green,
+    "n-green": $n-green,
+    "stone": $stone,
+    "l-stone": $l-stone,
+    "d-blue": $d-blue,
+  ),
+  $theme-colors
+);
+
+@function get-color($color) {
+  $colorCode: map-get($theme-colors, $color);
+  @return $colorCode;
+}

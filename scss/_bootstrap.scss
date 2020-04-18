@@ -1,0 +1,76 @@
+/* #region utilities */
+@import "./utilities/palette";
+@import "./utilities/variables";
+/* #endregion */
+
+/* #region config */
+$enable-responsive-font-sizes: true !default;
+$font-family-base: $font-family-iran-yekan !default;
+// $component-active-bg: $orange !default;
+// $border-width: 10px !default;
+// $border-color:get-font('n-gray') !default;
+$border-radius: 0 !default;
+$custom-select-indicator: $select-indicator;
+$custom-select-bg-size: $select-bg-size;
+/* #endregion */
+
+@import "~bootstrap/scss/_functions.scss";
+@import "~bootstrap/scss/_variables.scss";
+
+/* #region reset color */
+$colors: map-remove(
+  $colors,
+  "blue",
+  "indigo",
+  "purple",
+  "pink",
+  "red",
+  "orange",
+  "yellow",
+  "green",
+  "teal",
+  "cyan",
+  "white",
+  "gray-600",
+  "gray-800"
+);
+$theme-colors: map-remove(
+  $theme-colors,
+  "primary",
+  "secondary",
+  "success",
+  "warning",
+  "light",
+  "dark",
+  "info",
+  "danger"
+);
+/* #endregion */
+
+@import "~bootstrap/scss/_mixins.scss";
+/* #region make-container*/
+@mixin make-container($gutter: $container-padding) {
+  width: 100%;
+  padding-right: $gutter;
+  padding-left: $gutter;
+  margin-right: auto;
+  margin-left: auto;
+}
+/* #endregion */
+@import "~bootstrap/scss/_root.scss";
+@import "~bootstrap/scss/_reboot.scss";
+@import "~bootstrap/scss/_grid.scss";
+@import "~bootstrap/scss/_tables.scss";
+@import "~bootstrap/scss/_buttons.scss";
+@import "~bootstrap/scss/_dropdown.scss";
+@import "~bootstrap/scss/_button-group.scss";
+@import "~bootstrap/scss/_input-group.scss";
+@import "../dev_modules/bootstrap/custom-forms";
+@import "~bootstrap/scss/_nav.scss";
+@import "~bootstrap/scss/_navbar.scss";
+@import "~bootstrap/scss/_pagination.scss";
+@import "~bootstrap/scss/_close.scss";
+@import "~bootstrap/scss/_modal.scss";
+@import "~bootstrap/scss/_tooltip.scss";
+@import "~bootstrap/scss/_utilities.scss";
+@import "../dev_modules/bootstrap/_rtl.scss";

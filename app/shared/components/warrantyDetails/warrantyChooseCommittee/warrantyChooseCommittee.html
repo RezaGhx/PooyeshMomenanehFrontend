@@ -1,0 +1,31 @@
+<div class="row mb-5 warranty-choose-committee">
+    <div class="col-lg-12">
+        <form name="selectedBail" promise-btn novalidate autocomplete="off"
+            ng-submit="self.submitWarrantyBail(selectedBail,self.bailSelected)">
+            <div class="so-title mb-1">
+                انتخاب وثیقه و تضامین ها
+            </div>
+            <div class="so-body-1 mb-5">
+                شما می توانید یکی از گزینه های زیر را انتخاب کنید تا متناسب با آن وثیقه و تضامین های خود را ارسال
+                کنید.
+                دقت داشته باشید که هر گزینه شامل مدارکی است که می بایست آن ها را بارگذاری کنید
+            </div>
+            <div class="collateral-type" ng-repeat="bail in self.bail.options">
+                <div class="custom-control custom-radio custom-control-orange">
+                    <input type="radio" class="custom-control-input" value="{{bail.bailOptionId}}"
+                        ng-model="self.bailSelected" id="firstOption{{bail.bailOptionId}}" required
+                        name="option{{bail.bailOptionId}}">
+                    <label class="custom-control-label so-title" for="firstOption{{bail.bailOptionId}}"
+                        ng-bind="bail.customDescription"></label>
+                </div>
+                <div class="col-lg-9" ng-if="bail.description">
+                    <div class="bg-l-silver p-2 mr-2 mb-3">
+                        <div class="so-subheading-2 mb-2">مدارک مورد نیاز</div>
+                        <div class="so-body-1 font-weight-bold" ng-bind="bail.description"></div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn so-btn-md btn-green" type="submit">ادامه</button>
+        </form>
+    </div>
+</div>

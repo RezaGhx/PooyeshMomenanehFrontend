@@ -1,0 +1,234 @@
+<section class="warranty-type">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="mb-4">
+                سوابق فروش و قراردادها
+            </h2>
+            <div class="row" cg-busy="self.promiseLoading">
+                <div class="col-lg-12" ng-show=" self.company.contract.length !=0">
+                    <div>
+                        <table class="table spacing-table csm-table" show-filter="false">
+                            <thead class="ng-scope">
+                                <tr>
+                                    <th class="header ">
+                                    </th>
+                                    <th class="header ">
+                                        <span class="ng-binding sort-indicator">محصول</span>
+                                    </th>
+                                    <th class="header ">
+                                        <span class="ng-binding sort-indicator">سال</span>
+                                    </th>
+                                    <th class="header ">
+                                        <span class="ng-binding sort-indicator">کشور</span>
+                                    </th>
+                                    <th class="header ">
+                                        <span class="ng-binding sort-indicator">نقش</span>
+                                    </th>
+                                    <th class="header ">
+                                        <span class="ng-binding sort-indicator">نوع فروش</span>
+                                    </th>
+                                    <th class="header ">
+                                        <span class="ng-binding sort-indicator">مبلغ (ریال)</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="row in  self.company.contract">
+                                <tr class="bg-matte-gray">
+                                    <td>
+                                        <div class="pointer" ng-click="self.deleteItem(row)">
+                                            <i class="fas s-times s-2x"></i>
+                                        </div>
+                                    </td>
+                                    <td data-title="'محصول'" filter="false">
+                                        <span>{{row.product}}</span>
+                                    </td>
+                                    <td data-title="'سال'" filter="false">
+                                        {{row.year}}
+                                    </td>
+                                    <td data-title="'کشور'" filter="false">
+                                        {{row.country}}
+                                    </td>
+                                    <td data-title="'نقش'" filter="false">
+                                        {{row.buyer}}
+                                    </td>
+                                    <td data-title="'نوع فروش'" filter="false">
+                                        {{row.type | salesTypeFilter}}
+                                    </td>
+                                    <td data-title="'ملبغ (ریال)'" filter="false">
+                                        {{row.amount | number}}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <form name="directorForm" autocomplete="off" promise-btn
+                ng-submit="self.pushToList(self.member,directorForm)" noValidate>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="member-box">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <sd-input-container class="material text-right">
+                                        <label for="">محصول</label>
+                                        <div class="input-group">
+                                            <sd-icon>
+                                                <i class="fas s-apartment"></i>
+                                            </sd-icon>
+                                            <input class="so-input-xl w-100" type="text" ng-minlength="2"
+                                                ng-maxlength="40" ng-input-filter-alphabet="persianAlphabet"
+                                                ng-model="self.member.product" name="product" required />
+                                            <div ng-messages="directorForm.product.$error">
+                                                <div ng-message="required">
+                                                    پر کردن فیلد الزامی می‌باشد
+                                                </div>
+                                                <div ng-message="minlength">محصول نباید کمتر از دو کاراکتر باشد</div>
+                                                <div ng-message="maxlength">محصول نباید بیش از چهل کاراکتر باشد</div>
+                                                <div ng-message="inputFilterAlphabet">
+                                                    محصول باید فارسی باشد
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </sd-input-container>
+                                </div>
+                                <div class="col-lg-3">
+                                    <sd-input-container class="material text-right">
+                                        <label for="">مبلغ</label>
+                                        <div class="input-group">
+                                            <sd-icon>
+                                                <i class="fas s-apartment"></i>
+                                            </sd-icon>
+                                            <input currency-input class="so-input-xl w-100" ng-minlength="3"
+                                                ng-maxlength="16" ng-model="self.member.amount" name="amount"
+                                                required />
+                                            <div ng-messages="directorForm.amount.$error">
+                                                <div ng-message="required">
+                                                    پر کردن فیلد الزامی می‌باشد
+                                                </div>
+                                                <div ng-message="minlength">مبلغ نباید کمتر از سه رقم باشد
+                                                </div>
+                                                <div ng-message="maxlength">مبلغ نباید بیشتر از شانزده رقم باشد
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </sd-input-container>
+                                </div>
+                                <div class="col-lg-3">
+                                    <sd-input-container class="material text-right">
+                                        <label for="">خریدار/کارفرما</label>
+                                        <div class="input-group">
+                                            <sd-icon>
+                                                <i class="fas s-apartment"></i>
+                                            </sd-icon>
+                                            <input class="so-input-xl w-100" type="text" ng-minlength="2"
+                                                ng-maxlength="40" ng-input-filter-alphabet="persianAlphabet"
+                                                ng-model="self.member.buyer" name="buyer" required />
+                                            <div ng-messages="directorForm.buyer.$error">
+                                                <div ng-message="required">
+                                                    پر کردن فیلد الزامی می‌باشد
+                                                </div>
+                                                <div ng-message="minlength">خریدار نباید کمتر از دو کاراکتر باشد
+                                                </div>
+                                                <div ng-message="maxlength">خریدار نباید بیش از چهل کاراکتر باشد
+                                                </div>
+                                                <div ng-message="inputFilterAlphabet">
+                                                    خریدار باید فارسی باشد
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </sd-input-container>
+                                </div>
+                                <div class="col-lg-3">
+                                    <sd-input-container class="material text-right">
+                                        <label for="">کشور</label>
+                                        <div class="input-group">
+                                            <sd-icon>
+                                                <i class="fas s-apartment"></i>
+                                            </sd-icon>
+                                            <input class="so-input-xl w-100" type="text" ng-minlength="2"
+                                                ng-maxlength="40" ng-input-filter-alphabet="persianAlphabet"
+                                                ng-model="self.member.country" name="country" required />
+                                            <div ng-messages="directorForm.country.$error">
+                                                <div ng-message="required">
+                                                    پر کردن فیلد الزامی می‌باشد
+                                                </div>
+                                                <div ng-message="minlength">کشور نباید کمتر از دو کاراکتر باشد
+                                                </div>
+                                                <div ng-message="maxlength">کشور نباید بیش از چهل کاراکتر باشد
+                                                </div>
+                                                <div ng-message="inputFilterAlphabet">
+                                                    کشور باید فارسی باشد
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </sd-input-container>
+                                </div>
+                                <div class="col-lg-3">
+                                    <sd-input-container class="material text-right">
+                                        <label for="">سال</label>
+                                        <div class="input-group">
+                                            <sd-icon>
+                                                <i class="fas s-apartment"></i>
+                                            </sd-icon>
+                                            <input class="so-input-xl w-100" ng-input-filter-number="uint"
+                                                ng-minlength="4" ng-maxlength="4" ng-model="self.member.year"
+                                                name="year" required />
+                                            <div ng-messages="directorForm.year.$error">
+                                                <div ng-message="required">
+                                                    پر کردن فیلد الزامی می‌باشد
+                                                </div>
+                                                <div ng-message="minlength">سال نباید کمتر از چهار کاراکتر
+                                                    باشد
+                                                </div>
+                                                <div ng-message="maxlength">سال نباید بیش از چهار کاراکتر
+                                                    باشد
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </sd-input-container>
+                                </div>
+                                <div class="col-lg-3">
+                                    <sd-input-container class="material text-right">
+                                        <sd-icon>
+                                            <i class="fas s-shield-check"></i>
+                                        </sd-icon>
+                                        <label for="">فروش</label>
+                                        <select class="custom-select so-input-xl w-100" required
+                                            ng-model="self.member.type" name="type">
+                                            <option value="1" selected>فاکتوری</option>
+                                            <option value="2" selected>قرارداد</option>
+                                        </select>
+                                        <div ng-messages="directorForm.type.$error">
+                                            <div ng-message="required">
+                                                پر کردن فیلد الزامی می‌باشد
+                                            </div>
+                                        </div>
+                                    </sd-input-container>
+                                </div>
+                                <div class="col-lg-12 d-flex justify-content-center">
+                                    <div class="button-add-member">
+                                        <button type="submit" class="btn btn-l-purple so-btn-md">
+                                            <span>
+                                                <i class="fas s-plus text-white"></i>
+                                            </span>
+                                            <span class="text-white">
+                                                اضافه نمودن
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="mt-5">
+                <button class="btn so-btn-md btn-n-green" ng-click="self.goToNextStep()">مرحله
+                    بعد</button>
+                <button class="btn so-btn-md btn-orange text-white"
+                    ui-sref="panel.loan.completeRequest.historyInformation">بازگشت</button>
+            </div>
+        </div>
+    </div>
+</section>

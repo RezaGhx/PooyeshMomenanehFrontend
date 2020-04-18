@@ -1,0 +1,178 @@
+<section class="mt-4 gallery container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="row" cg-busy="self.promiseLoading">
+                <div class="col-lg-12" ng-repeat="request in self.request">
+                    <div class="p-relative" ng-if="request.serviceType == 1">
+                        <div class="current-status mb-5">
+                            <div class="d-flex justify-content-between mb-1">
+                                <div>
+                                    <span class="so-title">دریافت ضمانت نامه
+                                        <small>
+                                            ({{request.typeTitle}}) - به مبلغ : {{request.amount | number}} ریال
+                                        </small>
+                                    </span>
+                                </div>
+                                <div class="so-body-1 text-n-gray">
+                                    <span>
+                                        شماره پرونده:
+                                    </span>
+                                    <span ng-bind="request.requestNumber">
+
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <div class="so-body-1">
+                                    <span class="text-black">
+                                        وضعیت پرونده:
+                                    </span>
+                                    <span class="text-green" ng-bind="request.currentStatusTitle">
+                                    </span>
+                                    <span ng-if="request.hasAction" ui-sref="panel.warranty.details({id: request.id})" class="btn-green px-4 py-1 text-white pointer">
+                                        اقدام
+                                    </span>
+                                </div>
+                                <div class="so-body-1">
+                                    <span class="text-black">
+                                        آخرین بروزرسانی:
+                                    </span>
+                                    <span class="text-blue" ng-bind="request.currentStatePlacedDate | jalaliDateFilter : 'jYYYY/jMM/jDD'">
+
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="mt-5">
+                                <ol class="progress" ng-if="request.isRejected == false">
+                                    <li class="progress__step">
+                                        <span class="mt-4 d-inline-block">ثبت درخواست</span>
+                                    </li>
+                                    <li class="progress__step" ng-class="{'progress__step--active text-blue so-body-1 progress__step--next' :request.requestState == 'PendingReview'}">
+                                        <span class="mt-4 d-inline-block">در حال بررسی</span>
+                                    </li>
+                                    <li class="progress__step" ng-class="{'progress__step--active text-blue so-body-1 progress__step--next' :request.requestState =='PendingForAssessment'}">
+                                        <span class="mt-4 d-inline-block">در حال ارزیابی</span>
+                                    </li>
+                                    <li class="progress__step" ng-class="{'progress__step--active text-blue so-body-1 progress__step--next' :request.requestState =='PendingApproved'}">
+                                        <span class="mt-4 d-inline-block">در انتظار درخواست مصوبه</span>
+                                    </li>
+                                    <li class="progress__step" ng-class="{'progress__step--active text-blue so-body-1 progress__step--next' :request.requestState =='Guarantees'}">
+                                        <span class="mt-4 d-inline-block">وثایق و تضامین</span>
+                                    </li>
+                                    <li class="progress__step" ng-class="{'progress__step--active text-blue so-body-1 progress__step--next' :request.requestState == 'SigningAgreement'}">
+                                        <span class="mt-4 d-inline-block">امضای قرارداد</span>
+                                    </li>
+                                    <li class="progress__step" ng-class="{'progress__step--active text-blue so-body-1 progress__step--next' :request.requestState == 'IssuedOfWarranty'}">
+                                        <span class="mt-4 d-inline-block">صدور ضمانتنامه</span>
+                                    </li>
+                                </ol>
+                            </div>
+                            <div class="w-100 h-100 bg-style"></div>
+                        </div>
+                        <div class="w-100 h-100 bg-style-disabled" ng-if="request.hasFeedback == false && request.currentStatus == 85">
+                            <div class="btn-style">
+                                <button class="btn so-btn-md btn-orange text-white" ui-sref="panel.warranty.details({id:warranty.id})">ثبت بازخورد</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-relative" ng-if="request.serviceType == 2">
+                        <div class="current-status mb-5">
+                            <div class="d-flex justify-content-between mb-1">
+                                <div>
+                                    <span class="so-title">
+                                        دریافت تسهیلات
+                                        <small>
+                                            ({{request.typeTitle}})
+                                        </small>
+                                    </span>
+                                </div>
+                                <div class="so-body-1 text-n-gray">
+                                    <span>
+                                        شماره پرونده:
+                                    </span>
+                                    <span ng-bind="request.requestNumber">
+
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <div class="so-body-1">
+                                    <span class="text-black">
+                                        وضعیت پرونده:
+                                    </span>
+                                    <span class="text-green" ng-bind="request.currentStatusTitle">
+                                    </span>
+                                    <span ng-if="request.hasAction" ng-click="self.goToLoan(request.currentStatus,request.id,request.type)" class="btn-green px-4 py-1 text-white pointer">
+                                        اقدام
+                                    </span>
+                                </div>
+                                <div class="so-body-1">
+                                    <span class="text-black">
+                                        تاریخ درخواست:
+                                    </span>
+                                    <span class="text-blue" ng-bind="request.currentStatePlacedDate | jalaliDateFilter : 'jYYYY/jMM/jDD'">
+
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="mt-5">
+                                <ol class="progress" ng-if="request.isRejected == false">
+                                    <li class="progress__step" ng-class="{'progress__step--active text-blue so-body-1 progress__step--next' :request.requestState == 'SubmitRequest'}">
+                                        <span class="mt-4 d-inline-block">ثبت درخواست</span>
+                                    </li>
+                                    <li class="progress__step" ng-class="{'progress__step--active text-blue so-body-1 progress__step--next' :request.requestState =='PendingReview'}">
+                                        <span class="mt-4 d-inline-block">در حال بررسی</span>
+                                    </li>
+                                    <li class="progress__step" ng-class="{'progress__step--active text-blue so-body-1 progress__step--next' :request.requestState == 'PendingForAssessment'}">
+                                        <span class="mt-4 d-inline-block">در حال ارزیابی</span>
+                                    </li>
+                                    <li class="progress__step" ng-class="{'progress__step--active text-blue so-body-1 progress__step--next' :request.requestState == 'PendingApproved'}">
+                                        <span class="mt-4 d-inline-block">در انتظار درخواست مصوبه</span>
+                                    </li>
+                                    <li class="progress__step" ng-class="{'progress__step--active text-blue so-body-1 progress__step--next' :request.requestState =='Guarantees'}">
+                                        <span class="mt-4 d-inline-block">وثایق و تضامین</span>
+                                    </li>
+                                    <li class="progress__step" ng-class="{'progress__step--active text-blue so-body-1 progress__step--next' :request.requestState == 'SigningAgreement'}">
+                                        <span class="mt-4 d-inline-block">امضای قرارداد</span>
+                                    </li>
+                                    <li class="progress__step" ng-class="{'progress__step--active text-blue so-body-1 progress__step--next' :request.requestState == 'GrantingOfFacilities'}">
+                                        <span class="mt-4 d-inline-block">اعطاء تسهیلات</span>
+                                    </li>
+                                </ol>
+                            </div>
+                            <div class="w-100 h-100 bg-style"></div>
+                        </div>
+                        <div class="w-100 h-100 bg-style-disabled" ng-if="request.hasFeedback == false && request.currentStatus == 85">
+                            <div class="btn-style">
+                                <button class="btn so-btn-md btn-orange text-white" ng-click="self.goToLoan(request.currentStatus,request.id,request.type)">ثبت
+                                    بازخورد</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-5">
+                <div class="col-lg-12">
+                    <span class="so-title text-blue">همین الان شروع کنید:</span>
+                </div>
+                <div class="col-lg-12 mt-3">
+                    <div class="row">
+                        <div class="col-lg-5 d-flex flex-column">
+                            <div class="box-1 pl-4 pointer" ui-sref="panel.warranty.gettingStart">
+                                <div class="so-display-2 text-white pr-3">درخواست ضمانت نامه</div>
+                                <div class="so-body-1 box-1-des font-weight-bold pl-5">درخواست انواع ضمانت نامه بانکی ویژه شرکت های فناور برای شرکت در: مناقصه/مزایده، حسن انجام تعهدات، پیش پرداخت و تعهد پرداخت
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-7 d-flex flex-column">
+                            <div class="box-2 p-3 h-100 pointer" ui-sref="panel.loan.gettingStart">
+								<div class="so-display-2 text-white font-weight-bold">درخواست تسهیلات / لیزینگ</div>
+                                <div class="so-body-1 box-2-des">دریافت تسهیلات از خط اعتباری<br>صندوق توسعه فناوری های نوین نزد صندوق نوآوری و شکوفایی</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

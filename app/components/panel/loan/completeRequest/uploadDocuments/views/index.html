@@ -1,0 +1,110 @@
+<section class="warranty-type">
+    <div class="row">
+        <div class="col-lg-12">
+            <form name="companyForm" autocomplete="off" novalidate ng-submit="self.submit(self.company,companyForm)"
+                promise-btn>
+                <div class="row" cg-busy="self.promiseLoading">
+
+                    <div class="col-lg-12">
+                        <div class="so-title">اسناد مورد نیاز</div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="d-flex flex-wrap">
+
+                            <div class="upload-document-loan" ng-repeat="document in self.company">
+                                <div class="before-upload-loan" ng-model="document.attachment"
+                                    ngf-model-options="{updateOn: 'change'}" ng-if="document.attachment==null">
+                                    <div ngf-select="self.uploadLogo($files,document.typeId,$index)"
+                                        class="image-container pointer" ng-if="document.attachment==null">
+                                        <img src="../../../../images/uplaodIcon.svg" alt="" srcset="">
+                                    </div>
+                                    <div class="image-container" ng-if="document.attachment!=null">
+                                        <img src="../../../../images/reload.svg" alt="" srcset="">
+                                    </div>
+                                    <div class="so-h6 mt-2" ng-if="document.attachment!=null">
+                                        بارگزاری مجدد
+                                    </div>
+                                    <div class="title-download so-body-1 font-weight-bold text-n-gray"
+                                        ng-bind="document.typeTitle"></div>
+                                    <div class="download-file" ng-if="true">
+                                        <div class="so-h5 text-blue mb-1">
+                                            <i class="fas s-download ml-1"></i>
+                                            <a class="text-blue" target="_blank"
+                                                ng-href={{$root.download+document.typeSampleFile}}>دریافت فایل نمونه</a>
+                                        </div>
+                                        <div class="so-h5 text-green pointer" data-toggle="modal"
+                                            data-target=".bd-example-modal-sm1"
+                                            ng-click='self.text = document.typeHint'>
+                                            راهنمای تکمیل اطلاعات
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div ng-if="false"
+                                    class="bg-red px-3 py-1 text-white d-flex justify-content-between align-items-baseline"
+                                    ng-if=true>
+                                    <div class="so-h6">فایل منقضی شده است</div>
+                                    <div><i class="far s-edit s-sm pointer"></i></div>
+                                </div>
+                                <!-- <img ngf-thumbnail="document.attachment" ngf-src="self.download + document.attachment"
+                                    alt=""> -->
+                                <div class="after-upload-loan" id="myList" ng-if="document.attachment!=null">
+                                    <div class="loading-container" ng-if="document.loadingShow">
+                                        <div class="loader"></div>
+                                        <div class="loading-text so-h6">منتظر بمانید...</div>
+                                    </div>
+                                    <div class="image-container">
+                                        <img src="../../../../images/tick.svg" alt="" srcset="">
+                                    </div>
+                                    <div class="title-download so-body-1 text-white font-weight-bold text-n-gray"
+                                        ng-bind="document.typeTitle">
+                                    </div>
+                                    <div class="edit-box text-white">
+                                        <div class="d-flex flex-column align-items-start">
+                                            <span class="so-h6 mb-0">تاریخ انقضا</span>
+                                            <span class="so-h5"
+                                                ng-bind="document.expirationDate | jalaliDateFilter : 'jYYYY/jM/jD'"></span>
+                                        </div>
+                                        <div class="align-self-end"
+                                            ngf-select="self.uploadLogo($files,document.typeId,$index)"><i
+                                                class="far s-edit s-sm pointer"></i></div>
+                                    </div>
+                                    <!-- <span class="ml-3 icon pointer" ng-model="document.attachment"
+                                            class="btn edit shadow-none h-100 w-100"
+                                            ngf-select="self.uploadLogo($files,document.typeId,$index)">
+                                            <i class="fas s-sync-alt"></i>
+                                        </span>
+                                        <a class="ml-3 icon pointer">
+                                            <i class="fas s-download"></i>
+                                        </a> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-lg-12">
+                        <button class="btn btn-green so-btn-md" ng-click="self.submit(self.company)">
+                            مرحله بعد
+                        </button>
+                        <button class="btn btn-orange so-btn-md text-white" type="button"
+                            ui-sref="panel.loan.completeRequest.contractHistoryInformation">
+                            بازگشت
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<div class="modal fade bd-example-modal-sm1" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-sm bg-image-modal">
+        <div class="modal-content bg-gray py-4 align-items-center bg-image-modal rounded-0">
+            <h3 class="mb-0">متن راهنمای تکمیل اطلاعات</h3>
+            <div ng-bind="self.text">
+
+            </div>
+        </div>
+    </div>
+</div>

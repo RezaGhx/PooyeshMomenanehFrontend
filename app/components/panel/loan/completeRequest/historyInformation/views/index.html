@@ -1,0 +1,690 @@
+<main class="warranty-type">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="bg-orange p-2 d-flex align-items-center">
+                <i class="fa s-info-circle ml-2"></i><span class="so-h5">در صورتی که تاکنون خدماتی از نوع ضمانت نامه و
+                    تسهیلات از
+                    مراجع
+                    مختلف
+                    دریافت
+                    نکرده اید، نیازی به تکمیل فرم زیر نمی باشد.</span>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <h2 class="mb-4">
+                سوابق تسهیلات
+            </h2>
+            <div class="row" cg-busy="self.promiseLoading">
+                <div class="col-lg-12" ng-show="self.company.loan.length !=0">
+                    <div>
+                        <table class="table spacing-table csm-table" show-filter="false">
+                            <thead class="ng-scope">
+                                <tr>
+                                    <th class="header ">
+                                    </th>
+                                    <th class="header ">
+                                        <span class="ng-binding sort-indicator">موضوع دریافت تسهیلات</span>
+                                    </th>
+                                    <th class="header ">
+                                        <span class="ng-binding sort-indicator">سال دریافت</span>
+                                    </th>
+                                    <th class="header ">
+                                        <span class="ng-binding sort-indicator">نوع تسهیلات</span>
+                                    </th>
+                                    <th class="header ">
+                                        <span class="ng-binding sort-indicator">مبلغ تسهیلات (ریال)</span>
+                                    </th>
+                                    <th class="header ">
+                                        <span class="ng-binding sort-indicator">زمان تسویه حساب نهایی</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="row in self.company.loan">
+                                <tr class="bg-matte-gray">
+                                    <td>
+                                        <div class="pointer" ng-click="self.deleteLoanItem(row)">
+                                            <i class="fas s-times s-2x"></i>
+                                        </div>
+                                    </td>
+                                    <td class="" data-title="'موضوع دریافت تسهیلات'" filter="false">
+                                        <span>{{row.subject}}</span>
+                                    </td>
+                                    <td data-title="'سال دریافت'" filter="false">
+                                        {{row.receivedYear}}
+                                    </td>
+                                    <td data-title="'نوع تسهیلات'" filter="false">
+                                        {{row.type}}
+                                    </td>
+                                    <td data-title="'مبلغ تسهیلات (ریال)'" filter="false">
+                                        {{row.amount}}
+                                    </td>
+                                    <td data-title="'زمان تسویه حساب نهایی'" filter="false">
+                                        {{row.settlementDate | jalaliDateFilter : 'jYYYY/jM/jD'}}
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <form name="loanForm" autocomplete="off" ng-submit="self.pushToListLoan(self.member,loanForm)" noValidate
+                promise-btn>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="member-box">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <sd-input-container class="material text-right">
+                                        <label for="">موضوع دریافت تسهیلات</label>
+
+                                        <div class="input-group">
+                                            <sd-icon>
+                                                <i class="fas s-apartment"></i>
+                                            </sd-icon>
+                                            <input class="so-input-xl w-100" type="text" ng-minlength="2"
+                                                ng-maxlength="40" ng-input-filter-alphabet="persianAlphabet"
+                                                ng-model="self.member.subject" name="subject" required />
+
+                                            <div ng-messages="loanForm.subject.$error">
+                                                <div ng-message="required">
+                                                    پر کردن فیلد الزامی می‌باشد
+                                                </div>
+                                                <div ng-message="minlength">موضوع نباید کمتر از دو کاراکتر باشد</div>
+                                                <div ng-message="maxlength">موضوع نباید بیش از چهل کاراکتر باشد</div>
+                                                <div ng-message="inputFilterAlphabet">
+                                                    موضوع باید فارسی باشد
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </sd-input-container>
+                                </div>
+                                <div class="col-lg-3">
+                                    <sd-input-container class="material text-right">
+                                        <label for="">سال دریافت</label>
+
+                                        <div class="input-group">
+                                            <sd-icon>
+                                                <i class="fas s-apartment"></i>
+                                            </sd-icon>
+                                            <input class="so-input-xl w-100" ng-input-filter-number="uint"
+                                                ng-minlength="4" ng-maxlength="4" ng-model="self.member.receivedYear"
+                                                name="receivedYear" required />
+
+                                            <div ng-messages="loanForm.receivedYear.$error">
+                                                <div ng-message="required">
+                                                    پر کردن فیلد الزامی می‌باشد
+                                                </div>
+                                                <div ng-message="minlength">سال نباید کمتر از چهار کاراکتر
+                                                    باشد
+                                                </div>
+                                                <div ng-message="maxlength">سال نباید بیش از چهار کاراکتر
+                                                    باشد
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </sd-input-container>
+                                </div>
+                                <div class="col-lg-3">
+                                    <sd-input-container class="material text-right">
+                                        <label for="">نوع تسهیلات</label>
+
+                                        <div class="input-group">
+                                            <sd-icon>
+                                                <i class="fas s-apartment"></i>
+                                            </sd-icon>
+                                            <input class="so-input-xl w-100" type="text" ng-minlength="2"
+                                                ng-maxlength="40" ng-input-filter-alphabet="persianAlphabet"
+                                                ng-model="self.member.type" name="type" required />
+
+                                            <div ng-messages="loanForm.type.$error">
+                                                <div ng-message="required">
+                                                    پر کردن فیلد الزامی می‌باشد
+                                                </div>
+                                                <div ng-message="minlength">نوع نباید کمتر از دو کاراکتر باشد
+                                                </div>
+                                                <div ng-message="maxlength">نوع نباید بیش از چهل کاراکتر باشد
+                                                </div>
+                                                <div ng-message="inputFilterAlphabet">
+                                                    نوع باید فارسی باشد
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </sd-input-container>
+                                </div>
+                                <div class="col-lg-3">
+                                    <sd-input-container class="material text-right">
+                                        <label for="">مبلغ تسهیلات</label>
+
+                                        <div class="input-group">
+                                            <sd-icon>
+                                                <i class="fas s-apartment"></i>
+                                            </sd-icon>
+                                            <input class="so-input-xl w-100" currency-input type="text" ng-minlength="4"
+                                                ng-maxlength="15" ng-model="self.member.amount" name="amount"
+                                                required />
+
+                                            <div ng-messages="loanForm.amount.$error">
+                                                <div ng-message="required">
+                                                    پر کردن فیلد الزامی می‌باشد
+                                                </div>
+                                                <div ng-message="minlength">مبلغ نباید کمتر از چهار کاراکتر باشد
+                                                </div>
+                                                <div ng-message="maxlength">مبلغ نباید بیش از پانزده کاراکتر باشد
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </sd-input-container>
+                                </div>
+                                <div class="col-lg-3">
+                                    <sd-input-container class="material text-right">
+                                        <label for="">نام مرکز</label>
+
+                                        <div class="input-group">
+                                            <sd-icon>
+                                                <i class="fas s-apartment"></i>
+                                            </sd-icon>
+                                            <input class="so-input-xl w-100" type="text" ng-minlength="2"
+                                                ng-maxlength="40" ng-input-filter-alphabet="persianAlphabet"
+                                                ng-model="self.member.organization" name="organization" required />
+
+                                            <div ng-messages="loanForm.organization.$error">
+                                                <div ng-message="required">
+                                                    پر کردن فیلد الزامی می‌باشد
+                                                </div>
+                                                <div ng-message="minlength">نام مرکز نباید کمتر از دو کاراکتر باشد
+                                                </div>
+                                                <div ng-message="maxlength">نام مرکز نباید بیش از چهل کاراکتر باشد
+                                                </div>
+                                                <div ng-message="inputFilterAlphabet">
+                                                    نام مرکز باید فارسی باشد
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </sd-input-container>
+                                </div>
+                                <div class="col-lg-3">
+                                    <sd-input-container class="material text-right">
+                                        <label for="">نوع وثیقه و تضامین</label>
+
+                                        <div class="input-group">
+                                            <sd-icon>
+                                                <i class="fas s-apartment"></i>
+                                            </sd-icon>
+                                            <input class="so-input-xl w-100" type="text" ng-minlength="2"
+                                                ng-maxlength="40" ng-input-filter-alphabet="persianAlphabet"
+                                                ng-model="self.member.bailType" name="bailType" required />
+
+                                            <div ng-messages="loanForm.bailType.$error">
+                                                <div ng-message="required">
+                                                    پر کردن فیلد الزامی می‌باشد
+                                                </div>
+                                                <div ng-message="minlength">نوع وثیقه و تضامین نباید کمتر از دو کاراکتر باشد
+                                                </div>
+                                                <div ng-message="maxlength">نوع وثیقه و تضامین نباید بیش از چهل کاراکتر باشد
+                                                </div>
+                                                <div ng-message="inputFilterAlphabet">
+                                                    نوع وثیقه و تضامین باید فارسی باشد
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </sd-input-container>
+                                </div>
+                                <div class="col-lg-3">
+                                    <sd-input-container class="material text-right">
+                                        <label for="">نرخ سود</label>
+
+                                        <div class="input-group">
+                                            <sd-icon>
+                                                <i class="fas s-apartment"></i>
+                                            </sd-icon>
+                                            <input class="so-input-xl w-100" ng-input-filter-number="uint" type="text"
+                                                ng-minlength="1" ng-maxlength="3" ng-model="self.member.profitRate"
+                                                name="profitRate" required />
+
+                                            <div ng-messages="loanForm.profitRate.$error">
+                                                <div ng-message="required">
+                                                    پر کردن فیلد الزامی می‌باشد
+                                                </div>
+                                                <div ng-message="minlength">نرخ سود نباید کمتر از دو کاراکتر باشد
+                                                </div>
+                                                <div ng-message="maxlength">نرخ سود نباید بیش از پانزده کاراکتر باشد
+                                                </div>
+                                                <div ng-message="inputFilterAlphabet">
+                                                    نرخ سود باید فارسی باشد
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </sd-input-container>
+                                </div>
+                                <div class="col-lg-3">
+                                    <sd-input-container class="material text-right">
+                                        <label for="">مبلغ هر قسط</label>
+
+                                        <div class="input-group">
+                                            <sd-icon>
+                                                <i class="fas s-apartment"></i>
+                                            </sd-icon>
+                                            <input class="so-input-xl w-100" currency-input type="text" ng-minlength="2"
+                                                ng-maxlength="15" ng-model="self.member.eachInstallmentAmount"
+                                                name="eachInstallmentAmount" required />
+
+                                            <div ng-messages="loanForm.eachInstallmentAmount.$error">
+                                                <div ng-message="required">
+                                                    پر کردن فیلد الزامی می‌باشد
+                                                </div>
+                                                <div ng-message="minlength">مبلغ نباید کمتر از دو کاراکتر باشد
+                                                </div>
+                                                <div ng-message="maxlength">مبلغ نباید بیش از پانزده کاراکتر باشد
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </sd-input-container>
+                                </div>
+                                <div class="col-lg-3">
+                                    <sd-input-container class="material text-right">
+                                        <label for="">زمان تسویه حساب نهایی</label>
+
+                                        <adm-dtp class="w-100" ng-model='self.member.settlementDate'>
+                                            <sd-icon>
+                                                <i class="fas s-calendar"></i>
+                                            </sd-icon>
+                                            <input class="so-input-xl w-100" type='text' name="settlementDate"
+                                                ng-model="self.member.settlementDate" dtp-input required />
+                                            <span dtp-destroy>
+                                                <svg class="removeIcon ng-scope" viewBox="0 0 24 24" dtp-destroy
+                                                    ng-if="self.member.settlementDate">
+                                                    <use xlink:href="#dtp-i-close"></use>
+                                                </svg>
+                                            </span>
+                                            <div ng-messages="loanForm.settlementDate.$error"
+                                                ng-show="loanForm.settlementDate.$touched">
+                                                <div ng-message="required">
+                                                    پر کردن فیلد الزامی می‌باشد
+                                                </div>
+                                            </div>
+                                        </adm-dtp>
+                                    </sd-input-container>
+                                </div>
+                                <div class="col-lg-3">
+                                    <sd-input-container class="material text-right">
+                                        <label for="">تعداد اقساط پرداخت شده</label>
+
+                                        <div class="input-group">
+                                            <sd-icon>
+                                                <i class="fas s-apartment"></i>
+                                            </sd-icon>
+                                            <input class="so-input-xl w-100" ng-input-filter-number="uint"
+                                                ng-minlength="1" ng-maxlength="3"
+                                                ng-model="self.member.numberOfPaidInstallments"
+                                                name="numberOfPaidInstallments" required />
+
+                                            <div ng-messages="loanForm.numberOfPaidInstallments.$error">
+                                                <div ng-message="required">
+                                                    پر کردن فیلد الزامی می‌باشد
+                                                </div>
+                                                <div ng-message="minlength">تعداد نباید کمتر از یک کاراکتر باشد
+                                                </div>
+                                                <div ng-message="maxlength">تعداد نباید بیش از سه کاراکتر باشد
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </sd-input-container>
+                                </div>
+                                <div class="col-lg-3">
+                                    <sd-input-container class="material text-right">
+                                        <label for="">تعداد اقساط پرداخت نشده</label>
+
+                                        <div class="input-group">
+                                            <sd-icon>
+                                                <i class="fas s-apartment"></i>
+                                            </sd-icon>
+                                            <input class="so-input-xl w-100" ng-input-filter-number="uint"
+                                                ng-minlength="1" ng-maxlength="3"
+                                                ng-model="self.member.numberOfUnPaidInstallments"
+                                                name="numberOfUnPaidInstallments" required />
+
+                                            <div ng-messages="loanForm.numberOfUnPaidInstallments.$error">
+                                                <div ng-message="required">
+                                                    پر کردن فیلد الزامی می‌باشد
+                                                </div>
+                                                <div ng-message="minlength">تعداد نباید کمتر از یک کاراکتر باشد
+                                                </div>
+                                                <div ng-message="maxlength">تعداد نباید بیش از سه کاراکتر باشد
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </sd-input-container>
+                                </div>
+                                <div class="col-lg-12 d-flex justify-content-center">
+                                    <div class="button-add-member">
+                                        <button type="submit" class="btn btn-l-purple so-btn-md">
+                                            <span>
+                                                <i class="fas s-plus text-white"></i>
+                                            </span>
+                                            <span class="text-white">
+                                                اضافه نمودن
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <h2 class="my-4">
+                سوابق ضمانت نامه
+            </h2>
+            <div class="row" cg-busy="self.promiseLoading">
+                <div class="col-lg-12" ng-show="self.company.warranty.length !=0">
+                    <div>
+                        <table class="table spacing-table csm-table" show-filter="false">
+                            <thead class="ng-scope">
+                                <tr>
+                                    <th class="header ">
+                                    </th>
+                                    <th class="header ">
+                                        <span class="ng-binding sort-indicator">موضوع دریافت ضمانت نامه</span>
+                                    </th>
+                                    <th class="header ">
+                                        <span class="ng-binding sort-indicator">سال دریافت</span>
+                                    </th>
+                                    <th class="header ">
+                                        <span class="ng-binding sort-indicator">مبلغ ضمانت نامه (ریال)</span>
+                                    </th>
+                                    <th class="header ">
+                                        <span class="ng-binding sort-indicator">نوع ضمانت نامه</span>
+                                    </th>
+                                    <th class="header ">
+                                        <span class="ng-binding sort-indicator">وضعیت کنونی ضمانت نامه</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="row in self.company.warranty">
+                                <tr class="bg-matte-gray">
+                                    <td>
+                                        <div class="pointer" ng-click="self.deleteWarrantyItem(row)">
+                                            <i class="fas s-times s-2x"></i>
+                                        </div>
+                                    </td>
+                                    <td class="" data-title="'موضوع دریافت ضمانت نامه'" filter="false">
+                                        <span>{{row.subject}}</span>
+                                    </td>
+                                    <td data-title="'سال دریافت'" filter="false">
+                                        {{row.receivedYear}}
+                                    </td>
+                                    <td data-title="'مبلغ ضمانت نامه (ریال)'" filter="false">
+                                        {{row.amount |  number}}
+                                    </td>
+                                    <td data-title="'نوع ضمانت نامه'" filter="false">
+                                        {{row.type}}
+                                    </td>
+                                    <td data-title="'وضعیت کنونی ضمانت نامه'" filter="false">
+                                        {{row.currentState}}
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <form name="warrantyForm" autocomplete="off" ng-submit="self.pushToListWarranty(self.warranty,warrantyForm)"
+                noValidate promise-btn>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="member-box">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <sd-input-container class="material text-right">
+                                        <label for="">موضوع دریافت ضمانت نامه</label>
+
+                                        <div class="input-group">
+                                            <sd-icon>
+                                                <i class="fas s-apartment"></i>
+                                            </sd-icon>
+                                            <input class="so-input-xl w-100" type="text" ng-minlength="2"
+                                                ng-maxlength="40" ng-input-filter-alphabet="persianAlphabet"
+                                                ng-model="self.warranty.subject" name="subject" required />
+
+                                            <div ng-messages="warrantyForm.subject.$error">
+                                                <div ng-message="required">
+                                                    پر کردن فیلد الزامی می‌باشد
+                                                </div>
+                                                <div ng-message="minlength">موضوع نباید کمتر از دو کاراکتر باشد</div>
+                                                <div ng-message="maxlength">موضوع نباید بیش از چهل کاراکتر باشد</div>
+                                                <div ng-message="inputFilterAlphabet">
+                                                    موضوع باید فارسی باشد
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </sd-input-container>
+                                </div>
+                                <div class="col-lg-3">
+                                    <sd-input-container class="material text-right">
+                                        <label for="">سال دریافت</label>
+
+                                        <div class="input-group">
+                                            <sd-icon>
+                                                <i class="fas s-apartment"></i>
+                                            </sd-icon>
+                                            <input class="so-input-xl w-100" ng-input-filter-number="uint"
+                                                ng-minlength="4" ng-maxlength="4" ng-model="self.warranty.receivedYear"
+                                                name="receivedYear" required />
+
+                                            <div ng-messages="warrantyForm.receivedYear.$error">
+                                                <div ng-message="required">
+                                                    پر کردن فیلد الزامی می‌باشد
+                                                </div>
+                                                <div ng-message="minlength">سال نباید کمتر از چهار کاراکتر
+                                                    باشد
+                                                </div>
+                                                <div ng-message="maxlength">سال نباید بیش از چهار کاراکتر
+                                                    باشد
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </sd-input-container>
+                                </div>
+                                <div class="col-lg-3">
+                                    <sd-input-container class="material text-right">
+                                        <label for="">مبلغ ضمانت نامه</label>
+                                        <div class="input-group">
+                                            <sd-icon>
+                                                <i class="fas s-calendar"></i>
+                                            </sd-icon>
+                                            <input currency-input class="so-input-xl w-100" ng-minlength="10"
+                                                ng-maxlength="16" ng-model="self.warranty.amount" name="amount"
+                                                required />
+                                            <div ng-messages="warrantyForm.amount.$error">
+                                                <div ng-message="required">
+                                                    پر کردن فیلد الزامی می‌باشد
+                                                </div>
+                                                <div ng-message="minlength">مبلغ ضمانت نامه نباید کمتر از ده میلیون ریال
+                                                    باشد
+                                                </div>
+                                                <div ng-message="maxlength">مبلغ ضمانت نامه نباید بیش از پانصد میلیارد
+                                                    ریال
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </sd-input-container>
+                                </div>
+                                <div class="col-lg-3">
+                                    <sd-input-container class="material text-right">
+                                        <label for="">نوع ضمانت نامه</label>
+
+                                        <div class="input-group">
+                                            <sd-icon>
+                                                <i class="fas s-apartment"></i>
+                                            </sd-icon>
+                                            <input class="so-input-xl w-100" type="text" ng-minlength="2"
+                                                ng-maxlength="40" ng-input-filter-alphabet="persianAlphabet"
+                                                ng-model="self.warranty.type" name="type" required />
+
+                                            <div ng-messages="warrantyForm.type.$error">
+                                                <div ng-message="required">
+                                                    پر کردن فیلد الزامی می‌باشد
+                                                </div>
+                                                <div ng-message="minlength">نوع نباید کمتر از دو کاراکتر باشد
+                                                </div>
+                                                <div ng-message="maxlength">نوع نباید بیش از چهل کاراکتر باشد
+                                                </div>
+                                                <div ng-message="inputFilterAlphabet">
+                                                    نوع باید فارسی باشد
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </sd-input-container>
+                                </div>
+                                <div class="col-lg-3">
+                                    <sd-input-container class="material text-right">
+                                        <label for="">نوع وثیقه و تضامین</label>
+
+                                        <div class="input-group">
+                                            <sd-icon>
+                                                <i class="fas s-apartment"></i>
+                                            </sd-icon>
+                                            <input class="so-input-xl w-100" type="text" ng-minlength="2"
+                                                ng-maxlength="40" ng-input-filter-alphabet="persianAlphabet"
+                                                ng-model="self.warranty.bailType" name="bailType" required />
+
+                                            <div ng-messages="warrantyForm.bailType.$error">
+                                                <div ng-message="required">
+                                                    پر کردن فیلد الزامی می‌باشد
+                                                </div>
+                                                <div ng-message="minlength">نوع نباید کمتر از دو کاراکتر باشد
+                                                </div>
+                                                <div ng-message="maxlength">نوع نباید بیش از چهل کاراکتر باشد
+                                                </div>
+                                                <div ng-message="inputFilterAlphabet">
+                                                    نوع باید فارسی باشد
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </sd-input-container>
+                                </div>
+                                <div class="col-lg-3">
+                                    <sd-input-container class="material text-right">
+                                        <label for="">نام مرکز</label>
+
+                                        <div class="input-group">
+                                            <sd-icon>
+                                                <i class="fas s-apartment"></i>
+                                            </sd-icon>
+                                            <input class="so-input-xl w-100" type="text" ng-minlength="2"
+                                                ng-maxlength="40" ng-input-filter-alphabet="persianAlphabet"
+                                                ng-model="self.warranty.organization" name="organization" required />
+
+                                            <div ng-messages="warrantyForm.organization.$error">
+                                                <div ng-message="required">
+                                                    پر کردن فیلد الزامی می‌باشد
+                                                </div>
+                                                <div ng-message="minlength">نام مرکز نباید کمتر از دو کاراکتر باشد
+                                                </div>
+                                                <div ng-message="maxlength">نام مرکز نباید بیش از چهل کاراکتر باشد
+                                                </div>
+                                                <div ng-message="inputFilterAlphabet">
+                                                    نام مرکز باید فارسی باشد
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </sd-input-container>
+                                </div>
+                                <div class="col-lg-3">
+                                    <sd-input-container class="material text-right">
+                                        <label for="">نهاد دریافت کننده</label>
+
+                                        <div class="input-group">
+                                            <sd-icon>
+                                                <i class="fas s-apartment"></i>
+                                            </sd-icon>
+                                            <input class="so-input-xl w-100" type="text" ng-minlength="2"
+                                                ng-maxlength="40" ng-input-filter-alphabet="persianAlphabet"
+                                                ng-model="self.warranty.receiverOrganization"
+                                                name="receiverOrganization" required />
+
+                                            <div ng-messages="warrantyForm.receiverOrganization.$error">
+                                                <div ng-message="required">
+                                                    پر کردن فیلد الزامی می‌باشد
+                                                </div>
+                                                <div ng-message="minlength">نهاد نباید کمتر از دو کاراکتر باشد
+                                                </div>
+                                                <div ng-message="maxlength">نهاد نباید بیش از چهل کاراکتر باشد
+                                                </div>
+                                                <div ng-message="inputFilterAlphabet">
+                                                    نهاد باید فارسی باشد
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </sd-input-container>
+                                </div>
+                                <div class="col-lg-3">
+                                    <sd-input-container class="material text-right">
+                                        <label for="">وضعیت کنونی ضمانت نامه</label>
+
+                                        <div class="input-group">
+                                            <sd-icon>
+                                                <i class="fas s-apartment"></i>
+                                            </sd-icon>
+                                            <input class="so-input-xl w-100" type="text" ng-minlength="2"
+                                                ng-maxlength="40" ng-input-filter-alphabet="persianAlphabet"
+                                                ng-model="self.warranty.currentState" name="currentState" required />
+
+                                            <div ng-messages="warrantyForm.currentState.$error">
+                                                <div ng-message="required">
+                                                    پر کردن فیلد الزامی می‌باشد
+                                                </div>
+                                                <div ng-message="minlength">وضعیت نباید کمتر از دو کاراکتر باشد
+                                                </div>
+                                                <div ng-message="maxlength">وضعیت نباید بیش از چهل کاراکتر باشد
+                                                </div>
+                                                <div ng-message="inputFilterAlphabet">
+                                                    وضعیت باید فارسی باشد
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </sd-input-container>
+                                </div>
+                                <div class="col-lg-12 d-flex justify-content-center">
+                                    <div class="button-add-member">
+                                        <button type="submit" class="btn btn-l-purple so-btn-md">
+                                            <span>
+                                                <i class="fas s-plus text-white"></i>
+                                            </span>
+                                            <span class="text-white">
+                                                اضافه نمودن
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="mt-5">
+                <button class="btn so-btn-md btn-n-green" ng-click="self.goToNextStep()">مرحله بعد</button>
+                <button class="btn so-btn-md btn-orange text-white" ng-click="self.goToBackStep()">بازگشت</button>
+            </div>
+        </div>
+    </div>
+</main>
