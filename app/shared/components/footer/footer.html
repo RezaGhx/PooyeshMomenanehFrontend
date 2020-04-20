@@ -1,14 +1,128 @@
-<footer class="footer bg-white align-items-center">
-    <div class="row">
-        <div class="col-lg-4 d-flex flex-column">
-            <div class="text-ocean-blue so-display-1">
-                اطلاعات تماس
+<footer class="bg-l-purple align-items-center">
+    <div class="footer-box">
+        <div class="row">
+            <div class="col-lg-4 d-flex justify-content-center align-items-center flex-column">
+                <div class="text-ocean-blue so-display-2">
+                    اطلاعات تماس
+                </div>
+            </div>
+            <div class="col-lg-4 d-flex justify-content-center align-items-center flex-column">
+                <div class="text-ocean-blue so-display-2">
+                    درباره ما
+                </div>
+            </div>
+            <div class="col-lg-4 d-flex justify-content-center align-items-center flex-column">
+                <div class="text-ocean-blue so-display-2">
+                    تماس با ما
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 d-flex justify-content-center align-items-center flex-column">
+                <div class="text-ocean-blue so-subheading-1 d-flex align-items-center mb-2">
+                    <sd-icon class="ml-2">
+                        <i class="fas s-phone-square"></i>
+                    </sd-icon>
+                    شماره تلفن : 7 6 5 4 3 2 7 7 1 2 0
+                </div>
+                <div class="text-ocean-blue so-subheading-1 d-flex align-items-center mb-2">
+                    <sd-icon class="ml-2">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </sd-icon>
+                    آدرس دفتر مرکزی: تهران - نارمک - خیابان شهید آیت
+                    <br>
+                    چهارراه تلفنخـانه - مسجد حضرت فـاطمه الـزهرا(س)
+                </div>
+                <div class="text-ocean-blue so-subheading-1 d-flex align-items-center mb-2">
+                    <sd-icon class="ml-2">
+                        <i class="fas s-envelope-square"></i>
+                    </sd-icon>
+                    ایمیل: komakmomenane@gmail.com
+                </div>
+            </div>
+            <div class="col-lg-4 d-flex justify-content-center align-items-center flex-column">
+                <div class="center-text text-ocean-blue so-subheading-1 d-flex align-items-center text-center mb-4">
+                    وب سایت کمک مومنانه به جهت ایجاد
+                    بستــری بــرای هـمـبسـتگی مــلــی
+                    در تامــین درخــواسـت نـیــازمنـدان
+                    تــــاســیـس شــده اســـت
+                </div>
+            </div>
+            <div class="col-lg-4 d-flex justify-content-center align-items-center flex-column">
+                <ng-form name="contactUs" noValidate>
+                    <sd-input-container class="material text-right">
+                        <div class="input-group">
+                            <input id="footer-inputs" class="so-input-xl w-100" type="text" ng-minlength="2"
+                                ng-maxlength="40" ng-input-filter-alphabet="persianAlphabet"
+                                ng-model="self.member.firstName" name="firstName" required placeholder="نام" />
+                            <div ng-messages="contactUs.firstName.$error">
+                                <div ng-message="required">
+                                    پر کردن فیلد الزامی میباشد
+                                </div>
+                                <div ng-message="minlength">نام نباید کمتر از دو کاراکتر
+                                    باشد
+                                </div>
+                                <div ng-message="maxlength">نام نباید بیش از چهل کاراکتر
+                                    باشد
+                                </div>
+                                <div ng-message="inputFilterAlphabet">
+                                    نام باید فارسی باشد
+                                </div>
+                            </div>
+                        </div>
+                    </sd-input-container>
+                    <sd-input-container class="material text-right">
+                        <div class="input-group">
+                            <input id="footer-inputs" class="so-input-xl w-100" type="text" ng-minlength="2"
+                                ng-maxlength="40" ng-input-filter-alphabet="persianAlphabet"
+                                ng-model="self.member.lastName" name="lastName" required placeholder="نام خانوادگی" />
+                            <div ng-messages="contactUs.lastName.$error">
+                                <div ng-message="required">
+                                    پر کردن فیلد الزامی میباشد
+                                </div>
+                                <div ng-message="minlength">نام خانوادگی نباید کمتر از دو کاراکتر
+                                    باشد
+                                </div>
+                                <div ng-message="maxlength">نام خانوادگی نباید بیش از چهل کاراکتر
+                                    باشد
+                                </div>
+                                <div ng-message="inputFilterAlphabet">
+                                    نام خانوادگی باید فارسی باشد
+                                </div>
+                            </div>
+                        </div>
+                    </sd-input-container>
+                    <sd-input-container class="material text-right">
+                        <div class="input-group">
+                            <input id="footer-inputs-des" class="so-input-xl w-100" type="text" ng-minlength="2"
+                                ng-maxlength="40" ng-input-filter-alphabet="persianAlphabet"
+                                ng-model="self.member.description" name="description" required placeholder="توضیحات" />
+                            <div ng-messages="contactUs.description.$error">
+                                <div ng-message="required">
+                                    پر کردن فیلد الزامی میباشد
+                                </div>
+                                <div ng-message="minlength">توضیحات نباید کمتر از دو کاراکتر
+                                    باشد
+                                </div>
+                                <div ng-message="maxlength">توضیحات نباید بیش از چهل کاراکتر
+                                    باشد
+                                </div>
+                                <div ng-message="inputFilterAlphabet">
+                                    توضیحات باید فارسی باشد
+                                </div>
+                            </div>
+                        </div>
+                    </sd-input-container>
+                </ng-form>
+                <button ng-click="self.sendContactUs()" id="footer-btn" class="btn w-50 btn-ocean-blue text-white m-0">
+                    ارسال
+                </button>
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row d-flex justify-content-center align-items-center py-2">
         <div class="text-n-gray so-h6 mb-0">
-            designed & developed By Sooran.co
+            Powered By <span class="text-makeen-blue">Makeen.co</span> | Rights Reserved
         </div>
     </div>
 </footer>

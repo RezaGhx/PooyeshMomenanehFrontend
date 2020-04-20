@@ -278,3 +278,49 @@ input[type="number"]::-webkit-outer-spin-button {
   text-decoration: underline;
   text-underline-position: under;
 }
+
+// footer
+
+.footer-box {
+  padding: 5rem;
+}
+
+.center-text {
+  padding: 0 7rem;
+}
+
+#footer-inputs {
+  background-color: get-color("material-grey");
+  border: none;
+  border-radius: 1rem;
+  height: 2rem;
+  padding: 0 2rem;
+  font-size: 15px;
+}
+
+#footer-inputs::placeholder {
+  color: get-color("ocean-blue");
+  filter: opacity(.5);
+}
+
+#footer-inputs-des {
+  background-color: get-color("material-grey");
+  border: none;
+  border-radius: .8rem;
+  height: 4rem;
+  padding: 0 2rem;
+  font-size: 15px;
+}
+
+#footer-inputs-des::placeholder {
+  color: get-color("ocean-blue");
+  filter: opacity(.5);
+}
+
+#footer-btn {
+  border: none;
+  border-radius: .8rem;
+  height: 2rem;
+  padding: 0 2rem;
+  font-size: 15px;
+}

@@ -23,6 +23,8 @@ $stone: #DEE0E6 !default;
 $l-stone: #F2F2F2 !default;
 $d-blue: #083D5D !default;
 $ocean-blue: #004182 !default;
+$makeen-blue: #478AFD !default;
+$material-grey: #c9d5dc !default;
 
 
 $theme-colors: ();
@@ -52,7 +54,9 @@ $theme-colors: map-merge(
     "stone": $stone,
     "l-stone": $l-stone,
     "d-blue": $d-blue,
-    "ocean-blue": $ocean-blue
+    "ocean-blue": $ocean-blue,
+    "makeen-blue": $makeen-blue,
+    "material-grey": $material-grey
   ),
   $theme-colors
 );

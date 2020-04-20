@@ -38,6 +38,10 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons/faEnvelope";
 import { faPrint } from "@fortawesome/free-solid-svg-icons/faPrint";
 import { faClipboardList } from "@fortawesome/free-solid-svg-icons/faClipboardList";
 import { faEdit } from "@fortawesome/free-regular-svg-icons/faEdit";
+import { sPhoneSquare } from "sooran-icon-pack/js-packages/solid/sPhoneSquare";
+import { sMapMarkerAlt } from "sooran-icon-pack/js-packages/solid/sMapMarkerAlt";
+import { sEnvelopeSquare } from "sooran-icon-pack/js-packages/solid/sEnvelopeSquare";
+
 
 // OK
 import { sAngleLeft } from "sooran-icon-pack/js-packages/solid/sAngleLeft";
@@ -96,6 +100,9 @@ library.add(
   sDialogright,
   faAngleUp,
   faInfoCircle,
-  faEdit
+  faEdit,
+  sPhoneSquare,
+  sMapMarkerAlt,
+  sEnvelopeSquare
 );
 dom.watch();
