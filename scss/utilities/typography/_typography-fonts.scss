@@ -1,57 +1,45 @@
 @import "../variables";
 
 @font-face {
-  font-family: iranyekan;
+  font-family: iransans;
   font-style: normal;
   font-weight: 500;
-  src: url("../../app/shared/fonts/iranYekan/eot/iranyekanwebbold(fanum).eot");
-  src: url("../../app/shared/fonts/iranYekan/eot/iranyekanwebbold(fanum).eot?#iefix")
-      format("embedded-opentype"),
-    /* IE6-8 */
-      url("../../app/shared/fonts/iranYekan/woff2/iranyekanwebbold(fanum).woff2")
-      format("woff2"),
-    /* FF39+,Chrome36+, Opera24+*/
-      url("../../app/shared/fonts/iranYekan/woff/iranyekanwebbold(fanum).woff")
-      format("woff"),
-    /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
-      url("../../app/shared/fonts/iranYekan/ttf/iranyekanwebbold(fanum).ttf")
-      format("truetype");
+  src: url("//db.onlinewebfonts.com/t/0b0a8c345731751b990403a2cf40fbec.eot");
+  src: url("//db.onlinewebfonts.com/t/0b0a8c345731751b990403a2cf40fbec.eot?#iefix") format("embedded-opentype"),
+    /* IE6-8 */ url("//db.onlinewebfonts.com/t/0b0a8c345731751b990403a2cf40fbec.woff2") format("woff2"),
+    /* FF39+,Chrome36+, Opera24+*/ url("//db.onlinewebfonts.com/t/0b0a8c345731751b990403a2cf40fbec.woff") format("woff"),
+    /* FF3.6+, IE9, Chrome6+, Saf5.1+*/ url("//db.onlinewebfonts.com/t/0b0a8c345731751b990403a2cf40fbec.ttf")
+      format("truetype"),
+    // svg
+      url("//db.onlinewebfonts.com/t/0b0a8c345731751b990403a2cf40fbec.svg#IRAN Sans") format("svg");
 }
 
 @font-face {
-  font-family: iranyekan;
+  font-family: iransans;
   font-style: normal;
   font-weight: 300;
-  src: url("../../app/shared/fonts/iranYekan/eot/iranyekanweblight(fanum).eot");
-  src: url("../../app/shared/fonts/iranYekan/eot/iranyekanweblight(fanum).eot?#iefix")
-      format("embedded-opentype"),
-    /* IE6-8 */
-      url("../../app/shared/fonts/iranYekan/woff2/iranyekanweblight(fanum).woff2")
-      format("woff2"),
-    /* FF39+,Chrome36+, Opera24+*/
-      url("../../app/shared/fonts/iranYekan/woff/iranyekanweblight(fanum).woff")
-      format("woff"),
-    /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
-      url("../../app/shared/fonts/iranYekan/ttf/iranyekanweblight(fanum).ttf")
-      format("truetype");
+  src: url("//db.onlinewebfonts.com/t/0b0a8c345731751b990403a2cf40fbec.eot");
+  src: url("//db.onlinewebfonts.com/t/0b0a8c345731751b990403a2cf40fbec.eot?#iefix") format("embedded-opentype"),
+    /* IE6-8 */ url("//db.onlinewebfonts.com/t/0b0a8c345731751b990403a2cf40fbec.woff2") format("woff2"),
+    /* FF39+,Chrome36+, Opera24+*/ url("//db.onlinewebfonts.com/t/0b0a8c345731751b990403a2cf40fbec.woff") format("woff"),
+    /* FF3.6+, IE9, Chrome6+, Saf5.1+*/ url("//db.onlinewebfonts.com/t/0b0a8c345731751b990403a2cf40fbec.ttf")
+      format("truetype"),
+    // svg
+      url("//db.onlinewebfonts.com/t/0b0a8c345731751b990403a2cf40fbec.svg#IRAN Sans") format("svg");
 }
 
 @font-face {
-  font-family: iranyekan;
+  font-family: iransans;
   font-style: normal;
   font-weight: 400;
-  src: url("../../app/shared/fonts/iranYekan/eot/iranyekanwebregular(fanum).eot");
-  src: url("../../app/shared/fonts/iranYekan/eot/iranyekanwebregular(fanum).eot?#iefix")
-      format("embedded-opentype"),
-    /* IE6-8 */
-      url("../../app/shared/fonts/iranYekan/woff2/iranyekanwebregular(fanum).woff2")
-      format("woff2"),
-    /* FF39+,Chrome36+, Opera24+*/
-      url("../../app/shared/fonts/iranYekan/woff/iranyekanwebregular(fanum).woff")
-      format("woff"),
-    /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
-      url("../../app/shared/fonts/iranYekan/ttf/iranyekanwebregular(fanum).ttf")
-      format("truetype");
+  src: url("//db.onlinewebfonts.com/t/0b0a8c345731751b990403a2cf40fbec.eot");
+  src: url("//db.onlinewebfonts.com/t/0b0a8c345731751b990403a2cf40fbec.eot?#iefix") format("embedded-opentype"),
+    /* IE6-8 */ url("//db.onlinewebfonts.com/t/0b0a8c345731751b990403a2cf40fbec.woff2") format("woff2"),
+    /* FF39+,Chrome36+, Opera24+*/ url("//db.onlinewebfonts.com/t/0b0a8c345731751b990403a2cf40fbec.woff") format("woff"),
+    /* FF3.6+, IE9, Chrome6+, Saf5.1+*/ url("//db.onlinewebfonts.com/t/0b0a8c345731751b990403a2cf40fbec.ttf")
+      format("truetype"),
+    // svg
+      url("//db.onlinewebfonts.com/t/0b0a8c345731751b990403a2cf40fbec.svg#IRAN Sans") format("svg");
 }
 
 html:lang(fa) body {

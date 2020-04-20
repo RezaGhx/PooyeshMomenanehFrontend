@@ -21,7 +21,7 @@
 // Represents a collection of typography levels.
 // Use $display-2 - $display-1 -title - subheading-2 -body-1 -$caption
 @function typography-config(
-  $font-family: "iranyekan ,roboto ,Arial",
+  $font-family: "iransans ,roboto ,Arial",
   $display-4: set-typography-level(28px, 112px, 220, $letter-spacing: -0.05em), 
   $display-3: set-typography-level(22px, 56px, 400, $letter-spacing: -0.02em),
   $display-2: set-typography-level(28px, normal, 500, $letter-spacing: -0.005em),
