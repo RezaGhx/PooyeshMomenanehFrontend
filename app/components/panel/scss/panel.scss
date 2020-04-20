@@ -1,12 +1,7 @@
 #panel {
   @import "_core";
-  @import "../warranty/scss/warranty.scss";
-  @import "../loan/scss/loan.scss";
   @import "../notification/scss/notification.scss";
   @import "../ticketing/scss/ticketing.scss";
-  @import "../archive/scss/archive.scss";
-  @import "../basicAssessment/scss/basicAssessment.scss";
-  @import "../profile/scss/profile.scss";
 
   @import "_normalize";
 }

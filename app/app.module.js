@@ -51,27 +51,7 @@ import panelModule from "./components/panel/panel.module";
 import generalModule from "./components/general/general.module";
 
 // ImportComponentJS
-import feedbackComponent from "./shared/components/feedback/feedback.component";
 import footerComponent from "./shared/components/footer/footer.component";
-
-// Import warrantyDetails ComponentJS
-import warrantyChooseCommittee from "./shared/components/warrantyDetails/warrantyChooseCommittee/warrantyChooseCommittee.component";
-import warrantySingingAgreement from "./shared/components/warrantyDetails/warrantySingingAgreement/warrantySingingAgreement.component";
-import warrantyFacture from "./shared/components/warrantyDetails/warrantyFacture/warrantyFacture.component";
-import warrantyUploadDocuments from "./shared/components/warrantyDetails/warrantyUploadDocuments/warrantyUploadDocuments.component";
-import warrantyWorksheet from "./shared/components/warrantyDetails/warrantyWorksheet/warrantyWorksheet.component";
-import warrantyExtended from "./shared/components/warrantyDetails/warrantyExtended/warrantyExtended.component";
-
-// Import loanDetails ComponentJS
-import loanWorksheet from "./shared/components/loanDetails/loanWorksheet/loanWorksheet.component";
-import loanSuggestedBail from "./shared/components/loanDetails/loanSuggestedBail/loanSuggestedBail.component";
-import loanUploadCollateral from "./shared/components/loanDetails/loanUploadCollateral/loanUploadCollateral.component";
-import loanFacilityContract from "./shared/components/loanDetails/loanFacilityContract/loanFacilityContract.component";
-
-// Import leasingDetails ComponentJS
-import leasingSuggestedBail from "./shared/components/leasingDetails/leasingSuggestedBail/leasingSuggestedBail.component";
-import leasingUploadCollateral from "./shared/components/leasingDetails/leasingUploadCollateral/leasingUploadCollateral.component";
-import leasingSigningContract from "./shared/components/leasingDetails/leasingSigningContract/leasingSigningContract.component";
 
 // sooranDesign
 import sdModule from "../dev_modules/sooranDesign/sooranDesign";
@@ -120,27 +100,7 @@ const ngModule = angular.module("app", [
 ]);
 
 // Inject Components
-feedbackComponent(ngModule);
 footerComponent(ngModule);
-
-// import warrantyDetails components
-warrantyChooseCommittee(ngModule);
-warrantySingingAgreement(ngModule);
-warrantyFacture(ngModule);
-warrantyUploadDocuments(ngModule);
-warrantyWorksheet(ngModule);
-warrantyExtended(ngModule);
-
-// import loanDetails components
-loanWorksheet(ngModule);
-loanSuggestedBail(ngModule);
-loanUploadCollateral(ngModule);
-loanFacilityContract(ngModule);
-
-// import leasingDetails components
-leasingSuggestedBail(ngModule);
-leasingUploadCollateral(ngModule);
-leasingSigningContract(ngModule);
 
 ngModule.config(AppConfig);
 ngModule.run(AppRun);
