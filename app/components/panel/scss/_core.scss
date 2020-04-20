@@ -1,3 +1,87 @@
+// main page
+
+.main-border-top {
+  background-image: linear-gradient(to right top, #20a8db, #64bbe1, #90cde8, #b8e0f0, #dff2f9);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 15rem; 
+
+  .center-puzzle {
+    position: absolute;
+    right: 55%;
+    top: 4rem;
+    width: 7%;
+  }
+
+  .right-puzzle {
+    position: absolute;
+    right: -10rem;
+    top: 3rem;
+  }
+
+  .right-bottom-puzzle {
+    position: absolute;
+    right: 8rem;
+    top: 28rem;
+    width: 7%;
+  }
+
+  .left-puzzle {
+    position: absolute;
+    left: -7rem;
+    top: 13rem;
+    width: 15%;
+  }
+}
+
+#search-box {
+  border: 0.0625rem solid #004182;
+  border-radius: 1rem;
+  height: 2rem;
+  width: 20rem;
+}
+
+#search-box::placeholder {
+  color: get-color("ocean-blue");
+  filter: opacity(0.5);
+}
+
+#search-icon {
+  position: absolute;
+  top: 0.35rem;
+}
+
+.main-title {
+  font-size: 3rem;
+}
+
+.main-title-des {
+  font-size: 1.1rem;
+  line-height: 2rem;
+}
+
+.main-btn {
+  background: linear-gradient(90deg, #004182 35%, #0c8dc5 100%);
+  overflow: hidden;
+  border-radius: 0.5rem;
+  transition: 0.3s;
+
+  &:hover {
+    background: linear-gradient(90deg, #0c8dc5 35%, #004182 100%);
+    transition: 0.3s;
+  }
+}
+
+.main-illustration {
+  position: relative;
+  .puzzle-illustration {
+    position: absolute;
+    top: -0.625rem;
+    left: -2.5rem;
+  }
+}
+
 /*aside*/
 .sidebar {
   position: sticky;
@@ -76,13 +160,6 @@
 
 .collapse {
   display: none;
-}
-
-.main-border-top {
-  border-top: 7px solid get-color("orange");
-  width: 100%;
-  display: flex;
-  flex-direction: column;
 }
 
 .top-header {

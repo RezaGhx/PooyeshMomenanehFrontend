@@ -41,6 +41,7 @@ import { faEdit } from "@fortawesome/free-regular-svg-icons/faEdit";
 import { sPhoneSquare } from "sooran-icon-pack/js-packages/solid/sPhoneSquare";
 import { sMapMarkerAlt } from "sooran-icon-pack/js-packages/solid/sMapMarkerAlt";
 import { sEnvelopeSquare } from "sooran-icon-pack/js-packages/solid/sEnvelopeSquare";
+import { sUserPlus } from "sooran-icon-pack/js-packages/solid/sUserPlus";
 
 
 // OK
@@ -103,6 +104,7 @@ library.add(
   faEdit,
   sPhoneSquare,
   sMapMarkerAlt,
-  sEnvelopeSquare
+  sEnvelopeSquare,
+  sUserPlus
 );
 dom.watch();
