@@ -52,6 +52,7 @@ import generalModule from "./components/general/general.module";
 
 // ImportComponentJS
 import footerComponent from "./shared/components/footer/footer.component";
+import carouselComponent from "./shared/components/carousel/carousel.component";
 
 // sooranDesign
 import sdModule from "../dev_modules/sooranDesign/sooranDesign";
@@ -101,6 +102,7 @@ const ngModule = angular.module("app", [
 
 // Inject Components
 footerComponent(ngModule);
+carouselComponent(ngModule);
 
 ngModule.config(AppConfig);
 ngModule.run(AppRun);
