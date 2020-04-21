@@ -94,6 +94,17 @@
   }
 }
 
+.campaign {
+  position: relative;
+  margin-top: -8rem;
+
+  .campaign-svg {
+    width: 100%;
+    box-shadow: 0px 0px 2rem get-color("n-gray");
+  }
+}
+
+
 /*aside*/
 .sidebar {
   position: sticky;
