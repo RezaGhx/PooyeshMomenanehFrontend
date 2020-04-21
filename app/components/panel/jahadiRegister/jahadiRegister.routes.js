@@ -8,7 +8,7 @@ function jahadiRegisterRouting($urlRouterProvider, $stateProvider) {
         .state("panel.jahadiRegister", {
             abstract: true,
             url: "/jahadiRegister",
-            template : "<ui-view id='jahadiRegister'></ui-view>",
+            template : "<ui-view id='ticketing'></ui-view>",
             // controller: "jahadiRegister.indexController",
             // controllerAs: "self",
 
