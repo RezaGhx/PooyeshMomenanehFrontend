@@ -1,0 +1,48 @@
+<div class="row jahadi-register">
+	<img class="puzzle-1" src="../../images/addon.svg" alt="">
+	<img class="puzzle-2" src="../../images/addon.svg" alt="">
+	<img class="puzzle-3" src="../../images/addon.svg" alt="">
+	<!-- <img class="puzzle-4" src="../../images/addon.svg" alt=""> -->
+	<!-- <img class="puzzle-5" src="../../images/addon.svg" alt=""> -->
+	<!-- <img class="puzzle-6" src="../../images/addon.svg" alt=""> -->
+	<div class="col-lg-6">
+		<div class="row">
+			<div class="col-lg-2">
+				<button class="backbtn btn bg-ocean-blue d-flex justify-content-center align-items-center m-2"
+					ui-sref="panel.jahadiRegister.serviceInfo">
+					<sd-icon class="text-white">
+						<i class="fas s-times"></i>
+					</sd-icon>
+				</button>
+			</div>
+			<div class="col-lg-10 d-flex flex-column align-items-center justify-content-center py-5">
+				<div class="register-title so-display-1 text-ocean-blue mb-5">
+					ثبت کد تایید
+				</div>
+				<div class="register-title so-subheading-1 text-ocean-blue mb-5">
+					کد 6 رقمی ارسال شده به شماره تلفن
+					<span class="text-black">
+						09336887181
+					</span>
+					را وارد نمایید
+				</div>
+				<div class="sent-code mb-5">
+					<span otp-input-directive options="otpInput"
+						class="align-self-center w-50 mr-2 so-body-2 ng-isolate-scope"></span>
+				</div>
+				<div class="mb-5">
+					<a ng-click="self.resend()" class="so-body-1 pointer text-dis-silver mb-0 mt-3 mt-lg-0">ارسال
+						دوباره</a>
+				</div>
+				<div class="mt-5">
+					<button class="ver-btn btn btn-green" ui-sref="panel.main">
+						تایید
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-6 d-flex justify-content-end">
+		<img class="w-100" src="../../images/1.svg" alt="پویش همدلی">
+	</div>
+</div>

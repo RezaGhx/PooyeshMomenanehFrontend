@@ -48,7 +48,8 @@ const common = {
       "./dev_modules/ngTable/ng-table",
       "./scss/vendor.scss",
       "./dev_modules/angularPagination/angular-pagination.min",
-      "angular1-star-rating"
+      "angular1-star-rating",
+      "jQuery"
     ],
     app: "./app/app.module.js"
   },

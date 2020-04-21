@@ -1,11 +1,11 @@
-const listModule = angular.module("panel.jahadiRegister.listModule", []);
+const serviceInfoModule = angular.module("panel.jahadiRegister.serviceInfoModule", []);
 
 // Controllers
 
 var controllers = require.context("./controllers", true, /.js$/);
 
 controllers.keys().map(function(value) {
-  require(`./controllers/${value.slice(2)}`)(listModule);
+  require(`./controllers/${value.slice(2)}`)(serviceInfoModule);
 });
 
 // Factories
@@ -14,7 +14,7 @@ try {
 
   factories.keys().map(function(value) {
     try {
-      require(`./factories/${value.slice(2)}`)(listModule);
+      require(`./factories/${value.slice(2)}`)(serviceInfoModule);
     } catch (error) {}
   });
 } catch (error) {}
@@ -24,7 +24,7 @@ try {
   var filters = require.context("./filters", true, /.js$/);
   filters.keys().map(function(value) {
     try {
-      require(`./filters/${value.slice(2)}`)(listModule);
+      require(`./filters/${value.slice(2)}`)(serviceInfoModule);
     } catch (error) {}
   });
 } catch (error) {}
@@ -34,7 +34,7 @@ try {
 var services = require.context("./services", true, /.js$/);
 
 services.keys().map(function(value) {
-  require(`./services/${value.slice(2)}`)(listModule);
+  require(`./services/${value.slice(2)}`)(serviceInfoModule);
 });
 
-export default listModule;
+export default serviceInfoModule;

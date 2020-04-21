@@ -1,6 +1,6 @@
-newServices.$inject = ["$resource"];
+verificationServices.$inject = ["$resource"];
 
-function newServices($resource){
+function verificationServices($resource){
 
     return $resource(`${apiGetWay}/:type/:id/:routeParams`, {id: '@id',type: '@type', routeParams:'@routeParams'}, {
 
@@ -20,6 +20,6 @@ function newServices($resource){
 
 module.exports = ngModule => {
 
-	ngModule.factory('panel.jahadiRegister.newServices', newServices);
+	ngModule.factory('panel.jahadiRegister.verificationServices', verificationServices);
 
 };

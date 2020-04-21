@@ -16,7 +16,7 @@ function footerController(
   var self = this;
 
   let sendContactUsService = resource(
-    `${apiLeasing}/leasing-requests/${leasingId}/committee-approval/payment-sources`,
+    `${apiLeasing}/leasing-requests/committee-approval/payment-sources`,
   );
 
   self.sendContactUs = function (form) {

@@ -120,6 +120,20 @@
     right: -10rem;
     top: 3rem;
   }
+
+  .puzzle-2 {
+    position: absolute;
+    right: 4rem;
+    bottom: 3rem;
+    width: 7%;
+  }
+
+  .puzzle-3 {
+    position: absolute;
+    right: 50rem;
+    bottom: 1rem;
+    width: 15%;
+  }
 }
 
 .reg-input {
@@ -134,6 +148,34 @@
 }
 
 .reg-btn {
+  border-radius: .5rem;
+}
+
+.service-type {
+  border-radius: .5rem;
+  background-color: get-color("stone");
+  color: get-color("d-gray");
+  transition: .5 all linear;
+}
+
+.service-type:hover {
+  background-color: get-color("dis-silver");
+  transition: .5 all linear;
+}
+
+.selected-service-type {
+  background-color: get-color("ocean-blue");
+  color: get-color("white");
+  transition: .5 all linear;
+}
+
+.sent-code {
+  border: 1px solid get-color("ocean-blue");
+  border-radius: .5rem;
+}
+
+.ver-btn {
+  width: 25rem;
   border-radius: .5rem;
 }
 

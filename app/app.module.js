@@ -146,6 +146,7 @@ require("./shared/directive/currencyInput")(ngModule);
 // Auth
 require("./shared/auth/authHttpResponseInterceptor")(ngModule);
 require("./shared/auth/compareTo")(ngModule);
+require("./shared/Directive/otpInput")(ngModule);
 
 // cgBusyConfig
 ngModule.value("cgBusyDefaults", {

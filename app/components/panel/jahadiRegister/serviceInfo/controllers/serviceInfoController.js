@@ -1,10 +1,15 @@
-newController.$inject = ["panel.jahadiRegister.newServices", "Upload", "$state"];
+serviceInfoController.$inject = ["panel.jahadiRegister.serviceInfoServices", "Upload", "$state"];
 
-function newController(newServices, upload, state) {
+function serviceInfoController(serviceInfoServices, upload, state) {
   var self = this;
 
   self.ticket = {};
-  self.ticket.priority = "2";
+
+  $(document).ready(function() {
+    $('.service-type').click(function() {
+      $(this).toggleClass("selected-service-type");
+    });
+  });
 
   self.ticketTypeEnum = [
     {
@@ -22,7 +27,7 @@ function newController(newServices, upload, state) {
   ];
   self.ticket.ticketType = self.ticketTypeEnum[0].value;
 
-  self.uploadLogo = function(file) {
+  self.uploadLogo = function (file) {
     if (file.length > 0) {
       upload
         .upload({
@@ -32,13 +37,13 @@ function newController(newServices, upload, state) {
           }
         })
         .then(
-          function(response) {
+          function (response) {
             self.ticket.attachment = response.data[0].fileName;
           },
-          function(resp) {
+          function (resp) {
             self.ticket = {};
           },
-          function(evt) {
+          function (evt) {
             var progressPercentage = parseInt((100.0 * evt.loaded) / evt.total);
             if (progressPercentage < 100) {
               self.loadingShow = true;
@@ -51,7 +56,7 @@ function newController(newServices, upload, state) {
     }
   };
 
-  self.submit = function(ticket, form) {
+  self.submit = function (ticket, form) {
     if (form.$valid) {
       delete ticket.logoFile;
       let parameter = {
@@ -60,7 +65,7 @@ function newController(newServices, upload, state) {
         routeParams: "tickets"
       };
 
-      newServices.create(parameter, ticket).$promise.then(
+      serviceInfoServices.create(parameter, ticket).$promise.then(
         response => {
           ticket = {};
           form.$setUntouched();
@@ -89,5 +94,5 @@ function newController(newServices, upload, state) {
 }
 
 module.exports = ngModule => {
-  ngModule.controller("panel.jahadiRegister.newController", newController);
+  ngModule.controller("panel.jahadiRegister.serviceInfoController", serviceInfoController);
 };
