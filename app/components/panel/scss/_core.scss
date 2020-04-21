@@ -104,6 +104,38 @@
   }
 }
 
+// jahadi register pages scss
+
+.jahadi-register {
+  position: relative;
+  background-image: linear-gradient(to right top, #d9e5f8, #e5ebfa, #eff1fb, #f8f8fd, #ffffff);
+
+  .backbtn {
+    width: 3rem;
+    border-radius: 50%;
+  }
+
+  .puzzle-1 {
+    position: absolute;
+    right: -10rem;
+    top: 3rem;
+  }
+}
+
+.reg-input {
+  background-color: transparent;
+  border-radius: .5rem;
+}
+
+.reg-input:focus,
+.reg-input:active {
+  border-color: get-color("ocean-blue");
+  color: get-color("ocean-blue");
+}
+
+.reg-btn {
+  border-radius: .5rem;
+}
 
 /*aside*/
 .sidebar {

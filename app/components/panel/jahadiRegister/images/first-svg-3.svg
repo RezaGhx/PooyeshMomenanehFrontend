@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="782.651" height="721" viewBox="0 0 782.651 721">
+  <defs>
+    <filter id="Path_382" x="0" y="0" width="782.651" height="721" filterUnits="userSpaceOnUse">
+      <feOffset dx="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="12.5" result="blur"/>
+      <feFlood flood-color="#7d7d7d" flood-opacity="0.49"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-path">
+      <path id="Path_383" data-name="Path 383" d="M0,646H707.651s-3.482-124.983-100.725-150.507S553.75,441.076,491.738,347.205s132.824-120.484,107.7-210.715S707.651,0,707.651,0H0Z" fill="#d6e5ff"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#10a2d8"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+    <clipPath id="clip-path-2">
+      <rect id="SVGID" width="324.031" height="324.446" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="تایید_کد" data-name="تایید کد" transform="translate(36.5 37.5)">
+    <g transform="matrix(1, 0, 0, 1, -36.5, -37.5)" filter="url(#Path_382)">
+      <path id="Path_382-2" data-name="Path 382" d="M0,646H707.651s-3.482-124.983-100.725-150.507S553.75,441.076,491.738,347.205s132.824-120.484,107.7-210.715S707.651,0,707.651,0H0Z" transform="translate(36.5 37.5)" fill="#d6e5ff"/>
+    </g>
+    <g id="Mask_Group_10" data-name="Mask Group 10" clip-path="url(#clip-path)">
+      <rect id="Rectangle_46" data-name="Rectangle 46" width="923" height="1604" transform="translate(876.153 -342.91) rotate(72)" fill="url(#linear-gradient)"/>
+    </g>
+    <path id="Path_76" data-name="Path 76" d="M2463.988,261.976c-1.112,111.185,63.1,220.146,176.784,220.146s236.823-211.251,165.665-299.087S2465.1,150.792,2463.988,261.976Z" transform="translate(-2391.297 -23.905)" fill="#fff" opacity="0.56"/>
+    <path id="Path_77" data-name="Path 77" d="M.014,122.246C-1.1,233.431,63.112,342.392,176.8,342.392S413.621,131.141,342.463,43.305,1.126,11.062.014,122.246Z" transform="matrix(0.951, 0.309, -0.309, 0.951, 134.805, 68)" fill="#fff" opacity="0.56"/>
+    <text id="با_هـم_بستگی_گرو_ه_هـای_جهادی_" data-name="با هـم بستگی گرو ه هـای جهادی
+" transform="translate(354 562)" fill="#0162b1" font-size="14" font-family="IRANSansMobile-Bold, IRANSansMobile" font-weight="700" letter-spacing="0.028em"><tspan x="-190.773" y="0">با هـم بستگی گرو ه هـای جهادی</tspan><tspan y="0"></tspan><tspan x="0" y="28"></tspan></text>
+    <text id="_.کمک_به_نیازمندان_راحت_تر_میشود" data-name=".کمک به نیازمندان راحت تر میشود" transform="translate(354 590)" fill="#0162b1" font-size="14" font-family="IRANSansMobile-Bold, IRANSansMobile" font-weight="700" letter-spacing="0.028em"><tspan x="-199.007" y="0">.</tspan><tspan y="0">کمک به نیازمندان راحت تر میشود</tspan></text>
+    <g id="Group_105" data-name="Group 105" transform="translate(92 125)" clip-path="url(#clip-path-2)">
+      <g id="Group_74" data-name="Group 74" transform="translate(154.16 151.78)">
+        <path id="Path_293" data-name="Path 293" d="M476.176,373.462l-25.712-.01a12.052,12.052,0,1,1-20.836-.008l-25.6-.009a9.155,9.155,0,0,0-9.153,9.157l-.011,26.562a10.512,10.512,0,1,0-.007,19.116l-.01,26.562A9.155,9.155,0,0,0,403.994,464l72.148.028a9.156,9.156,0,0,0,9.153-9.158l.028-72.239A9.156,9.156,0,0,0,476.176,373.462Z" transform="translate(-379.99 -373.434)" fill="#d4145a"/>
+      </g>
+      <g id="Group_84" data-name="Group 84" transform="translate(169.044 61.217)">
+        <path id="Path_312" data-name="Path 312" d="M499.2,143.058H427.05a9.156,9.156,0,0,0-9.149,9.161V178.15a11.892,11.892,0,1,1,0,20.377v25.931a9.155,9.155,0,0,0,9.149,9.161h27.444a10.5,10.5,0,1,0,17.147,0H499.2a9.155,9.155,0,0,0,9.15-9.161v-72.24A9.156,9.156,0,0,0,499.2,143.058Z" transform="translate(-417.901 -143.058)" fill="#5c33a4"/>
+      </g>
+      <g id="Group_94" data-name="Group 94" transform="translate(77.68 134.685)">
+        <path id="Path_328" data-name="Path 328" d="M271.584,380.223a11.765,11.765,0,0,1,4.149.763l.051-25.057a9.155,9.155,0,0,0-9.131-9.179l-27.605-.057a10.5,10.5,0,1,0-16.936-.035l-27.606-.057a9.155,9.155,0,0,0-9.168,9.142l-.148,72.24a9.156,9.156,0,0,0,9.13,9.181l72.147.148a9.156,9.156,0,0,0,9.168-9.143l.051-25.056a11.815,11.815,0,1,1-4.1-22.89Z" transform="translate(-185.19 -329.949)" fill="#004182"/>
+      </g>
+      <g id="Group_104" data-name="Group 104" transform="translate(77.906 60.9)">
+        <path id="Path_344" data-name="Path 344" d="M282.727,177.335a10.44,10.44,0,0,0-6.356,2.118l.1-27.748a9.155,9.155,0,0,0-9.117-9.194l-72.147-.259a9.155,9.155,0,0,0-9.182,9.128l-.259,72.24a9.155,9.155,0,0,0,9.116,9.194l26.625.1a11.306,11.306,0,1,1,18.9.068l26.624.1a9.155,9.155,0,0,0,9.182-9.128l.1-27.748a10.507,10.507,0,1,0,6.417-18.862Z" transform="translate(-185.766 -142.252)" fill="#fdd247"/>
+      </g>
+    </g>
+    <text id="هـمـدلی_مـومـنـانـه" data-name="هـمـدلی مـومـنـانـه" transform="translate(349 524)" fill="#004182" font-size="22" font-family="IRANSansMobile-Bold, IRANSansMobile" font-weight="700" letter-spacing="0.028em"><tspan x="-189.776" y="0">هـمـدلی مـومـنـانـه</tspan></text>
+  </g>
+</svg>

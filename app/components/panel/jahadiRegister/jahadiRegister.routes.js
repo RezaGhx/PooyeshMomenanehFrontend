@@ -131,6 +131,48 @@ function jahadiRegisterRouting($urlRouterProvider, $stateProvider) {
                 ]
             }
         })
+        .state("panel.jahadiRegister.groupInfo", {
+            url: "/groupInfo",
+
+			controller: "panel.jahadiRegister.groupInfoController",
+
+            controllerAs: "self",
+
+            templateProvider: [
+                "$q",
+                $q => {
+                    return $q(resolve => {
+                        require.ensure([], () => {
+                            let template = require("./groupInfo/views/index.html");
+
+                            resolve(template);
+                        });
+                    });
+                }
+            ],
+
+            resolve: {
+                Lazyload: [
+                    "$q",
+                    "$ocLazyLoad",
+                    ($q, $ocLazyLoad) => {
+                        let deferred = $q.defer();
+
+                        require.ensure([], function () {
+                            let module = require("./groupInfo/groupInfo.module");
+
+                            $ocLazyLoad.load({
+								name: "panel.jahadiRegister.groupInfoModule"
+                            });
+
+                            deferred.resolve(module);
+                        });
+
+                        return deferred.promise;
+                    }
+                ]
+            }
+        })
         .state("panel.jahadiRegister.details", {
             url: "/:id/details",
 
