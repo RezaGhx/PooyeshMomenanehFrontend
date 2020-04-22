@@ -47,14 +47,24 @@
 //   background: url('../images/wave.svg') no-repeat;
 // }
 
-#search-box {
+.list-header {
+  box-shadow: 0px 3px 10px silver;
+  z-index: 100;
+}
+
+.dashboard-list {
+  box-shadow: 0px 3px 10px silver;
+  z-index: 100;
+}
+
+#search-box-main {
   border: 0.0625rem solid #004182;
   border-radius: 1rem;
   height: 2rem;
   width: 20rem;
 }
 
-#search-box::placeholder {
+#search-box-main::placeholder {
   color: get-color("ocean-blue");
   filter: opacity(0.5);
 }
@@ -62,6 +72,10 @@
 #search-icon {
   position: absolute;
   top: 0.35rem;
+}
+
+#search-box-dashboard {
+  border-radius: .2rem;
 }
 
 .main-title {
@@ -188,7 +202,9 @@
 /*aside*/
 .sidebar {
   position: sticky;
-  background: #1a1a1a url("../images/backa.png") 21px 87px no-repeat;
+  background-color: get-color("material-grey");
+  z-index: 200;
+  box-shadow: -5px 0px 10px silver;
 
   .logo {
     // padding: 57px 34px 54px 27px;
@@ -197,10 +213,11 @@
     padding-bottom: 27px;
     padding-left: 57px;
     display: flex;
-    filter: saturate(0) brightness(5);
+    transition: .5s all ease;
 
     &.logo:hover {
-      filter: sepia(1) brightness(2.5) saturate(2.5);
+      filter: brightness(.5);
+      transition: .5s all ease;
     }
 
     img {
@@ -213,7 +230,7 @@
     padding: 0;
     .item {
       + .item {
-        border-top: 0.5px solid get-color("l-blue");
+        border-top: 0.5px solid get-color("white");
       }
 
       .link {
@@ -224,16 +241,14 @@
         padding-bottom: 20px;
         transition: 0.5s ease;
         align-items: center;
-        color: get-color("l-blue");
+        color: get-color("black");
 
         &:hover {
-          color: get-color("orange");
-          background-color: get-color("blue");
+          color: get-color("l-orange");
         }
 
         &.active {
-          color: get-color("black");
-          background-color: get-color("orange");
+          color: get-color("ocean-blue");
         }
       }
 

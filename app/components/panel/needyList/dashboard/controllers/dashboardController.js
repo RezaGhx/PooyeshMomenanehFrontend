@@ -1,6 +1,6 @@
-dashboardController.$inject = ["panel.needyList.dashboardServices", "Upload", "$state"];
+dashboardController.$inject = ["panel.needyList.dashboardServices", "Upload", "$state", "$timeout"];
 
-function dashboardController(dashboardServices, upload, state) {
+function dashboardController(dashboardServices, upload, state, timeout) {
   var self = this;
 
   self.ticket = {};
@@ -22,7 +22,7 @@ function dashboardController(dashboardServices, upload, state) {
   ];
   self.ticket.ticketType = self.ticketTypeEnum[0].value;
 
-  self.uploadLogo = function(file) {
+  self.uploadLogo = function (file) {
     if (file.length > 0) {
       upload
         .upload({
@@ -32,13 +32,13 @@ function dashboardController(dashboardServices, upload, state) {
           }
         })
         .then(
-          function(response) {
+          function (response) {
             self.ticket.attachment = response.data[0].fileName;
           },
-          function(resp) {
+          function (resp) {
             self.ticket = {};
           },
-          function(evt) {
+          function (evt) {
             var progressPercentage = parseInt((100.0 * evt.loaded) / evt.total);
             if (progressPercentage < 100) {
               self.loadingShow = true;
@@ -51,7 +51,7 @@ function dashboardController(dashboardServices, upload, state) {
     }
   };
 
-  self.submit = function(ticket, form) {
+  self.submit = function (ticket, form) {
     if (form.$valid) {
       delete ticket.logoFile;
       let parameter = {
@@ -86,6 +86,30 @@ function dashboardController(dashboardServices, upload, state) {
       //   state.go("general.completeInformation.specialMemberships");
     }
   };
+
+  // تایم
+
+  // initialise and get the current date
+  self.currentDate = moment(new Date())
+    .locale("fa")
+    .format("dddd jDD MMM jYYYY");
+
+  let currentTime = moment(new Date())
+    .locale("fa")
+    .format("mm : H"); // get the current time
+  self.clock = currentTime; // initialise the time variable
+  self.tickInterval = 1000; //ms
+
+  let tick = function () {
+    let currentTime = moment(new Date())
+      .locale("fa")
+      .format("mm : H"); // get the current time
+    self.clock = currentTime;
+    timeout(tick, self.tickInterval); // reset the timer
+  };
+
+  // Start the timer
+  timeout(tick, self.tickInterval);
 }
 
 module.exports = ngModule => {

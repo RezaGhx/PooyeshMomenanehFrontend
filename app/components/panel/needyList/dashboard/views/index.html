@@ -1,186 +1,150 @@
-<div class="row jahadi-register">
-	<img class="puzzle-1" src="../../images/addon.svg" alt="">
-	<img class="puzzle-2" src="../../images/addon.svg" alt="">
-	<img class="puzzle-3" src="../../images/addon.svg" alt="">
-	<!-- <img class="puzzle-4" src="../../images/addon.svg" alt=""> -->
-	<!-- <img class="puzzle-5" src="../../images/addon.svg" alt=""> -->
-	<!-- <img class="puzzle-6" src="../../images/addon.svg" alt=""> -->
-	<div class="col-lg-6">
-		<div class="row">
-			<div class="col-lg-2">
-				<button class="backbtn btn bg-ocean-blue d-flex justify-content-center align-items-center m-2"
-					ui-sref="panel.main">
-					<sd-icon class="text-white">
-						<i class="fas s-times"></i>
-					</sd-icon>
-				</button>
-			</div>
-			<div class="col-lg-10 d-flex flex-column align-items-center justify-content-center py-5">
-				<div class="register-title so-display-1 text-ocean-blue mb-5">
-					ثبت اطلاعات گروه جهادی
+<section id="panel" class="d-flex bg-l-sky">
+	<aside class="sidebar">
+		<a class="logo" href="#">
+			<img src="../../../images/agreement.svg" alt="صندوق توسعه فناوری های نوین">
+		</a>
+		<ul class="menu">
+			<li class="item">
+				<a ui-sref="panel.needyList.dashboard" ui-sref-opts="{ reload: true }" ui-sref-active="active"
+					class="link" href="#menu1" data-toggle="collapse">
+					<i class="fas s-home ml-2"></i>
+					لیست نیازمندان
+				</a>
+			</li>
+			<li class="item">
+				<a class="link" ui-sref="panel.needyList.dashboard">
+					<i class="fas s-setting ml-2"></i>
+					ارتباط با ادمین
+				</a>
+			</li>
+			<li class="item">
+				<a class="link" ui-sref="panel.needyList.dashboard">
+					<i class="fas s-setting ml-2"></i>
+					تنظیمات
+				</a>
+			</li>
+		</ul>
+	</aside>
+	<div class="dashboard d-flex flex-column w-100">
+		<div class="list-header bg-white mb-3">
+			<header class="row p-4 d-flex justify-content-between align-items-center">
+				<div class="col-lg-7 d-flex">
+					<div class="dashboard-search w-100 ml-1">
+						<sd-input-container class="material text-right flex-grow-1 mb-0">
+							<sd-icon>
+								<i class="fas s-search"></i>
+							</sd-icon>
+							<input class="w-100 bg-l-stone border-0" id="search-box-dashboard" placeholder="جستجو کنید"
+								type="text" ng-minlength="2" ng-maxlength="70" ng-model="self.search"
+								ng-change="self.dataFilter()" ng-model-options="{ debounce: 500 }" />
+						</sd-input-container>
+					</div>
+					<!-- <div class="notifications mr-1">
+						<button class="box btn btn-l-stone">
+							<i class="fas s-bell text-white s-lg"></i>
+							<span class="badge">۲</span>
+						</button>
+					</div> -->
 				</div>
-				<form name="jahadiForm" autocomplete="off" novalidate ng-submit="self.submit(self.jahadi,jahadiForm)"
-					promise-btn>
-					<div class="row justify-content-center">
-						<div class="col-lg-8">
-							<div class="row">
-								<div class="col-lg-12">
-									<sd-input-container class="material text-right">
-										<label>نام گروه</label>
-										<div class="input-group">
-											<input class="reg-input so-input-xl w-100" type="text" ng-minlength="2"
-												ng-maxlength="40" ng-model="self.jahadi.title" name="title" required />
-											<div ng-messages="jahadiForm.title.$error">
-												<!-- <div ng-message="required">
-													پر کردن فیلد الزامی میباشد
-												</div> -->
-												<div ng-message="minlength">
-													نام گروه نباید کمتر از دو
-													کاراکتر باشد
-												</div>
-												<div ng-message="maxlength">
-													نام گروه نباید کمتر از دو
-													کاراکتر باشد
-												</div>
-											</div>
-										</div>
-									</sd-input-container>
-									<div class="d-flex">
-										<div class="w-50 ml-1">
-											<sd-input-container class="material text-right">
-												<label>نام سرگروه</label>
-												<div class="input-group">
-													<input class="reg-input so-input-xl w-100" type="text"
-														ng-minlength="2" ng-maxlength="40"
-														ng-model="self.jahadi.firstName" name="firstName" required />
-													<div ng-messages="jahadiForm.firstName.$error">
-														<!-- <div ng-message="required">
-															پر کردن فیلد الزامی میباشد
-														</div> -->
-														<div ng-message="minlength">
-															نام سرگروه نباید کمتر از دو
-															کاراکتر باشد
-														</div>
-														<div ng-message="maxlength">
-															نام سرگروه نباید بیش از چهل
-															کاراکتر باشد
-														</div>
-													</div>
-												</div>
-											</sd-input-container>
-										</div>
-										<div class="w-50 mr-1">
-											<sd-input-container class="material text-right">
-												<label>نام خانوادگی سرگروه</label>
-												<div class="input-group">
-													<input class="reg-input so-input-xl w-100" type="text"
-														ng-minlength="2" ng-maxlength="40"
-														ng-model="self.jahadi.lastName" name="lastName" required />
-													<div ng-messages="jahadiForm.lastName.$error">
-														<!-- <div ng-message="required">
-															پر کردن فیلد الزامی میباشد
-														</div> -->
-														<div ng-message="minlength">
-															نام خانوادگی سرگروه نباید کمتر از دو
-															کاراکتر باشد
-														</div>
-														<div ng-message="maxlength">
-															نام خانوادگی سرگروه نباید بیش از چهل
-															کاراکتر باشد
-														</div>
-													</div>
-												</div>
-											</sd-input-container>
-										</div>
-									</div>
-									<sd-input-container class="material text-right">
-										<label>شماره تلفن سرگروه</label>
-										<div class="input-group">
-											<input class="reg-input so-input-xl w-100" type="text" ng-minlength="1"
-												ng-maxlength="15" ng-input-filter-number="uint"
-												ng-model="self.jahadi.phoneNumber" name="phoneNumber" required />
-											<div ng-messages="jahadiForm.phoneNumber.$error">
-												<!-- <div ng-message="required">
-													پر کردن فیلد الزامی میباشد
-												</div> -->
-												<div ng-message="minlength">
-													شماره تلفن سرگروه نباید کمتر از یک کاراکتر باشد
-												</div>
-												<div ng-message="maxlength">
-													شماره تلفن سرگروه باید کمتر از پانزده کاراکتر
-													باشد
-												</div>
-											</div>
-										</div>
-									</sd-input-container>
-									<sd-input-container class="material text-right">
-										<label>شماره تلفن اضطراری</label>
-										<div class="input-group">
-											<input class="reg-input so-input-xl w-100" type="text" ng-minlength="1"
-												ng-maxlength="15" ng-input-filter-number="uint"
-												ng-model="self.jahadi.emergencyNumber" name="emergencyNumber"
-												required />
-											<div ng-messages="jahadiForm.emergencyNumber.$error">
-												<!-- <div ng-message="required">
-													پر کردن فیلد الزامی میباشد
-												</div> -->
-												<div ng-message="minlength">
-													شماره تلفن اضطراری نباید کمتر از یک کاراکتر باشد
-												</div>
-												<div ng-message="maxlength">
-													شماره تلفن اضطراری باید کمتر از پانزده کاراکتر
-													باشد
-												</div>
-											</div>
-										</div>
-									</sd-input-container>
-								</div>
-								<div class="col-lg-12">
-									<sd-input-container class="material text-right">
-										<label>نشانی</label>
-										<div class="input-group">
-											<textarea
-												class="reg-input pt-3 pr-2 textarea-custom h-100 so-input-xl w-100"
-												ng-model="self.jahadi.address" ng-minlength="2" ng-maxlength="200"
-												name="address" cols="60" rows="8" required></textarea>
-											<div ng-messages="jahadiForm.address.$error">
-												<!-- <div ng-message="required">
-													پر کردن فیلد الزامی میباشد
-												</div> -->
-												<div ng-message="minlength">
-													توضیحات نمیتواند کمتر از دو
-													کاراکتر باشد
-												</div>
-												<div ng-message="maxlength">
-													توضیحات نمیتواند بیشتر از دویست
-													کاراکتر باشد
-												</div>
-											</div>
-										</div>
-										<div ng-messages="jahadiForm.jahadiType.$error">
-											<div ng-message="required">
-												پر کردن فیلد الزامی میباشد
-											</div>
-										</div>
-									</sd-input-container>
-								</div>
-								<div class="col-lg-12 text-center mt-4">
-									<!-- <button class="reg-btn btn btn-ocean-blue w-100" type="submit">
-										ثبت و ادامه
-									</button> -->
-									<button class="reg-btn btn btn-ocean-blue w-100"
-										ui-sref="panel.jahadiRegister.serviceInfo">
-										ثبت و ادامه
-									</button>
-								</div>
-							</div>
+				<div class="col-lg-5 d-flex justify-content-end">
+					<div class="text-black d-flex align-items-center">
+						<div>
+							<span>امروز:</span>
+							<span ng-bind="self.currentDate"></span>
+							<span ng-bind="self.clock"></span>
 						</div>
 					</div>
-				</form>
+				</div>
+				<!-- <div class="company">
+					<img class="company-logo" ng-if="self.user.logo" ng-src="{{$root.download +self.user.logo}}"
+						alt="{{self.user.name}}">
+					</span>
+					<span class="company-name" ng-bind="self.user.name"></span>
+				</div> -->
+				<!-- <div class="notifications">
+					<button class="box btn btn-l-purple">
+						<i class="fas s-bell text-white s-lg"></i>
+						<span class="badge">۲</span>
+					</button>
+					<button class="box btn btn-l-purple" ui-sref="general.completeInformation.logoUpload">
+						<i class="fas s-user text-white s-lg"></i>
+					</button>
+					<button class="box btn btn-l-purple" ng-click="self.logout()">
+						<i class="fas s-exit text-white s-lg s-rotate-180"></i>
+					</button>
+				</div> -->
+			</header>
+		</div>
+		<div class="dashboard-list bg-white m-4">
+			<div class="row" cg-busy="self.promiseLoading">
+				<div class="col-lg-12">
+					<div>
+						<table class="table spacing-table csm-table" show-filter="false">
+							<thead class="bg-white text-d-gray ng-scope">
+								<tr>
+									<th class="header ">
+										<span class="ng-binding sort-indicator"></span>
+									</th>
+									<th class="header ">
+										<span class="ng-binding sort-indicator">نام و نام خانوادگی</span>
+									</th>
+									<th class="header ">
+										<span class="ng-binding sort-indicator">سرپرست خانوار</span>
+									</th>
+									<th class="header ">
+										<span class="ng-binding sort-indicator">شماره تلفن</span>
+									</th>
+									<th class="header ">
+										<span class="ng-binding sort-indicator">کد ملی</span>
+									</th>
+									<th class="header ">
+										<span class="ng-binding sort-indicator">آدرس</span>
+									</th>
+									<th class="header ">
+										<span class="ng-binding sort-indicator"></span>
+									</th>
+								</tr>
+							</thead>
+							<!-- <tbody ng-repeat="row in self.company.loan"> -->
+							<tbody>
+								<tr class="bg-matte-gray">
+									<td class="" data-title="'نوع قرارداد'" filter="false">
+										<span>
+											<!-- {{$index+1}}. -->
+											1.
+										</span>
+									</td>
+									<td class="" data-title="'نام و نام خانوادگی'" filter="false">
+										<!-- {{row.financialSourceType}} -->
+										احمد احمدی
+									</td>
+									<td data-title="'سرپرست خانوار'" filter="false">
+										<!-- <span class="bg-green" ng-if="row.hasAddedValue">هست</span>
+										<span class="bg-d-red" ng-if="!row.hasAddedValue">نیست</span> -->
+										<span class="bg-green text-white p-2">هست</span>
+									</td>
+									<td data-title="'شماره تلفن'" filter="false">
+										<!-- {{row.loanRate}} -->
+										09336887181
+									</td>
+									<td data-title="'کد ملی'" filter="false">
+										<!-- {{row.loanRate}} -->
+										0022986472
+									</td>
+									<td data-title="'آدرس'" filter="false">
+										<!-- {{row.mulctRate}} -->
+										نارمک ، میدان 44 ، کوچه هشت متری دوم غربی ، هیئت فاطمیون
+									</td>
+									<td data-title="''" filter="false">
+										<button class="btn btn-sm btn-ocean-blue text-white"
+											ng-click="self.getData(row)">جزئیات</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-	<div class="col-lg-6 d-flex justify-content-end">
-		<img class="w-100" src="../../images/1.svg" alt="پویش همدلی">
-	</div>
-</div>
+</section>
