@@ -89,6 +89,48 @@ function needyRegisterRouting($urlRouterProvider, $stateProvider) {
                 ]
             }
         })
+        .state("panel.needyRegister.needInfo", {
+            url: "/needInfo",
+
+			controller: "panel.needyRegister.needInfoController",
+
+            controllerAs: "self",
+
+            templateProvider: [
+                "$q",
+                $q => {
+                    return $q(resolve => {
+                        require.ensure([], () => {
+                            let template = require("./needInfo/views/index.html");
+
+                            resolve(template);
+                        });
+                    });
+                }
+            ],
+
+            resolve: {
+                Lazyload: [
+                    "$q",
+                    "$ocLazyLoad",
+                    ($q, $ocLazyLoad) => {
+                        let deferred = $q.defer();
+
+                        require.ensure([], function () {
+                            let module = require("./needInfo/needInfo.module");
+
+                            $ocLazyLoad.load({
+								name: "panel.needyRegister.needInfoModule"
+                            });
+
+                            deferred.resolve(module);
+                        });
+
+                        return deferred.promise;
+                    }
+                ]
+            }
+        })
         // .state("panel.needyRegister.needInfo", {
         //     url: "/needInfo",
 

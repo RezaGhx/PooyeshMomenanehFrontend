@@ -1,0 +1,124 @@
+<div class="row jahadi-register">
+	<img class="puzzle-1" src="../../images/addon.svg" alt="">
+	<img class="puzzle-2" src="../../images/addon.svg" alt="">
+	<img class="puzzle-3" src="../../images/addon.svg" alt="">
+	<!-- <img class="puzzle-4" src="../../images/addon.svg" alt=""> -->
+	<!-- <img class="puzzle-5" src="../../images/addon.svg" alt=""> -->
+	<!-- <img class="puzzle-6" src="../../images/addon.svg" alt=""> -->
+	<div class="col-lg-6">
+		<div class="row">
+			<div class="col-lg-2">
+				<button class="backbtn btn bg-ocean-blue d-flex justify-content-center align-items-center m-2"
+					ui-sref="panel.needyRegister.personalInfo">
+					<sd-icon class="text-white">
+						<i class="fas s-times"></i>
+					</sd-icon>
+				</button>
+			</div>
+			<div class="col-lg-10 d-flex flex-column align-items-center justify-content-center py-5">
+				<div class="register-title so-display-1 text-ocean-blue mb-3">
+					ثبت نیازمندی
+				</div>
+				<div class="register-title so-subheading-1 text-ocean-blue mb-3">
+					نوع نیازتان را مشخص کنید
+				</div>
+				<form name="needForm" autocomplete="off" novalidate ng-submit="self.submit(self.need,needForm)"
+					promise-btn>
+					<div class="row justify-content-center">
+						<div class="col-lg-9">
+							<div class="row">
+								<div class="service-types d-flex flex-wrap justify-content-between w-100 px-3 mb-3">
+									<div class="col-lg-4">
+										<button
+											class="w-100 service-type btn d-flex justify-content-center align-items-center pointer"
+											ng-model="self.need.serviceType" value="foodSupplies">
+											مواد غذایی
+										</button>
+									</div>
+									<div class="col-lg-4">
+										<button
+											class="w-100 service-type btn d-flex justify-content-center align-items-center pointer"
+											ng-model="self.need.serviceType" value="building">
+											سرپناه
+										</button>
+									</div>
+									<div class="col-lg-4">
+										<button
+											class="w-100 service-type btn d-flex justify-content-center align-items-center pointer"
+											ng-model="self.need.serviceType" value="medicalProducts">
+											لوازم بهداشتی
+										</button>
+									</div>
+								</div>
+								<div class="service-types d-flex flex-wrap justify-content-between w-100 px-3 mb-3">
+									<div class="col-lg-4">
+										<button
+											class="w-100 service-type btn d-flex justify-content-center align-items-center pointer"
+											ng-model="self.need.serviceType" value="financial">
+											مالی
+										</button>
+									</div>
+									<div class="col-lg-4">
+										<button
+											class="w-100 service-type btn d-flex justify-content-center align-items-center pointer"
+											ng-model="self.need.serviceType" value="medical">
+											پزشکی
+										</button>
+									</div>
+									<div class="col-lg-4">
+										<button
+											class="w-100 service-type btn d-flex justify-content-center align-items-center pointer"
+											ng-model="self.need.serviceType" value="psychotherapy">
+											روانشناسی
+										</button>
+									</div>
+								</div>
+								<div class="col-lg-12">
+									<sd-input-container class="material text-right">
+										<label>توضیحات خدمت درصورت لزوم</label>
+										<div class="input-group">
+											<textarea
+												class="reg-input pt-3 pr-2 textarea-custom h-100 so-input-xl w-100"
+												ng-model="self.need.description" ng-minlength="2" ng-maxlength="200"
+												name="description" cols="60" rows="8" required></textarea>
+											<div ng-messages="needForm.description.$error">
+												<!-- <div ng-message="required">
+														پر کردن فیلد الزامی میباشد
+													</div> -->
+												<div ng-message="minlength">
+													توضیحات نمیتواند کمتر از دو
+													کاراکتر باشد
+												</div>
+												<div ng-message="maxlength">
+													توضیحات نمیتواند بیشتر از دویست
+													کاراکتر باشد
+												</div>
+											</div>
+										</div>
+										<div ng-messages="needForm.needType.$error">
+											<!-- <div ng-message="required">
+													پر کردن فیلد الزامی میباشد
+												</div> -->
+										</div>
+									</sd-input-container>
+								</div>
+								<div class="col-lg-12 text-center mt-4">
+									<!-- <button class="reg-btn btn btn-ocean-blue w-100" type="submit">
+											ثبت و ادامه
+										</button> -->
+									<button class="reg-btn btn btn-ocean-blue w-100"
+										ui-sref="panel.needyRegister.verification">
+										ثبت
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-6 d-flex justify-content-end">
+		<img class="w-100" src="../../images/1.svg" alt="پویش همدلی">
+	</div>
+</div>
