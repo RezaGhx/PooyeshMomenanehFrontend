@@ -3,7 +3,9 @@ mainController.$inject = ["panel.mainServices", "$state"];
 function mainController(mainServices, state) {
   var self = this;
 
-  const getRequestList = function() {
+  self.admin = {};
+
+  const getRequestList = function () {
     let query = {
       type: "legal-person",
       id: "self",
@@ -22,11 +24,26 @@ function mainController(mainServices, state) {
   // console.log(self.request)
   getRequestList();
 
-  self.goToLoan = function(currentStatus, loanId, loanType) {
+  self.goToLoan = function (currentStatus, loanId, loanType) {
     state.go("panel.loan.details", {
       type: loanType,
       id: loanId
     });
+  };
+
+  self.goAdminPanel = function () {
+    if (
+      self.admin.username == "admin" &&
+      self.admin.password > "123456"
+    ) {
+      state.go("general.completeInformation.specialMemberships");
+    } else {
+      iziToast.show({
+        message: "اطلاعات وارد شده صحیح نمیباشد",
+        theme: "light",
+        color: "red"
+      });
+    }
   };
 }
 

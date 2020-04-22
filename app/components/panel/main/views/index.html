@@ -51,6 +51,11 @@
                             افزودن نیازمند
                         </div>
                     </button>
+                    <button
+                        class="d-flex justify-content-around align-items-center btn-rounded btn-red btn text-white so-btn-lg ml-2"
+                        data-toggle="modal" data-target="#admin">
+                        ورود به پنل ادمین
+                    </button>
                 </div>
             </div>
             <div class="col-lg-6 main-illustration">
@@ -66,3 +71,63 @@
 </div>
 <!-- <carousel-Component class="mt-5">
 </carousel-Component> -->
+
+<!-- مودال ورود به پنل ادمین -->
+
+<div class="modal fade" id="admin" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="admin-modal modal-content rounded-0">
+            <div class="modal-header">
+                <h3 class="modal-title mb-0">ورود به پنل ادمین</h3>
+            </div>
+            <div class="modal-body p-4">
+                <form name="loginForm" novalidate promise-btn class="mb-4">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <sd-input-container class="material text-right">
+                                        <label>نام کاربری</label>
+                                        <div class="input-group">
+                                            <sd-icon>
+                                                <i class="fas s-user"></i>
+                                            </sd-icon>
+                                            <input class="reg-input so-input-xl w-100" type="text"
+                                                ng-model="self.admin.username" name="username" required />
+                                            <div ng-messages="loginForm.username.$error">
+                                                <div ng-message="required">
+                                                    پر کردن فیلد الزامی میباشد
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </sd-input-container>
+                                    <sd-input-container class="material text-right">
+                                        <label>رمز عبور</label>
+                                        <div class="input-group">
+                                            <sd-icon>
+                                                <i class="fas s-lock"></i>
+                                            </sd-icon>
+                                            <input class="reg-input so-input-xl w-100" type="password"
+                                                ng-model="self.admin.password" name="password" required />
+                                            <div ng-messages="loginForm.password.$error">
+                                                <div ng-message="required">
+                                                    پر کردن فیلد الزامی میباشد
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </sd-input-container>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-between">
+                        <button type="button" class="btn so-btn-md btn-green" ng-click="goAdminPanel()">ورود</button>
+                        <button type="button" class="btn so-btn-md btn-red text-white" data-dismiss="modal">
+                            بستن
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
