@@ -77,7 +77,7 @@ function verificationController(
   };
 
   $scope.otpInput = {
-    size: 6,
+    size: 5,
     type: "text",
     onDone: function(value) {
       let parameter = {
