@@ -1,6 +1,7 @@
 <section id="panel" class="d-flex bg-l-sky">
 	<aside class="sidebar">
-		<a class="logo" href="#">
+		<a class="d-flex flex-column logo" href="#">
+			<div class="text-ocean-blue so-display-1">پویش مومنانه</div>
 			<img src="../../../images/agreement.svg" alt="صندوق توسعه فناوری های نوین">
 		</a>
 		<ul class="menu">
@@ -107,11 +108,11 @@
 							</thead>
 							<!-- <tbody ng-repeat="row in self.company.loan"> -->
 							<tbody>
-								<tr class="bg-matte-gray">
+								<tr class="bg-white">
 									<td class="" data-title="'نوع قرارداد'" filter="false">
 										<span>
-											<!-- {{$index+1}}. -->
-											1.
+											{{$index+1}}.
+											<!-- 1. -->
 										</span>
 									</td>
 									<td class="" data-title="'نام و نام خانوادگی'" filter="false">
@@ -122,6 +123,7 @@
 										<!-- <span class="bg-green" ng-if="row.hasAddedValue">هست</span>
 										<span class="bg-d-red" ng-if="!row.hasAddedValue">نیست</span> -->
 										<span class="bg-green text-white p-2">هست</span>
+										<!-- <span class="bg-red text-white p-2">نیست</span> -->
 									</td>
 									<td data-title="'شماره تلفن'" filter="false">
 										<!-- {{row.loanRate}} -->
@@ -134,6 +136,41 @@
 									<td data-title="'آدرس'" filter="false">
 										<!-- {{row.mulctRate}} -->
 										نارمک ، میدان 44 ، کوچه هشت متری دوم غربی ، هیئت فاطمیون
+									</td>
+									<td data-title="''" filter="false">
+										<button class="btn btn-sm btn-ocean-blue text-white"
+											ng-click="self.getData(row)">جزئیات</button>
+									</td>
+								</tr>
+							</tbody>
+							<tbody>
+								<tr class="bg-white">
+									<td class="" data-title="'نوع قرارداد'" filter="false">
+										<span>
+											2.
+										</span>
+									</td>
+									<td class="" data-title="'نام و نام خانوادگی'" filter="false">
+										<!-- {{row.financialSourceType}} -->
+										رامین خانزاده
+									</td>
+									<td data-title="'سرپرست خانوار'" filter="false">
+										<!-- <span class="bg-green" ng-if="row.hasAddedValue">هست</span>
+										<span class="bg-d-red" ng-if="!row.hasAddedValue">نیست</span> -->
+										<!-- <span class="bg-green text-white p-2">هست</span> -->
+										<span class="bg-red text-white p-2">نیست</span>
+									</td>
+									<td data-title="'شماره تلفن'" filter="false">
+										<!-- {{row.loanRate}} -->
+										09156677889
+									</td>
+									<td data-title="'کد ملی'" filter="false">
+										<!-- {{row.loanRate}} -->
+										0019876546
+									</td>
+									<td data-title="'آدرس'" filter="false">
+										<!-- {{row.mulctRate}} -->
+										نارمک ، خیابان دماوند ، کوچه اول ، پلاک 34 ، طبقه سوم
 									</td>
 									<td data-title="''" filter="false">
 										<button class="btn btn-sm btn-ocean-blue text-white"

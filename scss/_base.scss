@@ -107,7 +107,7 @@ $secondaryColor: #eee;
     background-color: get-color("n-gray");
     color: get-color("l-silver");
     @include set-font-styles($config, subheading-1);
-    border-bottom: .1rem solid get-color("black");
+    border-bottom: 0.1875rem solid get-color("d-gray");
   }
 
   tbody {
