@@ -1,0 +1,217 @@
+<div class="row jahadi-register">
+	<img class="puzzle-1" src="../../images/addon.svg" alt="">
+	<img class="puzzle-2" src="../../images/addon.svg" alt="">
+	<img class="puzzle-3" src="../../images/addon.svg" alt="">
+	<!-- <img class="puzzle-4" src="../../images/addon.svg" alt=""> -->
+	<!-- <img class="puzzle-5" src="../../images/addon.svg" alt=""> -->
+	<!-- <img class="puzzle-6" src="../../images/addon.svg" alt=""> -->
+	<div class="col-lg-6">
+		<div class="row">
+			<div class="col-lg-2">
+				<button class="backbtn btn bg-ocean-blue d-flex justify-content-center align-items-center m-2"
+					ui-sref="panel.jahadiPanel.dashboard">
+					<sd-icon class="text-white">
+						<i class="fas s-times"></i>
+					</sd-icon>
+				</button>
+			</div>
+			<div class="col-lg-10 d-flex flex-column align-items-center justify-content-center py-5">
+				<div class="register-title so-display-1 text-ocean-blue mb-3">
+					ثبت اطلاعات نیازمند
+				</div>
+				<form name="needForm" autocomplete="off" novalidate ng-submit="self.submit(self.need,needForm)"
+					promise-btn>
+					<div class="row justify-content-center">
+						<div class="col-lg-8">
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="d-flex">
+										<div class="w-50 ml-1">
+											<sd-input-container class="material text-right">
+												<label>نام</label>
+												<div class="input-group">
+													<input class="reg-input so-input-xl w-100" type="text"
+														ng-minlength="2" ng-maxlength="40"
+														ng-model="self.need.firstName" name="firstName" required />
+													<div ng-messages="needForm.firstName.$error">
+														<!-- <div ng-message="required">
+																پر کردن فیلد الزامی میباشد
+															</div> -->
+														<div ng-message="minlength">
+															نام نباید کمتر از دو
+															کاراکتر باشد
+														</div>
+														<div ng-message="maxlength">
+															نام نباید بیش از چهل
+															کاراکتر باشد
+														</div>
+													</div>
+												</div>
+											</sd-input-container>
+										</div>
+										<div class="w-50 mr-1">
+											<sd-input-container class="material text-right">
+												<label>نام خانوادگی</label>
+												<div class="input-group">
+													<input class="reg-input so-input-xl w-100" type="text"
+														ng-minlength="2" ng-maxlength="40" ng-model="self.need.lastName"
+														name="lastName" required />
+													<div ng-messages="needForm.lastName.$error">
+														<!-- <div ng-message="required">
+																پر کردن فیلد الزامی میباشد
+															</div> -->
+														<div ng-message="minlength">
+															نام خانوادگی نباید کمتر از دو
+															کاراکتر باشد
+														</div>
+														<div ng-message="maxlength">
+															نام خانوادگی نباید بیش از چهل
+															کاراکتر باشد
+														</div>
+													</div>
+												</div>
+											</sd-input-container>
+										</div>
+									</div>
+									<div class="d-flex">
+										<div class="w-50 ml-1">
+											<sd-input-container class="material text-right">
+												<label>سال تاریخ تولد</label>
+												<div class="input-group">
+													<input class="reg-input so-input-xl w-100" type="text"
+														ng-minlength="4" ng-maxlength="4" ng-input-filter-number="uint"
+														ng-model="self.need.birthYear" name="birthYear" required />
+													<div ng-messages="needForm.birthYear.$error">
+														<!-- <div ng-message="required">
+																	پر کردن فیلد الزامی میباشد
+																</div> -->
+														<div ng-message="minlength">
+															تاریخ تولد میبایست چهار رقم باشد
+														</div>
+														<div ng-message="maxlength">
+															تاریخ تولد میبایست چهار رقم باشد
+														</div>
+													</div>
+												</div>
+											</sd-input-container>
+										</div>
+										<div class="w-50 mr-1">
+											<sd-input-container class="material text-right">
+												<label>کد ملی</label>
+												<div class="input-group">
+													<input class="reg-input so-input-xl w-100" type="text"
+														ng-minlength="10" ng-maxlength="10"
+														ng-input-filter-number="uint" ng-model="self.need.nationalCode"
+														name="nationalCode" required />
+													<div ng-messages="needForm.nationalCode.$error">
+														<!-- <div ng-message="required">
+																			پر کردن فیلد الزامی میباشد
+																		</div> -->
+														<div ng-message="minlength">
+															کد ملی میبایست ده رقم باشد
+														</div>
+														<div ng-message="maxlength">
+															کد ملی میبایست ده رقم باشد
+														</div>
+													</div>
+												</div>
+											</sd-input-container>
+										</div>
+									</div>
+									<sd-input-container class="material text-right">
+										<label>شماره تلفن</label>
+										<div class="input-group">
+											<input class="reg-input so-input-xl w-100" type="text" ng-minlength="4"
+												ng-maxlength="15" ng-input-filter-number="uint"
+												ng-model="self.need.phoneNumber" name="phoneNumber" required />
+											<div ng-messages="needForm.phoneNumber.$error">
+												<!-- <div ng-message="required">
+														پر کردن فیلد الزامی میباشد
+													</div> -->
+												<div ng-message="minlength">
+													شماره تلفن نباید کمتر از چهار کاراکتر باشد
+												</div>
+												<div ng-message="maxlength">
+													شماره تلفن باید کمتر از پانزده کاراکتر
+													باشد
+												</div>
+											</div>
+										</div>
+									</sd-input-container>
+								</div>
+								<div class="col-lg-12">
+									<sd-input-container class="material text-right">
+										<label>نشانی منزل</label>
+										<div class="input-group">
+											<textarea
+												class="reg-input pt-3 pr-2 textarea-custom h-100 so-input-xl w-100"
+												ng-model="self.need.address" ng-minlength="2" ng-maxlength="200"
+												name="address" cols="60" rows="8" required></textarea>
+											<div ng-messages="needForm.address.$error">
+												<!-- <div ng-message="required">
+														پر کردن فیلد الزامی میباشد
+													</div> -->
+												<div ng-message="minlength">
+													توضیحات نمیتواند کمتر از دو
+													کاراکتر باشد
+												</div>
+												<div ng-message="maxlength">
+													توضیحات نمیتواند بیشتر از دویست
+													کاراکتر باشد
+												</div>
+											</div>
+										</div>
+										<div ng-messages="needForm.needType.$error">
+											<!-- <div ng-message="required">
+													پر کردن فیلد الزامی میباشد
+												</div> -->
+										</div>
+									</sd-input-container>
+									<div class="col-lg-12 d-flex justify-content-around">
+										<div class="so-subheading-1">سرپرست خانوار</div>
+										<sd-input-container
+											class="custom-control custom-switch custom-control-ocean-blue sd-input-has-value">
+											<input type="checkbox" ng-model="self.need.isBreadwinner"
+												class="custom-control-input sd-input so-input-xl" id="customSwitch3">
+											<label class="custom-control-label" for="customSwitch3"></label>
+										</sd-input-container>
+									</div>
+									<div class="w-100 ml-1">
+										<sd-input-container class="material text-right">
+											<label>توضیحات</label>
+											<div class="input-group">
+												<input class="reg-input so-input-xl w-100" type="text" ng-minlength="1"
+													ng-input-filter-number="uint" ng-model="self.need.description"
+													name="description" required />
+												<div ng-messages="needForm.description.$error">
+													<!-- <div ng-message="required">
+																		پر کردن فیلد الزامی میباشد
+														</div> -->
+													<div ng-message="minlength">
+														توضیحات کمک الزامی میباشد
+													</div>
+												</div>
+											</div>
+										</sd-input-container>
+									</div>
+								</div>
+								<div class="col-lg-12 text-center mt-4">
+									<!-- <button class="reg-btn btn btn-ocean-blue w-100" type="submit">
+											ثبت و ادامه
+										</button> -->
+									<button class="reg-btn btn btn-ocean-blue w-100"
+										ui-sref="panel.needyAdd.needInfo">
+										ثبت و ادامه
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-6 d-flex justify-content-end">
+		<img class="w-100" src="../../images/1.svg" alt="پویش همدلی">
+	</div>
+</div>
