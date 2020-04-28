@@ -1,4 +1,4 @@
-const dashboardModule = angular.module("panel.needyList.dashboardModule", []);
+const dashboardModule = angular.module("panel.jahadiPanel.dashboardModule", []);
 
 // Controllers
 

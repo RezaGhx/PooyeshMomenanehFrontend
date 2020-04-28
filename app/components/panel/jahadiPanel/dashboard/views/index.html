@@ -1,33 +1,39 @@
-<section id="panel" class="d-flex bg-l-sky">
-	<aside class="sidebar">
+<section id="panel" class="d-flex">
+	<!-- <aside class="sidebar">
 		<a class="d-flex flex-column logo" href="#">
 			<div class="text-ocean-blue so-display-1">پویش مومنانه</div>
 			<img src="../../../images/agreement.svg" alt="صندوق توسعه فناوری های نوین">
 		</a>
 		<ul class="menu">
 			<li class="item">
-				<a ui-sref="panel.needyList.dashboard" ui-sref-opts="{ reload: true }" ui-sref-active="active"
+				<a ui-sref="panel.jahadiPanel.dashboard" ui-sref-opts="{ reload: true }" ui-sref-active="active"
 					class="link" href="#menu1" data-toggle="collapse">
 					<i class="fas s-home ml-2"></i>
 					لیست نیازمندان
 				</a>
 			</li>
 			<li class="item">
-				<a class="link" ui-sref="panel.needyList.dashboard">
-					<i class="fas s-setting ml-2"></i>
+				<a class="link" ui-sref="panel.jahadiPanel.dashboard">
+					<i class="fas s-user ml-2"></i>
+					پروفایل
+				</a>
+			</li>
+			<li class="item">
+				<a class="link" ui-sref="panel.jahadiPanel.dashboard">
+					<i class="fas s-user ml-2"></i>
 					ارتباط با ادمین
 				</a>
 			</li>
 			<li class="item">
-				<a class="link" ui-sref="panel.needyList.dashboard">
+				<a class="link" ui-sref="panel.jahadiPanel.dashboard">
 					<i class="fas s-setting ml-2"></i>
 					تنظیمات
 				</a>
 			</li>
 		</ul>
-	</aside>
+	</aside> -->
 	<div class="dashboard d-flex flex-column w-100">
-		<div class="list-header bg-white mb-3">
+		<!-- <div class="list-header bg-white mb-3">
 			<header class="row p-4 d-flex justify-content-between align-items-center">
 				<div class="col-lg-7 d-flex">
 					<div class="dashboard-search w-100 ml-1">
@@ -40,12 +46,6 @@
 								ng-change="self.dataFilter()" ng-model-options="{ debounce: 500 }" />
 						</sd-input-container>
 					</div>
-					<!-- <div class="notifications mr-1">
-						<button class="box btn btn-l-stone">
-							<i class="fas s-bell text-white s-lg"></i>
-							<span class="badge">۲</span>
-						</button>
-					</div> -->
 				</div>
 				<div class="col-lg-5 d-flex justify-content-end">
 					<div class="text-black d-flex align-items-center">
@@ -56,26 +56,8 @@
 						</div>
 					</div>
 				</div>
-				<!-- <div class="company">
-					<img class="company-logo" ng-if="self.user.logo" ng-src="{{$root.download +self.user.logo}}"
-						alt="{{self.user.name}}">
-					</span>
-					<span class="company-name" ng-bind="self.user.name"></span>
-				</div> -->
-				<!-- <div class="notifications">
-					<button class="box btn btn-l-purple">
-						<i class="fas s-bell text-white s-lg"></i>
-						<span class="badge">۲</span>
-					</button>
-					<button class="box btn btn-l-purple" ui-sref="general.completeInformation.logoUpload">
-						<i class="fas s-user text-white s-lg"></i>
-					</button>
-					<button class="box btn btn-l-purple" ng-click="self.logout()">
-						<i class="fas s-exit text-white s-lg s-rotate-180"></i>
-					</button>
-				</div> -->
 			</header>
-		</div>
+		</div> -->
 		<div class="dashboard-list bg-white m-4">
 			<div class="row" cg-busy="self.promiseLoading">
 				<div class="col-lg-12">

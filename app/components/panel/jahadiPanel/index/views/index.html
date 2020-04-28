@@ -1,0 +1,63 @@
+<section id="panel" class="d-flex bg-l-sky">
+	<aside class="sidebar">
+		<a class="d-flex flex-column logo" href="#">
+			<div class="text-ocean-blue so-display-1">پویش مومنانه</div>
+			<img src="../../../images/agreement.svg" alt="صندوق توسعه فناوری های نوین">
+		</a>
+		<ul class="menu">
+			<li class="item">
+				<a ui-sref="panel.jahadiPanel.dashboard" ui-sref-opts="{ reload: true }" ui-sref-active="active"
+					class="link" href="#menu1" data-toggle="collapse">
+					<i class="fas s-home ml-2"></i>
+					لیست نیازمندان
+				</a>
+			</li>
+			<li class="item">
+				<a class="link" ui-sref="panel.jahadiPanel.dashboard">
+					<i class="fas s-user ml-2"></i>
+					پروفایل
+				</a>
+			</li>
+			<li class="item">
+				<a class="link" ui-sref="panel.jahadiPanel.dashboard">
+					<i class="fas s-user ml-2"></i>
+					ارتباط با ادمین
+				</a>
+			</li>
+			<li class="item">
+				<a class="link" ui-sref="panel.jahadiPanel.dashboard">
+					<i class="fas s-setting ml-2"></i>
+					تنظیمات
+				</a>
+			</li>
+		</ul>
+	</aside>
+	<div class="dashboard-flex w-100 h-100 d-flex flex-column">
+		<div class="list-header bg-white mb-3">
+			<header class="row p-4 d-flex justify-content-between align-items-center">
+				<div class="col-lg-7 d-flex">
+					<div class="dashboard-search w-100 ml-1">
+						<sd-input-container class="material text-right flex-grow-1 mb-0">
+							<sd-icon>
+								<i class="fas s-search"></i>
+							</sd-icon>
+							<input class="w-100 bg-l-stone border-0" id="search-box-dashboard" placeholder="جستجو کنید"
+								type="text" ng-minlength="2" ng-maxlength="70" ng-model="self.search"
+								ng-change="self.dataFilter()" ng-model-options="{ debounce: 500 }" />
+						</sd-input-container>
+					</div>
+				</div>
+				<div class="col-lg-5 d-flex justify-content-end">
+					<div class="text-black d-flex align-items-center">
+						<div>
+							<span>امروز:</span>
+							<span ng-bind="self.currentDate"></span>
+							<span ng-bind="self.clock"></span>
+						</div>
+					</div>
+				</div>
+			</header>
+		</div>
+		<ui-view class="flex-grow-1"></ui-view>
+	</div>
+</section>

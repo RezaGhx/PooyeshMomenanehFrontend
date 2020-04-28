@@ -1,4 +1,4 @@
-dashboardController.$inject = ["panel.needyList.dashboardServices", "Upload", "$state", "$timeout"];
+dashboardController.$inject = ["panel.jahadiPanel.dashboardServices", "Upload", "$state", "$timeout"];
 
 function dashboardController(dashboardServices, upload, state, timeout) {
   var self = this;
@@ -71,7 +71,7 @@ function dashboardController(dashboardServices, upload, state, timeout) {
             color: "green"
           });
 
-          state.go("panel.needyList.list");
+          state.go("panel.jahadiPanel.list");
         },
         errResponse => {
           iziToast.show({
@@ -113,5 +113,5 @@ function dashboardController(dashboardServices, upload, state, timeout) {
 }
 
 module.exports = ngModule => {
-  ngModule.controller("panel.needyList.dashboardController", dashboardController);
+  ngModule.controller("panel.jahadiPanel.dashboardController", dashboardController);
 };

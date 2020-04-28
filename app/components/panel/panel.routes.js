@@ -129,10 +129,10 @@ function panelRouting($urlRouterProvider, $stateProvider) {
 		// 		]
 		// 	}
 		// })
-		// .state("panel.needyList", {
-		// 	url: "/needyList",
+		// .state("panel.jahadiPanel", {
+		// 	url: "/jahadiPanel",
 
-		// 	controller: "panel.needyListController",
+		// 	controller: "panel.jahadiPanelController",
 
 		// 	controllerAs: "self",
 
@@ -141,7 +141,7 @@ function panelRouting($urlRouterProvider, $stateProvider) {
 		// 		$q => {
 		// 			return $q(resolve => {
 		// 				require.ensure([], () => {
-		// 					let template = require("./needyList/views/index.html");
+		// 					let template = require("./jahadiPanel/views/index.html");
 
 		// 					resolve(template);
 		// 				});
@@ -157,10 +157,10 @@ function panelRouting($urlRouterProvider, $stateProvider) {
 		// 				let deferred = $q.defer();
 
 		// 				require.ensure([], function () {
-		// 					let module = require("./needyList/needyList.module");
+		// 					let module = require("./jahadiPanel/jahadiPanel.module");
 
 		// 					$ocLazyLoad.load({
-		// 						name: "needyListModule"
+		// 						name: "jahadiPanelModule"
 		// 					});
 
 		// 					deferred.resolve(module);

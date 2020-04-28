@@ -1,12 +1,12 @@
 import panelRouting from "./panel.routes";
 import jahadiRegisterModule from "./jahadiRegister/jahadiRegister.module";
 import needyRegisterModule from "./needyRegister/needyRegister.module";
-import needyListModule from "./needyList/needyList.module";
+import jahadiPanelModule from "./jahadiPanel/jahadiPanel.module";
 
 const panelModule = angular.module("panelModule", [
   "jahadiRegisterModule",
   "needyRegisterModule",
-  "needyListModule",
+  "jahadiPanelModule",
   "star-rating",
 ]);
 

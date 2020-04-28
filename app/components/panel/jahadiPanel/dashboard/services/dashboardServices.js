@@ -20,6 +20,6 @@ function dashboardServices($resource){
 
 module.exports = ngModule => {
 
-	ngModule.factory('panel.needyList.dashboardServices', dashboardServices);
+	ngModule.factory('panel.jahadiPanel.dashboardServices', dashboardServices);
 
 };
