@@ -1,0 +1,219 @@
+<section id="panel" class="d-flex">
+	<!-- <aside class="sidebar">
+		<a class="d-flex flex-column logo" href="#">
+			<div class="text-ocean-blue so-display-1">پویش مومنانه</div>
+			<img src="../../../images/agreement.svg" alt="صندوق توسعه فناوری های نوین">
+		</a>
+		<ul class="menu">
+			<li class="item">
+				<a ui-sref="panel.jahadiPanel.dashboard" ui-sref-opts="{ reload: true }" ui-sref-active="active"
+					class="link" href="#menu1" data-toggle="collapse">
+					<i class="fas s-home ml-2"></i>
+					لیست نیازمندان
+				</a>
+			</li>
+			<li class="item">
+				<a class="link" ui-sref="panel.jahadiPanel.dashboard">
+					<i class="fas s-user ml-2"></i>
+					پروفایل
+				</a>
+			</li>
+			<li class="item">
+				<a class="link" ui-sref="panel.jahadiPanel.dashboard">
+					<i class="fas s-user ml-2"></i>
+					ارتباط با ادمین
+				</a>
+			</li>
+			<li class="item">
+				<a class="link" ui-sref="panel.jahadiPanel.dashboard">
+					<i class="fas s-setting ml-2"></i>
+					تنظیمات
+				</a>
+			</li>
+		</ul>
+	</aside> -->
+	<div class="dashboard d-flex flex-column w-100">
+		<div class="container-fluid list-header bg-white mb-3">
+			<header class="row py-4 d-flex justify-content-between align-items-center">
+				<div class="col-lg-7 d-flex">
+					<div class="dashboard-search w-100 ml-1">
+						<sd-input-container class="material text-right flex-grow-1 mb-0">
+							<sd-icon>
+								<i class="fas s-search"></i>
+							</sd-icon>
+							<input class="w-100 bg-l-stone border-0" id="search-box-dashboard" placeholder="جستجو کنید"
+								type="text" ng-minlength="2" ng-maxlength="70" ng-model="self.search"
+								ng-change="self.dataFilter()" ng-model-options="{ debounce: 500 }" />
+						</sd-input-container>
+					</div>
+				</div>
+				<div class="col-lg-5 d-flex justify-content-end">
+					<div class="text-black d-flex align-items-center">
+						<div>
+							<span>امروز:</span>
+							<span ng-bind="self.currentDate"></span>
+							<span ng-bind="self.clock"></span>
+						</div>
+					</div>
+				</div>
+			</header>
+		</div>
+		<div class="container-fluid my-4">
+			<div class="row">
+				<div class="d-flex align-items-center col-lg-12">
+					<div class="so-display-1 ml-4">
+						اطلاعات بیشتر در مورد نیازمند
+					</div>
+					<div class="horizontal-line w-75 mr-2"></div>
+				</div>
+			</div>
+
+			<div class="dashboard-list bg-white p-4 mb-2">
+				<div class="row" cg-busy="self.promiseLoading">
+					<div class="col-lg-2 d-flex flex-column justify-content-center align-items-center needy-card p-4">
+						<div class="needy-incard mb-3">
+							<img class="needy-logo" src="../../images/needy-logo.svg" alt="نگاره">
+						</div>
+						<div class="needy-name so-title mb-1">
+							اصغر محمدی
+						</div>
+						<div class="needy-bread so-body-1">
+							سرپرست خانوار
+						</div>
+					</div>
+					<div class="col-lg-10 d-flex flex-column">
+						<div class="d-flex mb-3">
+							<div class="col-lg-3">
+								<span class="so-body-1">تاریخ تولد :</span>
+								<span class="so-body-1">1397</span>
+							</div>
+							<div class="col-lg-3">
+								<span class="so-body-1">کد ملی :</span>
+								<span class="so-body-1">0022986472</span>
+							</div>
+							<div class="col-lg-3">
+								<span class="so-body-1">شماره تلفن :</span>
+								<span class="so-body-1">09336887181</span>
+							</div>
+							<div class="col-lg-3">
+								<span class="so-body-1">تعداد اعضای خانوار :</span>
+								<span class="so-body-1">5</span>
+							</div>
+						</div>
+						<div class="d-flex mb-3">
+							<div class="col-lg-3">
+								<span class="so-body-1">سرپرست خانوار :</span>
+								<span class="so-body-1">هست</span>
+							</div>
+							<div class="col-lg-9">
+								<span class="so-body-1">آدرس :</span>
+								<span class="so-body-1">تهران ، منطقه ۸ ، اتوبان امام علی ، تقاطع سوم ، خیابان اصغری ،
+									کوچه اکبری ، ط دوم ، واحد ۳</span>
+							</div>
+						</div>
+						<div class="needy-description d-flex">
+							<div class="col-lg-12 py-4">
+								<span class="so-body-1">توضیحات :</span>
+								<span class="so-body-1">همسرشان ده سال است که فوت شده و دارای دو فرزند معلول میباشد و در
+									خانه اجاره ای زندگی میکند</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="dashboard-list bg-white p-4 mt-4">
+				<div class="row" cg-busy="self.promiseLoading">
+					<div class="col-lg-3">
+						<div class="d-flex flex-wrap">
+							<div class="help-card d-flex flex-column align-items-center justify-content-center">
+								<div class="d-flex flex-column text-center mb-4">
+									<div class="so-body-1 text-white mb-2">اقلام اهدا شده</div>
+									<div class="card-des text-black">دو کیلو گوشت ، دو بطری روغن ، یک کیسه
+										برنج سه
+										کیلوگرمی</div>
+								</div>
+								<div class="d-flex flex-column text-center mb-4">
+									<div class="so-body-1 text-white mb-2">در تاریخ</div>
+									<div class="so-body-1 text-black">1399/01/20</div>
+								</div>
+								<div class="d-flex flex-column text-center">
+									<div class="so-body-1 text-white mb-2">توسط</div>
+									<div class="so-body-1 text-black text-center">گروه جهادی فاطمیون</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="d-flex flex-wrap">
+							<div class="help-card d-flex flex-column align-items-center justify-content-center">
+								<div class="d-flex flex-column text-center mb-4">
+									<div class="so-body-1 text-white mb-2">اقلام اهدا شده</div>
+									<div class="card-des text-black">دو کیلو گوشت ، دو بطری روغن ، یک کیسه
+										برنج سه
+										کیلوگرمی</div>
+								</div>
+								<div class="d-flex flex-column text-center mb-4">
+									<div class="so-body-1 text-white mb-2">در تاریخ</div>
+									<div class="so-body-1 text-black">1399/01/20</div>
+								</div>
+								<div class="d-flex flex-column text-center">
+									<div class="so-body-1 text-white mb-2">توسط</div>
+									<div class="so-body-1 text-black text-center">گروه جهادی فاطمیون</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="d-flex flex-wrap">
+							<div class="help-card d-flex flex-column align-items-center justify-content-center">
+								<div class="d-flex flex-column text-center mb-4">
+									<div class="so-body-1 text-white mb-2">اقلام اهدا شده</div>
+									<div class="card-des text-black">دو کیلو گوشت ، دو بطری روغن ، یک کیسه
+										برنج سه
+										کیلوگرمی</div>
+								</div>
+								<div class="d-flex flex-column text-center mb-4">
+									<div class="so-body-1 text-white mb-2">در تاریخ</div>
+									<div class="so-body-1 text-black">1399/01/20</div>
+								</div>
+								<div class="d-flex flex-column text-center">
+									<div class="so-body-1 text-white mb-2">توسط</div>
+									<div class="so-body-1 text-black text-center">گروه جهادی فاطمیون</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="d-flex flex-wrap">
+							<div class="help-card d-flex flex-column align-items-center justify-content-center">
+								<div class="d-flex flex-column text-center mb-4">
+									<div class="so-body-1 text-white mb-2">اقلام اهدا شده</div>
+									<div class="card-des text-black">دو کیلو گوشت ، دو بطری روغن ، یک کیسه
+										برنج سه
+										کیلوگرمی</div>
+								</div>
+								<div class="d-flex flex-column text-center mb-4">
+									<div class="so-body-1 text-white mb-2">در تاریخ</div>
+									<div class="so-body-1 text-black">1399/01/20</div>
+								</div>
+								<div class="d-flex flex-column text-center">
+									<div class="so-body-1 text-white mb-2">توسط</div>
+									<div class="so-body-1 text-black text-center">گروه جهادی فاطمیون</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<hr>
+					<div class="col-lg-12">
+						<div class="d-flex justify-content-end px-4">
+							<button class="panel-btn so-btn-md btn btn-green" ui-sref="panel.needyAdd.personalInfo">
+								میخواهم کمک کنم
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

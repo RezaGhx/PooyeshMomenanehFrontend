@@ -90,7 +90,51 @@ function jahadiPanelRouting($urlRouterProvider, $stateProvider) {
                     }
                 ]
             }
-        }) /*endOfResolve*/;
+        })
+
+        .state("panel.jahadiPanel.needyDetails", {
+            url: "/jahadiPanel/needyDetails",
+
+			controller: "panel.jahadiPanel.needyDetailsController",
+
+            controllerAs: "self",
+
+            templateProvider: [
+                "$q",
+                $q => {
+                    return $q(resolve => {
+                        require.ensure([], () => {
+                            let template = require("./needyDetails/views/index.html");
+
+                            resolve(template);
+                        });
+                    });
+                }
+            ],
+
+            resolve: {
+                Lazyload: [
+                    "$q",
+                    "$ocLazyLoad",
+                    ($q, $ocLazyLoad) => {
+                        let deferred = $q.defer();
+
+                        require.ensure([], function () {
+                            let module = require("./needyDetails/needyDetails.module");
+
+                            $ocLazyLoad.load({
+								name: "panel.jahadiPanel.needyDetailsModule"
+                            });
+
+                            deferred.resolve(module);
+                        });
+
+                        return deferred.promise;
+                    }
+                ]
+            }
+        })
+        /*endOfResolve*/;
 }
 
 export default jahadiPanelRouting;

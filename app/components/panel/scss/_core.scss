@@ -57,6 +57,11 @@
   z-index: 100;
 }
 
+.horizontal-line {
+  background-color: get-color("l-purple");
+  padding: 1px;
+}
+
 #search-box-main {
   border: 0.0625rem solid #004182;
   border-radius: 1rem;
@@ -116,6 +121,31 @@
     width: 100%;
     // box-shadow: 0px 0px 2rem get-color("n-gray");
   }
+}
+
+// needy details
+
+.needy-logo {
+  width: 5rem;
+}
+
+.needy-card {
+  border-left: 1px solid get-color("l-purple");
+}
+
+.needy-description {
+  border-top: 1px solid get-color("l-purple");
+}
+
+.help-card {
+  background-color: get-color("card-blue");
+  border-radius: .5rem;
+  padding: 2rem 3rem;
+  box-shadow: 0px 3px 10px silver;
+}
+
+.card-des {
+  font-size: 11px;
 }
 
 // admin modal

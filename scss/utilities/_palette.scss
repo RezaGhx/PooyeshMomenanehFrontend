@@ -26,6 +26,7 @@ $ocean-blue: #004182 !default;
 $makeen-blue: #478AFD !default;
 $material-grey: #c9d5dc !default;
 $dis-silver: #A6B5BE !default;
+$card-blue: #72C1F5 !default;
 
 
 $theme-colors: ();
@@ -58,7 +59,8 @@ $theme-colors: map-merge(
     "ocean-blue": $ocean-blue,
     "makeen-blue": $makeen-blue,
     "material-grey": $material-grey,
-    "dis-silver": $dis-silver
+    "dis-silver": $dis-silver,
+    "card-blue": $card-blue
   ),
   $theme-colors
 );
