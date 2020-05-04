@@ -38,10 +38,10 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons/faEnvelope";
 import { faPrint } from "@fortawesome/free-solid-svg-icons/faPrint";
 import { faClipboardList } from "@fortawesome/free-solid-svg-icons/faClipboardList";
 import { faEdit } from "@fortawesome/free-regular-svg-icons/faEdit";
-import { sPhoneSquare } from "sooran-icon-pack/js-packages/solid/sPhoneSquare";
-import { sMapMarkerAlt } from "sooran-icon-pack/js-packages/solid/sMapMarkerAlt";
-import { sEnvelopeSquare } from "sooran-icon-pack/js-packages/solid/sEnvelopeSquare";
-import { sUserPlus } from "sooran-icon-pack/js-packages/solid/sUserPlus";
+import { faPhoneSquare } from "@fortawesome/free-solid-svg-icons/faPhoneSquare";
+import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons/faMapMarkerAlt";
+import { faEnvelopeSquare } from "@fortawesome/free-solid-svg-icons/faEnvelopeSquare";
+import { faUserPlus } from "@fortawesome/free-solid-svg-icons/faUserPlus";
 
 
 // OK
@@ -102,9 +102,9 @@ library.add(
   faAngleUp,
   faInfoCircle,
   faEdit,
-  sPhoneSquare,
-  sMapMarkerAlt,
-  sEnvelopeSquare,
-  sUserPlus
+  faPhoneSquare,
+  faMapMarkerAlt,
+  faEnvelopeSquare,
+  faUserPlus
 );
 dom.watch();

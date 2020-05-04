@@ -39,8 +39,7 @@
     "postcss-discard-comments": "^4.0.0",
     "postcss-pxtorem": "^4.0.1",
     "sooran-icon-pack": "^1.2.0",
-    "tc-angular-chartjs": "^2.1.4",
-    "jQuery": "^3.5.0.1"
+    "tc-angular-chartjs": "^2.1.4"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.15",
